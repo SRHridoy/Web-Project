@@ -1,0 +1,175 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	background-color: #0c1720;
+	color: #e0e0e0;
+}
+
+header {
+	text-align: center;
+	background: #1d2a35;
+	color: #fff;
+	padding: 20px 0;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+	display: flex;
+	justify-content: center;
+	background: rgb(5, 170, 108);
+	padding: 10px 0;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.navbar a {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 15px;
+	font-size: 1.2em;
+	transition: color 0.3s;
+	position: relative;
+}
+
+.navbar a:hover {
+	color: #1d2a35;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #1d2a35;
+	min-width: 200px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	z-index: 1;
+	border-radius: 5px;
+}
+
+.dropdown-content a {
+	color: #fff;
+	padding: 10px 15px;
+	text-decoration: none;
+	display: block;
+	transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+	background-color: rgb(5, 170, 108);
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.slideshow {
+	position: relative;
+	max-width: 100%;
+	height: 500px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1d2a35;
+}
+
+.slideshow img {
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+	position: absolute;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+.slideshow img.active {
+	opacity: 1;
+}
+
+.glowing {
+	font-size: 3em;
+	color: rgb(5, 170, 108);
+	text-shadow: 0 0 5px #fff, 0 0 10px rgb(5, 170, 108),
+		0 0 20px rgb(5, 170, 108), 0 0 30px rgb(5, 170, 108);
+	animation: glow 1s infinite alternate;
+	margin: 20px 0;
+}
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 5px #fff, 0 0 10px rgb(5, 170, 108),
+			0 0 20px rgb(5, 170, 108), 0 0 30px rgb(5, 170, 108);
+	}
+	to {
+		text-shadow: 0 0 10px #fff, 0 0 20px rgb(5, 170, 108),
+			0 0 40px rgb(5, 170, 108), 0 0 50px rgb(5, 170, 108);
+	}
+}
+
+.club-leaders {
+	text-align: center;
+	padding: 20px;
+	background: #1d2a35;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+
+.leader {
+	display: inline-block;
+	margin: 10px;
+	text-align: center;
+	color: #e0e0e0;
+}
+
+.leader img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 2px solid rgb(5, 170, 108);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.about-club,
+.why-join,
+.recent-events,
+.contact {
+	padding: 20px;
+	text-align: center;
+	background: #1d2a35;
+	margin: 20px 0;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+	text-align: center;
+	background: #1d2a35;
+	color: #fff;
+	padding: 10px 0;
+	border-top: 1px solid #333;
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.club-logo {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	border: 3px solid rgb(5, 170, 108);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CSE Club of HSTU</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const slides = document.querySelectorAll(".slideshow img");
+				let currentIndex = 0;
+
+				function showNextSlide() {
+					slides[currentIndex].classList.remove("active");
+					currentIndex = (currentIndex + 1) % slides.length;
+					slides[currentIndex].classList.add("active");
+				}
+
+				setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+			});
+		</script>
+	</head>
+	<body>
+		<nav class="navbar">
+			<a href="#">Home</a>
+			<a href="#about">About</a>
+			<div class="dropdown">
+				<a href="#people">People</a>
+				<div class="dropdown-content">
+					<a href="#current-committee">Current Committee</a>
+					<a href="#past-presidents">Past Presidents</a>
+					<a href="#general-members">General Members</a>
+					<a href="#become-member">Become a Member</a>
+				</div>
+			</div>
+			<a href="#recent-activities">Recent Activities</a>
+			<a href="#upcoming-events">Upcoming Events</a>
+			<a href="#contact">Contact Us</a>
+		</nav>
+		<header>
+			<div class="logo-container">
+				<img
+					src="images/club_logo.jpg"
+					alt="CSE Club Logo"
+					class="club-logo"
+				/>
+			</div>
+			<h1 class="glowing">CSE Club of HSTU</h1>
+			<div class="slideshow">
+				<img
+					src="images/seminar01.jpg"
+					alt="HSTU Image 1"
+					class="active"
+				/>
+				<img src="images/seminar02.jpg" alt="HSTU Image 2" />
+				<img src="images/cricket01.jpg" alt="HSTU Image 3" />
+				<img src="images/dean.jpg" alt="HSTU Image 4" />
+				<img src="images/ful.jpg" alt="HSTU Image 5" />
+				<img src="images/seminar03.jpg" alt="HSTU Image 6" />
+			</div>
+		</header>
+
+		<section id="leaders" class="club-leaders">
+			<h2>Meet Our Leaders</h2>
+			<div class="leader">
+				<img src="images/cricket01.jpg" alt="President" />
+				<h3>Professor. Adiba Mahjabin Nitu</h3>
+				<p>President</p>
+			</div>
+			<div class="leader">
+				<img src="images/ful.jpg" alt="Treasurer" />
+				<h3>Lecturer. Pankaj Bhowmick</h3>
+				<p>Treasurer</p>
+			</div>
+			<div class="leader">
+				<img src="images/seminar01.jpg" alt="Vice President" />
+				<h3>Md. Nishat Ahmed</h3>
+				<p>Vice President</p>
+			</div>
+		</section>
+
+		<section id="about" class="about-club">
+			<h2>About the Club</h2>
+			<p>
+				The CSE Club of HSTU is a vibrant community of students and
+				faculty members dedicated to fostering innovation,
+				collaboration, and excellence in the field of Computer Science
+				and Engineering.
+			</p>
+		</section>
+
+		<section id="events" class="recent-events">
+			<h2>Recent Events</h2>
+			<ul>
+				<li>Seminar on Artificial Intelligence - April 2025</li>
+				<li>Annual Coding Contest - March 2025</li>
+				<li>Workshop on Web Development - February 2025</li>
+			</ul>
+		</section>
+
+		<section id="contact" class="contact">
+			<h2>Contact Us</h2>
+			<p>
+				Like us on <a href="#">Facebook</a>, follow us on
+				<a href="#">LinkedIn</a>, or visit us at our university location
+				below:
+			</p>
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902!2d90.389!3d23.750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2z23.750!5e0!3m2!1sen!2s!4v1234567890"
+				width="600"
+				height="450"
+				style="border: 0"
+				allowfullscreen=""
+				loading="lazy"
+			></iframe>
+		</section>
+
+		<footer>
+			<p>&copy; 2025 CSE Club of HSTU. All rights reserved.</p>
+		</footer>
+	</body>
+</html>
