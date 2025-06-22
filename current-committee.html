@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Current Committee - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .committee-section {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #1d2a35;
+        padding: 32px 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+      .committee-section h2 {
+        color: rgb(5, 170, 108);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .committee-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+      }
+      .committee-card {
+        background: linear-gradient(135deg, #138d6a 0%, #1d2a35 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(5, 170, 108, 0.18);
+        padding: 28px 16px 20px 16px;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 2px solid transparent;
+        position: relative;
+      }
+      .committee-card:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 8px 32px rgba(5, 170, 108, 0.25);
+        border: 2px solid rgb(5, 170, 108);
+      }
+      .committee-photo {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #fff;
+        margin-bottom: 14px;
+        background: #1d2a35;
+        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.1);
+      }
+      .committee-name {
+        color: #fff;
+        font-size: 1.18em;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .committee-position {
+        color: #fbc02d;
+        font-size: 1.05em;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      .committee-desc {
+        color: #b0eacd;
+        font-size: 0.98em;
+        margin-bottom: 0;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="committee-section">
+      <h2>Current Committee Members</h2>
+      <div class="committee-grid">
+        <div class="committee-card">
+          <img
+            class="committee-photo"
+            src="images/cricket01.jpg"
+            alt="President"
+          />
+          <div class="committee-name">Professor. Adiba Mahjabin Nitu</div>
+          <div class="committee-position">President</div>
+          <div class="committee-desc">
+            Leading the club with vision and dedication, inspiring innovation
+            and teamwork.
+          </div>
+        </div>
+        <div class="committee-card">
+          <img class="committee-photo" src="images/ful.jpg" alt="Treasurer" />
+          <div class="committee-name">Lecturer. Pankaj Bhowmick</div>
+          <div class="committee-position">Treasurer</div>
+          <div class="committee-desc">
+            Managing club finances and ensuring smooth operation of all events.
+          </div>
+        </div>
+        <div class="committee-card">
+          <img
+            class="committee-photo"
+            src="images/seminar01.jpg"
+            alt="Vice President"
+          />
+          <div class="committee-name">Md. Nishat Ahmed</div>
+          <div class="committee-position">Vice President</div>
+          <div class="committee-desc">
+            Supporting the president and coordinating club activities and
+            outreach.
+          </div>
+        </div>
+        <div class="committee-card">
+          <img
+            class="committee-photo"
+            src="images/seminar02.jpg"
+            alt="General Secretary"
+          />
+          <div class="committee-name">Sadia Rahman</div>
+          <div class="committee-position">General Secretary</div>
+          <div class="committee-desc">
+            Responsible for club documentation, communication, and event
+            planning.
+          </div>
+        </div>
+        <div class="committee-card">
+          <img
+            class="committee-photo"
+            src="images/seminar03.jpg"
+            alt="Joint Secretary"
+          />
+          <div class="committee-name">Tanvir Hasan</div>
+          <div class="committee-position">Joint Secretary</div>
+          <div class="committee-desc">
+            Assisting in secretarial duties and supporting event management.
+          </div>
+        </div>
+        <div class="committee-card">
+          <img
+            class="committee-photo"
+            src="images/dean.jpg"
+            alt="Event Coordinator"
+          />
+          <div class="committee-name">Raisa Sultana</div>
+          <div class="committee-position">Event Coordinator</div>
+          <div class="committee-desc">
+            Organizing and executing club events with creativity and efficiency.
+          </div>
+        </div>
+      </div>
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+  </body>
+</html>
