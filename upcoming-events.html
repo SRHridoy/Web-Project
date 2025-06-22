@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Events - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .events-section {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #1d2a35;
+        padding: 32px 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+      .events-section h2 {
+        color: rgb(5, 170, 108);
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .events-section p {
+        color: #e0e0e0;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+      }
+      .event-card {
+        background: #0c1720;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.12);
+        padding: 20px 16px 16px 16px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-left: 6px solid #138d6a;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .event-card.featured {
+        border-left: 6px solid #ff9800;
+        box-shadow: 0 8px 32px rgba(255, 152, 0, 0.18);
+      }
+      .featured-label {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        background: #ff9800;
+        color: #fff;
+        font-size: 0.95em;
+        font-weight: bold;
+        padding: 4px 12px;
+        border-radius: 6px;
+        letter-spacing: 1px;
+      }
+      .event-poster {
+        width: 100%;
+        max-height: 160px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 14px;
+        background: #1d2a35;
+      }
+      .event-title {
+        color: #fff;
+        font-size: 1.25em;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      .event-desc {
+        color: #b0eacd;
+        font-size: 1em;
+        margin-bottom: 10px;
+      }
+      .event-info {
+        color: #e0e0e0;
+        font-size: 0.98em;
+        margin-bottom: 8px;
+      }
+      .event-tags {
+        margin-bottom: 10px;
+      }
+      .event-tag {
+        display: inline-block;
+        background: #138d6a;
+        color: #fff;
+        font-size: 0.85em;
+        padding: 3px 10px;
+        border-radius: 5px;
+        margin-right: 6px;
+        margin-bottom: 3px;
+      }
+      .event-tag.contest {
+        background: #e53935;
+      }
+      .event-tag.workshop {
+        background: #1976d2;
+      }
+      .event-tag.seminar {
+        background: #8e24aa;
+      }
+      .event-tag.social-event {
+        background: #fbc02d;
+        color: #222;
+      }
+      .event-btn {
+        display: inline-block;
+        background: rgb(5, 170, 108);
+        color: #fff;
+        padding: 8px 18px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        text-decoration: none;
+        margin-top: 8px;
+        transition: background 0.3s;
+      }
+      .event-btn:hover {
+        background: #138d6a;
+      }
+      .no-events {
+        color: #b0eacd;
+        text-align: center;
+        font-size: 1.15em;
+        margin: 40px 0 20px 0;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        .events-section {
+          padding: 12px 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="events-section">
+      <h2>Upcoming Events</h2>
+      <p>
+        Catch the latest seminars, contests, and tech workshops organized by the
+        CSE Club of HSTU.
+      </p>
+      <div class="events-grid">
+        <!-- Featured Event -->
+        <div class="event-card featured">
+          <span class="featured-label">Featured</span>
+          <img
+            class="event-poster"
+            src="images/seminar01.jpg"
+            alt="Python Workshop Poster"
+          />
+          <div class="event-title">Python Programming Workshop</div>
+          <div class="event-desc">
+            A hands-on workshop to learn Python basics and real-world
+            applications. Open for all CSE students!
+          </div>
+          <div class="event-info"><strong>Date:</strong> May 10, 2025</div>
+          <div class="event-info">
+            <strong>Time:</strong> 10:00 AM - 2:00 PM
+          </div>
+          <div class="event-info"><strong>Venue:</strong> CSE Lab 1, HSTU</div>
+          <div class="event-info">
+            <strong>Organizer:</strong> CSE Club of HSTU
+          </div>
+          <div class="event-tags">
+            <span class="event-tag workshop">#workshop</span>
+            <span class="event-tag">#python</span>
+          </div>
+          <a class="event-btn" href="become-member.html">Register Now</a>
+        </div>
+        <!-- Other Events -->
+        <div class="event-card">
+          <img
+            class="event-poster"
+            src="images/seminar02.jpg"
+            alt="AI Seminar Poster"
+          />
+          <div class="event-title">Seminar: AI in Everyday Life</div>
+          <div class="event-desc">
+            Discover how artificial intelligence is shaping our world. Guest
+            speakers from industry and academia.
+          </div>
+          <div class="event-info"><strong>Date:</strong> May 20, 2025</div>
+          <div class="event-info">
+            <strong>Time:</strong> 11:00 AM - 1:00 PM
+          </div>
+          <div class="event-info"><strong>Venue:</strong> Auditorium, HSTU</div>
+          <div class="event-info">
+            <strong>Organizer:</strong> CSE Club &amp; IEEE HSTU SB
+          </div>
+          <div class="event-tags">
+            <span class="event-tag seminar">#seminar</span>
+            <span class="event-tag">#ai</span>
+          </div>
+          <a
+            class="event-btn"
+            href="https://forms.gle/your-google-form-link"
+            target="_blank"
+            >Register Now</a
+          >
+        </div>
+        <div class="event-card">
+          <img
+            class="event-poster"
+            src="images/cricket01.jpg"
+            alt="Coding Contest Poster"
+          />
+          <div class="event-title">Annual Coding Contest</div>
+          <div class="event-desc">
+            Test your coding skills and compete with the best! Prizes for top
+            performers.
+          </div>
+          <div class="event-info"><strong>Date:</strong> June 5, 2025</div>
+          <div class="event-info"><strong>Time:</strong> 9:00 AM - 3:00 PM</div>
+          <div class="event-info">
+            <strong>Venue:</strong> CSE Building, HSTU
+          </div>
+          <div class="event-info">
+            <strong>Organizer:</strong> CSE Club of HSTU
+          </div>
+          <div class="event-tags">
+            <span class="event-tag contest">#contest</span>
+            <span class="event-tag">#coding</span>
+          </div>
+          <a class="event-btn" href="become-member.html">Register Now</a>
+        </div>
+        <div class="event-card">
+          <img
+            class="event-poster"
+            src="images/ful.jpg"
+            alt="Social Event Poster"
+          />
+          <div class="event-title">CSE Club Social Meetup</div>
+          <div class="event-desc">
+            An informal get-together for all club members. Fun, food, and
+            networking!
+          </div>
+          <div class="event-info"><strong>Date:</strong> June 15, 2025</div>
+          <div class="event-info"><strong>Time:</strong> 4:00 PM - 7:00 PM</div>
+          <div class="event-info"><strong>Venue:</strong> CSE Garden, HSTU</div>
+          <div class="event-info">
+            <strong>Organizer:</strong> CSE Club of HSTU
+          </div>
+          <div class="event-tags">
+            <span class="event-tag social-event">#social-event</span>
+          </div>
+          <a class="event-btn" href="become-member.html">Register Now</a>
+        </div>
+      </div>
+      <!-- No Events Notice Example (uncomment if needed) -->
+      <!-- <div class="no-events">No events scheduled right now. Stay tuned!</div> -->
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+  </body>
+</html>
