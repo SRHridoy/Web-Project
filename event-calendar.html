@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Calendar - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .calendar-section {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #1d2a35;
+        padding: 32px 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+      .calendar-title {
+        color: rgb(5, 170, 108);
+        font-size: 2em;
+        font-weight: bold;
+      }
+      .calendar-nav button {
+        background: rgb(5, 170, 108);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 6px 16px;
+        font-size: 1em;
+        margin: 0 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .calendar-nav button:hover {
+        background: #138d6a;
+      }
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+        background: #0c1720;
+        border-radius: 8px;
+        padding: 8px;
+      }
+      .calendar-day,
+      .calendar-cell {
+        min-height: 60px;
+        padding: 4px;
+        text-align: center;
+        color: #e0e0e0;
+      }
+      .calendar-day {
+        font-weight: bold;
+        color: #b0eacd;
+        background: #1d2a35;
+        border-radius: 4px;
+      }
+      .calendar-cell {
+        background: #1d2a35;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .calendar-cell:hover {
+        background: #138d6a33;
+      }
+      .event-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 2px 1px;
+      }
+      .dot-seminar {
+        background: #e53935;
+      }
+      .dot-workshop {
+        background: #43a047;
+      }
+      .dot-contest {
+        background: #1976d2;
+      }
+      .dot-social {
+        background: #fbc02d;
+      }
+      .calendar-cell .event-title-mini {
+        display: block;
+        font-size: 0.85em;
+        margin-top: 2px;
+        color: #b0eacd;
+      }
+      .upcoming-list {
+        margin: 24px 0 10px 0;
+        background: #0c1720;
+        border-radius: 8px;
+        padding: 16px 12px;
+      }
+      .upcoming-list h3 {
+        color: #b0eacd;
+        margin-bottom: 10px;
+      }
+      .upcoming-event-item {
+        color: #fff;
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+      .upcoming-event-item .event-tag {
+        margin-left: 8px;
+      }
+      /* Modal Styles */
+      .modal-bg {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-bg.active {
+        display: flex;
+      }
+      .modal {
+        background: #1d2a35;
+        border-radius: 10px;
+        padding: 28px 22px 18px 22px;
+        max-width: 400px;
+        width: 95vw;
+        color: #e0e0e0;
+        box-shadow: 0 8px 32px rgba(5, 170, 108, 0.18);
+        position: relative;
+      }
+      .modal .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        background: #e53935;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+      .modal .event-poster {
+        width: 100%;
+        max-height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .modal .event-title {
+        color: #fff;
+        font-size: 1.15em;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .modal .event-desc {
+        color: #b0eacd;
+        font-size: 1em;
+        margin-bottom: 8px;
+      }
+      .modal .event-info {
+        color: #e0e0e0;
+        font-size: 0.98em;
+        margin-bottom: 6px;
+      }
+      .modal .event-btn {
+        margin-top: 8px;
+      }
+      .modal .add-calendar {
+        display: inline-block;
+        margin-top: 8px;
+        color: #1976d2;
+        text-decoration: underline;
+        font-size: 0.98em;
+      }
+      .no-events {
+        color: #b0eacd;
+        text-align: center;
+        font-size: 1.15em;
+        margin: 40px 0 20px 0;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+      @media (max-width: 700px) {
+        .calendar-header {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .calendar-title {
+          font-size: 1.3em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="calendar-section">
+      <div class="calendar-header">
+        <div class="calendar-title">Event Calendar</div>
+        <div class="calendar-nav">
+          <button id="prevMonth">&#8592; Prev</button>
+          <span id="monthYear"></span>
+          <button id="nextMonth">Next &#8594;</button>
+        </div>
+      </div>
+      <div class="upcoming-list" id="upcomingList">
+        <h3>Upcoming Events</h3>
+        <!-- Upcoming events will be injected here -->
+      </div>
+      <div class="calendar-grid" id="calendarGrid">
+        <!-- Calendar will be injected here -->
+      </div>
+      <div class="no-events" id="noEvents" style="display: none">
+        No events scheduled right now. Stay tuned!
+      </div>
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+    <!-- Modal for event details -->
+    <div class="modal-bg" id="modalBg">
+      <div class="modal" id="modal">
+        <button class="close-btn" id="closeModal">&times;</button>
+        <img
+          class="event-poster"
+          id="modalPoster"
+          src=""
+          alt="Event Poster"
+          style="display: none"
+        />
+        <div class="event-title" id="modalTitle"></div>
+        <div class="event-desc" id="modalDesc"></div>
+        <div class="event-info" id="modalDate"></div>
+        <div class="event-info" id="modalTime"></div>
+        <div class="event-info" id="modalVenue"></div>
+        <div class="event-info" id="modalOrganizer"></div>
+        <a
+          class="event-btn"
+          id="modalRegister"
+          href="#"
+          target="_blank"
+          style="display: none"
+          >Register Now</a
+        >
+        <a
+          class="add-calendar"
+          id="modalAddCalendar"
+          href="#"
+          target="_blank"
+          style="display: none"
+          >Add to Google Calendar</a
+        >
+      </div>
+    </div>
+    <script>
+      // Demo event data
+      const events = [
+        {
+          title: "Python Programming Workshop",
+          desc: "A hands-on workshop to learn Python basics and real-world applications.",
+          date: "2025-05-10",
+          time: "10:00 AM - 2:00 PM",
+          venue: "CSE Lab 1, HSTU",
+          organizer: "CSE Club of HSTU",
+          type: "workshop",
+          poster: "images/seminar01.jpg",
+          register: "become-member.html",
+        },
+        {
+          title: "Seminar: AI in Everyday Life",
+          desc: "Discover how artificial intelligence is shaping our world.",
+          date: "2025-05-20",
+          time: "11:00 AM - 1:00 PM",
+          venue: "Auditorium, HSTU",
+          organizer: "CSE Club & IEEE HSTU SB",
+          type: "seminar",
+          poster: "images/seminar02.jpg",
+          register: "https://forms.gle/your-google-form-link",
+        },
+        {
+          title: "Annual Coding Contest",
+          desc: "Test your coding skills and compete with the best! Prizes for top performers.",
+          date: "2025-06-05",
+          time: "9:00 AM - 3:00 PM",
+          venue: "CSE Building, HSTU",
+          organizer: "CSE Club of HSTU",
+          type: "contest",
+          poster: "images/cricket01.jpg",
+          register: "become-member.html",
+        },
+        {
+          title: "CSE Club Social Meetup",
+          desc: "An informal get-together for all club members. Fun, food, and networking!",
+          date: "2025-06-15",
+          time: "4:00 PM - 7:00 PM",
+          venue: "CSE Garden, HSTU",
+          organizer: "CSE Club of HSTU",
+          type: "social",
+          poster: "images/ful.jpg",
+          register: "become-member.html",
+        },
+      ];
+
+      // Color mapping for event types
+      const typeDot = {
+        seminar: "dot-seminar",
+        workshop: "dot-workshop",
+        contest: "dot-contest",
+        social: "dot-social",
+      };
+      const typeTag = {
+        seminar: "event-tag seminar",
+        workshop: "event-tag workshop",
+        contest: "event-tag contest",
+        social: "event-tag social-event",
+      };
+
+      // Calendar logic
+      const calendarGrid = document.getElementById("calendarGrid");
+      const monthYear = document.getElementById("monthYear");
+      const prevMonthBtn = document.getElementById("prevMonth");
+      const nextMonthBtn = document.getElementById("nextMonth");
+      const modalBg = document.getElementById("modalBg");
+      const closeModal = document.getElementById("closeModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+      const modalDate = document.getElementById("modalDate");
+      const modalTime = document.getElementById("modalTime");
+      const modalVenue = document.getElementById("modalVenue");
+      const modalOrganizer = document.getElementById("modalOrganizer");
+      const modalPoster = document.getElementById("modalPoster");
+      const modalRegister = document.getElementById("modalRegister");
+      const modalAddCalendar = document.getElementById("modalAddCalendar");
+      const upcomingList = document.getElementById("upcomingList");
+      const noEvents = document.getElementById("noEvents");
+
+      let today = new Date();
+      let currentMonth = today.getMonth();
+      let currentYear = today.getFullYear();
+
+      function renderCalendar(month, year) {
+        calendarGrid.innerHTML = "";
+        // Days of week
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        days.forEach((day) => {
+          const d = document.createElement("div");
+          d.className = "calendar-day";
+          d.textContent = day;
+          calendarGrid.appendChild(d);
+        });
+        // First day of month
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        // Fill blanks
+        for (let i = 0; i < firstDay; i++) {
+          const blank = document.createElement("div");
+          blank.className = "calendar-cell";
+          calendarGrid.appendChild(blank);
+        }
+        // Fill days
+        for (let d = 1; d <= daysInMonth; d++) {
+          const cell = document.createElement("div");
+          cell.className = "calendar-cell";
+          const dateStr = `${year}-${String(month + 1).padStart(
+            2,
+            "0"
+          )}-${String(d).padStart(2, "0")}`;
+          cell.innerHTML = `<div>${d}</div>`;
+          // Find events for this day
+          const dayEvents = events.filter((ev) => ev.date === dateStr);
+          if (dayEvents.length > 0) {
+            dayEvents.forEach((ev) => {
+              cell.innerHTML += `<span class="event-dot ${
+                typeDot[ev.type]
+              }"></span>`;
+            });
+            cell.title = dayEvents.map((ev) => ev.title).join(", ");
+            cell.style.cursor = "pointer";
+            cell.addEventListener("click", () => showEventModal(dayEvents[0]));
+            // Show mini event title for first event
+            cell.innerHTML += `<span class="event-title-mini">${dayEvents[0].title}</span>`;
+          }
+          calendarGrid.appendChild(cell);
+        }
+        // Month/Year label
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        monthYear.textContent = `${monthNames[month]} ${year}`;
+      }
+
+      function showEventModal(event) {
+        modalTitle.textContent = event.title;
+        modalDesc.textContent = event.desc;
+        modalDate.textContent = `Date: ${event.date}`;
+        modalTime.textContent = `Time: ${event.time}`;
+        modalVenue.textContent = `Venue: ${event.venue}`;
+        modalOrganizer.textContent = `Organizer: ${event.organizer}`;
+        if (event.poster) {
+          modalPoster.src = event.poster;
+          modalPoster.style.display = "";
+        } else {
+          modalPoster.style.display = "none";
+        }
+        if (event.register) {
+          modalRegister.href = event.register;
+          modalRegister.style.display = "";
+        } else {
+          modalRegister.style.display = "none";
+        }
+        // Add to Google Calendar link
+        const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+          event.title
+        )}&dates=${event.date.replace(/-/g, "")}T${event.time
+          .split(" - ")[0]
+          .replace(":", "")}00Z/${event.date.replace(/-/g, "")}T${
+          event.time.split(" - ")[1]?.replace(":", "") || "1200"
+        }00Z&details=${encodeURIComponent(
+          event.desc
+        )}&location=${encodeURIComponent(event.venue)}`;
+        modalAddCalendar.href = gcalUrl;
+        modalAddCalendar.style.display = "";
+        modalBg.classList.add("active");
+      }
+      closeModal.onclick = () => modalBg.classList.remove("active");
+      modalBg.onclick = (e) => {
+        if (e.target === modalBg) modalBg.classList.remove("active");
+      };
+
+      prevMonthBtn.onclick = () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        renderCalendar(currentMonth, currentYear);
+        renderUpcomingList();
+      };
+      nextMonthBtn.onclick = () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        renderCalendar(currentMonth, currentYear);
+        renderUpcomingList();
+      };
+
+      function renderUpcomingList() {
+        // Find upcoming events (from today)
+        const now = new Date();
+        const upcoming = events
+          .filter((ev) => new Date(ev.date) >= now)
+          .sort((a, b) => new Date(a.date) - new Date(b.date));
+        let html = "";
+        if (upcoming.length === 0) {
+          html =
+            '<div class="no-events">No events scheduled right now. Stay tuned!</div>';
+          noEvents.style.display = "";
+        } else {
+          noEvents.style.display = "none";
+          upcoming.slice(0, 4).forEach((ev) => {
+            html += `<div class="upcoming-event-item">${
+              ev.date
+            }: <span class="event-title">${ev.title}</span> <span class="${
+              typeTag[ev.type]
+            }">#${ev.type}</span></div>`;
+          });
+        }
+        upcomingList.innerHTML = "<h3>Upcoming Events</h3>" + html;
+      }
+
+      // Initial render
+      renderCalendar(currentMonth, currentYear);
+      renderUpcomingList();
+    </script>
+  </body>
+</html>
