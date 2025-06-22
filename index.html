@@ -1,122 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CSE Club of HSTU</title>
-		<link rel="stylesheet" href="styles.css" />
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const slides = document.querySelectorAll(".slideshow img");
-				let currentIndex = 0;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".slideshow img");
+        let currentIndex = 0;
 
-				function showNextSlide() {
-					slides[currentIndex].classList.remove("active");
-					currentIndex = (currentIndex + 1) % slides.length;
-					slides[currentIndex].classList.add("active");
-				}
+        function showNextSlide() {
+          slides[currentIndex].classList.remove("active");
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add("active");
+        }
 
-				setInterval(showNextSlide, 3000); // Change slide every 3 seconds
-			});
-		</script>
-	</head>
-	<body>
-		<nav class="navbar">
-			<a href="#">Home</a>
-			<a href="#about">About</a>
-			<div class="dropdown">
-				<a href="#people">People</a>
-				<div class="dropdown-content">
-					<a href="#current-committee">Current Committee</a>
-					<a href="#past-presidents">Past Presidents</a>
-					<a href="#general-members">General Members</a>
-					<a href="#become-member">Become a Member</a>
-				</div>
-			</div>
-			<a href="#recent-activities">Recent Activities</a>
-			<a href="#upcoming-events">Upcoming Events</a>
-			<a href="#contact">Contact Us</a>
-		</nav>
-		<header>
-			<div class="logo-container">
-				<img
-					src="images/club_logo.jpg"
-					alt="CSE Club Logo"
-					class="club-logo"
-				/>
-			</div>
-			<h1 class="glowing">CSE Club of HSTU</h1>
-			<div class="slideshow">
-				<img
-					src="images/seminar01.jpg"
-					alt="HSTU Image 1"
-					class="active"
-				/>
-				<img src="images/seminar02.jpg" alt="HSTU Image 2" />
-				<img src="images/cricket01.jpg" alt="HSTU Image 3" />
-				<img src="images/dean.jpg" alt="HSTU Image 4" />
-				<img src="images/ful.jpg" alt="HSTU Image 5" />
-				<img src="images/seminar03.jpg" alt="HSTU Image 6" />
-			</div>
-		</header>
+        setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="current-committee.html">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header>
+      <div class="logo-container">
+        <img src="images/club_logo.jpg" alt="CSE Club Logo" class="club-logo" />
+      </div>
+      <h1 class="glowing">CSE Club of HSTU</h1>
+      <div class="slideshow">
+        <img src="images/seminar01.jpg" alt="HSTU Image 1" class="active" />
+        <img src="images/seminar02.jpg" alt="HSTU Image 2" />
+        <img src="images/cricket01.jpg" alt="HSTU Image 3" />
+        <img src="images/dean.jpg" alt="HSTU Image 4" />
+        <img src="images/ful.jpg" alt="HSTU Image 5" />
+        <img src="images/seminar03.jpg" alt="HSTU Image 6" />
+      </div>
+    </header>
 
-		<section id="leaders" class="club-leaders">
-			<h2>Meet Our Leaders</h2>
-			<div class="leader">
-				<img src="images/cricket01.jpg" alt="President" />
-				<h3>Professor. Adiba Mahjabin Nitu</h3>
-				<p>President</p>
-			</div>
-			<div class="leader">
-				<img src="images/ful.jpg" alt="Treasurer" />
-				<h3>Lecturer. Pankaj Bhowmick</h3>
-				<p>Treasurer</p>
-			</div>
-			<div class="leader">
-				<img src="images/seminar01.jpg" alt="Vice President" />
-				<h3>Md. Nishat Ahmed</h3>
-				<p>Vice President</p>
-			</div>
-		</section>
+    <section id="leaders" class="club-leaders">
+      <h2>Meet Our Leaders</h2>
+      <div class="leaders-carousel-flex-container">
+        <button class="carousel-arrow left" id="carouselPrev">&#8592;</button>
+        <div class="leaders-flex-carousel" id="leadersFlexCarousel">
+          <!-- Leader cards will be injected by JS -->
+        </div>
+        <button class="carousel-arrow right" id="carouselNext">&#8594;</button>
+      </div>
+    </section>
 
-		<section id="about" class="about-club">
-			<h2>About the Club</h2>
-			<p>
-				The CSE Club of HSTU is a vibrant community of students and
-				faculty members dedicated to fostering innovation,
-				collaboration, and excellence in the field of Computer Science
-				and Engineering.
-			</p>
-		</section>
+    <section id="about" class="about-club">
+      <h2>About the Club</h2>
+      <p>
+        The CSE Club of HSTU is a vibrant community of students and faculty
+        members dedicated to fostering innovation, collaboration, and excellence
+        in the field of Computer Science and Engineering.
+      </p>
+    </section>
 
-		<section id="events" class="recent-events">
-			<h2>Recent Events</h2>
-			<ul>
-				<li>Seminar on Artificial Intelligence - April 2025</li>
-				<li>Annual Coding Contest - March 2025</li>
-				<li>Workshop on Web Development - February 2025</li>
-			</ul>
-		</section>
+    <section id="events" class="recent-events">
+      <h2>Recent Events</h2>
+      <ul>
+        <li>Seminar on Artificial Intelligence - April 2025</li>
+        <li>Annual Coding Contest - March 2025</li>
+        <li>Workshop on Web Development - February 2025</li>
+      </ul>
+    </section>
 
-		<section id="contact" class="contact">
-			<h2>Contact Us</h2>
-			<p>
-				Like us on <a href="#">Facebook</a>, follow us on
-				<a href="#">LinkedIn</a>, or visit us at our university location
-				below:
-			</p>
-			<iframe
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902!2d90.389!3d23.750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2z23.750!5e0!3m2!1sen!2s!4v1234567890"
-				width="600"
-				height="450"
-				style="border: 0"
-				allowfullscreen=""
-				loading="lazy"
-			></iframe>
-		</section>
+    <!-- Events Brief Section -->
+    <section id="events-brief" class="events-brief">
+      <h2><span style="font-size: 1.2em">🎉</span> Events</h2>
+      <p>
+        Stay updated with the latest seminars, workshops, contests, and social
+        gatherings organized by the CSE Club of HSTU. Explore upcoming events,
+        register, and view the full event calendar below.
+      </p>
+      <div class="event-links">
+        <a href="upcoming-events.html" class="event-link-btn"
+          >Upcoming Events</a
+        >
+        <a href="registration-links.html" class="event-link-btn"
+          >Registration Links</a
+        >
+        <a href="event-calendar.html" class="event-link-btn">Event Calendar</a>
+      </div>
+    </section>
+    <!-- End Events Brief Section -->
 
-		<footer>
-			<p>&copy; 2025 CSE Club of HSTU. All rights reserved.</p>
-		</footer>
-	</body>
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>
+        Like us on <a href="#">Facebook</a>, follow us on
+        <a href="#">LinkedIn</a>, or visit us at our university location below:
+      </p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902!2d90.389!3d23.750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2z23.750!5e0!3m2!1sen!2s!4v1234567890"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 CSE Club of HSTU. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Login/User Management
+      function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        const loginSection = document.getElementById("loginSection");
+        const userSection = document.getElementById("userSection");
+        const userName = document.getElementById("userName");
+        const userAvatar = document.getElementById("userAvatar");
+
+        if (isLoggedIn === "true") {
+          // User is logged in
+          loginSection.style.display = "none";
+          userSection.style.display = "block";
+
+          // Get user info from localStorage
+          const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
+          userName.textContent = userInfo.name || "User Name";
+          if (userInfo.avatar) {
+            userAvatar.src = userInfo.avatar;
+          }
+        } else {
+          // User is not logged in
+          loginSection.style.display = "block";
+          userSection.style.display = "none";
+        }
+      }
+
+      // Logout function
+      function logout() {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("userInfo");
+        checkLoginStatus();
+      }
+
+      // Add logout event listener
+      document.addEventListener("DOMContentLoaded", function () {
+        checkLoginStatus();
+
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            logout();
+          });
+        }
+      });
+
+      // Listen for login success (from login page)
+      window.addEventListener("storage", function (e) {
+        if (e.key === "isLoggedIn") {
+          checkLoginStatus();
+        }
+      });
+
+      // Demo leaders data (10 members)
+      const leaders = [
+        {
+          img: "images/cricket01.jpg",
+          name: "Professor. Adiba Mahjabin Nitu",
+          role: "President",
+        },
+        {
+          img: "images/ful.jpg",
+          name: "Lecturer. Pankaj Bhowmick",
+          role: "Treasurer",
+        },
+        {
+          img: "images/seminar01.jpg",
+          name: "Md. Nishat Ahmed",
+          role: "Vice President",
+        },
+        {
+          img: "images/seminar02.jpg",
+          name: "Sadia Rahman",
+          role: "General Secretary",
+        },
+        {
+          img: "images/seminar03.jpg",
+          name: "Tanvir Hasan",
+          role: "Joint Secretary",
+        },
+        {
+          img: "images/dean.jpg",
+          name: "Raisa Sultana",
+          role: "Event Coordinator",
+        },
+        {
+          img: "images/seminar01.jpg",
+          name: "Fahim Hossain",
+          role: "Assistant Treasurer",
+        },
+        {
+          img: "images/seminar02.jpg",
+          name: "Sumaiya Akter",
+          role: "Public Relations",
+        },
+        {
+          img: "images/cricket01.jpg",
+          name: "Jahidul Islam",
+          role: "IT Secretary",
+        },
+        {
+          img: "images/ful.jpg",
+          name: "Mim Sultana",
+          role: "Cultural Secretary",
+        },
+      ];
+      const flexCarousel = document.getElementById("leadersFlexCarousel");
+      let current = 2; // Centered index
+      let isTransitioning = false;
+
+      function getVisibleLeaders(center, total = 5) {
+        const half = Math.floor(total / 2);
+        let visible = [];
+        for (let i = -half; i <= half; i++) {
+          let idx = (center + i + leaders.length) % leaders.length;
+          visible.push({ ...leaders[idx], pos: i });
+        }
+        return visible;
+      }
+
+      function renderFlexCarousel() {
+        flexCarousel.innerHTML = "";
+        const visible = getVisibleLeaders(current, 5);
+        visible.forEach(({ img, name, role, pos }) => {
+          let scale = pos === 0 ? 1 : pos === -1 || pos === 1 ? 0.82 : 0.68;
+          let opacity = pos === 0 ? 1 : pos === -1 || pos === 1 ? 0.85 : 0.6;
+          let z = 10 - Math.abs(pos);
+          let cardClass = "leader-flex-card";
+          if (pos === 0) cardClass += " center";
+          else if (Math.abs(pos) === 1) cardClass += " mid";
+          else cardClass += " side";
+          flexCarousel.innerHTML += `
+            <div class="${cardClass}" style="transform: scale(${scale}); opacity:${opacity}; z-index:${z};">
+              <img src="${img}" alt="${role}" />
+              <h3>${name}</h3>
+              <p>${role}</p>
+            </div>
+          `;
+        });
+      }
+
+      function moveFlexCarousel(dir) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        current = (current + dir + leaders.length) % leaders.length;
+        renderFlexCarousel();
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 600);
+      }
+
+      document.getElementById("carouselPrev").onclick = () =>
+        moveFlexCarousel(-1);
+      document.getElementById("carouselNext").onclick = () =>
+        moveFlexCarousel(1);
+
+      let flexInterval = setInterval(() => moveFlexCarousel(1), 4000);
+      flexCarousel.addEventListener("mouseenter", () =>
+        clearInterval(flexInterval)
+      );
+      flexCarousel.addEventListener("mouseleave", () => {
+        flexInterval = setInterval(() => moveFlexCarousel(1), 4000);
+      });
+
+      renderFlexCarousel();
+    </script>
+  </body>
 </html>
