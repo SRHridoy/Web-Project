@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .about-section {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #1d2a35;
+        padding: 32px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+      .about-section h2 {
+        color: rgb(5, 170, 108);
+        margin-bottom: 18px;
+        text-align: center;
+      }
+      .about-section h3 {
+        color: #b0eacd;
+        margin-top: 28px;
+        margin-bottom: 10px;
+      }
+      .about-section p,
+      .about-section ul {
+        color: #e0e0e0;
+        font-size: 1.08em;
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+      .about-section ul {
+        padding-left: 20px;
+      }
+      .constitution-box {
+        background: #0c1720;
+        border-left: 4px solid rgb(5, 170, 108);
+        padding: 18px 16px;
+        border-radius: 8px;
+        margin-bottom: 18px;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 28px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="about-section">
+      <h2>About the CSE Club of HSTU</h2>
+      <h3>Overview</h3>
+      <p>
+        The CSE Club of HSTU is a dynamic and inclusive community for students
+        and faculty of the Department of Computer Science & Engineering at Hajee
+        Mohammad Danesh Science and Technology University. The club fosters
+        innovation, collaboration, and personal growth through a variety of
+        academic, technical, and social activities.
+      </p>
+      <h3>Objectives and Vision</h3>
+      <ul>
+        <li>
+          To promote interest and excellence in computer science and engineering
+          among students.
+        </li>
+        <li>
+          To organize seminars, workshops, coding contests, and tech talks for
+          skill development.
+        </li>
+        <li>
+          To encourage teamwork, leadership, and networking among members.
+        </li>
+        <li>
+          To bridge the gap between academia and industry through events and
+          collaborations.
+        </li>
+        <li>To inspire innovation and research in emerging technologies.</li>
+      </ul>
+      <h3>Brief History</h3>
+      <p>
+        The CSE Club of HSTU was founded in 2012 by a group of passionate
+        students and faculty members. Since its inception, the club has achieved
+        several milestones:
+      </p>
+      <ul>
+        <li>
+          <strong>2012:</strong> Club established and first executive committee
+          formed.
+        </li>
+        <li>
+          <strong>2014:</strong> Hosted the first inter-university programming
+          contest at HSTU.
+        </li>
+        <li>
+          <strong>2017:</strong> Launched annual tech seminar series and
+          workshops.
+        </li>
+        <li>
+          <strong>2020:</strong> Initiated online events and webinars during the
+          pandemic.
+        </li>
+        <li>
+          <strong>2023:</strong> Membership reached 500+ students and alumni.
+        </li>
+      </ul>
+      <h3>
+        Club Constitution
+        <span style="font-size: 0.8em; color: #b0eacd">(Optional)</span>
+      </h3>
+      <div class="constitution-box">
+        <strong>Article 1:</strong> The club is open to all CSE students and
+        faculty of HSTU.<br />
+        <strong>Article 2:</strong> The executive committee is elected annually
+        by club members.<br />
+        <strong>Article 3:</strong> The club shall organize at least two major
+        events per academic year.<br />
+        <strong>Article 4:</strong> Amendments to the constitution require a
+        two-thirds majority vote.
+      </div>
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+  </body>
+</html>
