@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Links - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .reg-section {
+        max-width: 700px;
+        margin: 40px auto;
+        background: #1d2a35;
+        padding: 32px 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+      .reg-section h2 {
+        color: rgb(5, 170, 108);
+        margin-bottom: 18px;
+        text-align: center;
+      }
+      .reg-section p {
+        color: #e0e0e0;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .reg-list {
+        list-style: none;
+        padding: 0;
+      }
+      .reg-list li {
+        background: #0c1720;
+        border-radius: 8px;
+        margin-bottom: 18px;
+        padding: 18px 14px 14px 14px;
+        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .reg-list strong {
+        color: #fff;
+        font-size: 1.08em;
+      }
+      .reg-list .desc {
+        color: #b0eacd;
+        font-size: 0.98em;
+      }
+      .register-btn {
+        display: inline-block;
+        background: rgb(5, 170, 108);
+        color: #fff;
+        padding: 8px 18px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        text-decoration: none;
+        margin-top: 6px;
+        transition: background 0.3s;
+      }
+      .register-btn:hover {
+        background: #138d6a;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="reg-section">
+      <h2>📌 Registration Links</h2>
+      <p>
+        Find all current event registration links below. Click "Register Now" to
+        join your desired event. For most events, registration is via Google
+        Form.
+      </p>
+      <ul class="reg-list">
+        <li>
+          <strong>Python Programming Workshop</strong>
+          <span class="desc"
+            >A hands-on workshop to learn Python basics and real-world
+            applications.</span
+          >
+          <a
+            href="https://forms.gle/your-google-form-link"
+            target="_blank"
+            class="register-btn"
+            >📝 Register Now</a
+          >
+        </li>
+        <li>
+          <strong>Seminar: AI in Everyday Life</strong>
+          <span class="desc"
+            >Discover how artificial intelligence is shaping our world. Guest
+            speakers from industry and academia.</span
+          >
+          <a
+            href="https://forms.gle/your-google-form-link"
+            target="_blank"
+            class="register-btn"
+            >📝 Register Now</a
+          >
+        </li>
+        <li>
+          <strong>Annual Coding Contest</strong>
+          <span class="desc"
+            >Test your coding skills and compete with the best! Prizes for top
+            performers.</span
+          >
+          <a
+            href="https://forms.gle/your-google-form-link"
+            target="_blank"
+            class="register-btn"
+            >📝 Register Now</a
+          >
+        </li>
+        <li>
+          <strong>CSE Club Social Meetup</strong>
+          <span class="desc"
+            >An informal get-together for all club members. Fun, food, and
+            networking!</span
+          >
+          <a
+            href="https://forms.gle/your-google-form-link"
+            target="_blank"
+            class="register-btn"
+            >📝 Register Now</a
+          >
+        </li>
+      </ul>
+      <p style="color: #b0eacd; text-align: center; font-size: 0.98em">
+        After submitting your registration, you will receive a confirmation
+        message. For any queries, contact the CSE Club team.
+      </p>
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+  </body>
+</html>
