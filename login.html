@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .login-container {
+        max-width: 370px;
+        margin: 48px auto;
+        background: #1d2a35;
+        padding: 32px 24px 24px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      }
+      .login-container h2 {
+        color: rgb(5, 170, 108);
+        margin-bottom: 22px;
+        text-align: center;
+      }
+      .login-form label {
+        display: block;
+        margin-bottom: 6px;
+        color: #e0e0e0;
+        text-align: left;
+      }
+      .login-form input[type="email"],
+      .login-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background: #0c1720;
+        color: #e0e0e0;
+      }
+      .show-password {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        color: #b0eacd;
+        font-size: 0.98em;
+      }
+      .login-form button {
+        width: 100%;
+        padding: 12px;
+        background: rgb(5, 170, 108);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .login-form button:hover {
+        background: #138d6a;
+      }
+      .register-link {
+        display: block;
+        text-align: center;
+        margin-top: 18px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+      @media (max-width: 500px) {
+        .login-container {
+          padding: 18px 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form class="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <div class="show-password">
+          <input
+            type="checkbox"
+            id="togglePassword"
+            style="margin-right: 6px"
+          />
+          Show Password
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <a class="register-link" href="become-member.html"
+        >Don't have an account? Register</a
+      >
+    </div>
+    <script>
+      const togglePassword = document.getElementById("togglePassword");
+      const passwordInput = document.getElementById("password");
+      togglePassword.addEventListener("change", function () {
+        passwordInput.type = this.checked ? "text" : "password";
+      });
+
+      // Login form handling
+      const loginForm = document.querySelector(".login-form");
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Demo login (replace with actual authentication)
+        if (email && password) {
+          // Store login status and user info
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem(
+            "userInfo",
+            JSON.stringify({
+              name: email.split("@")[0], // Use email prefix as name
+              email: email,
+              avatar: "images/club_logo.jpg", // Default avatar
+            })
+          );
+
+          // Redirect to homepage
+          window.location.href = "index.html";
+        } else {
+          alert("Please enter both email and password");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Members - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .members-section {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #1d2a35;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      }
+      .members-section h2 {
+        color: rgb(5, 170, 108);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .members-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+      }
+      .member-card {
+        background: #0c1720;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.15);
+        padding: 20px 10px 16px 10px;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 2px solid transparent;
+      }
+      .member-card:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 8px 24px rgba(5, 170, 108, 0.25);
+        border: 2px solid rgb(5, 170, 108);
+      }
+      .member-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgb(5, 170, 108);
+        margin-bottom: 12px;
+        background: #1d2a35;
+      }
+      .member-name {
+        color: #fff;
+        font-size: 1.15em;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .member-info {
+        color: #b0eacd;
+        font-size: 0.98em;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 28px;
+        color: #e0e0e0;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
+        <a href="about-us.html"
+          ><span style="font-size: 1.2em">ℹ️</span> About</a
+        >
+        <div class="dropdown">
+          <a href="#people"
+            ><span style="font-size: 1.2em">👥</span> People
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="#current-committee">Current Committee</a>
+            <a href="#past-presidents">Past Presidents</a>
+            <a href="general-members.html">General Members</a>
+            <a href="become-member.html">Become a Member</a>
+          </div>
+        </div>
+        <a href="#recent-activities"
+          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
+        >
+        <div class="dropdown">
+          <a href="#Events"
+            ><span style="font-size: 1.2em">🎉</span> Events
+            <span style="font-size: 0.9em">▼</span></a
+          >
+          <div class="dropdown-content">
+            <a href="upcoming-events.html">Upcoming Events</a>
+            <a href="registration-links.html">Registration Links</a>
+            <a href="event-calendar.html">Event Calendar</a>
+            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
+          </div>
+        </div>
+        <a href="#contact"
+          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
+        >
+      </div>
+      <div class="nav-right">
+        <!-- Login Button (shown when not logged in) -->
+        <div id="loginSection" class="login-section">
+          <a href="login.html" class="login-btn"
+            ><span style="font-size: 1.2em">🔐</span> Login</a
+          >
+        </div>
+        <!-- User Profile (shown when logged in) -->
+        <div id="userSection" class="user-section" style="display: none">
+          <div class="dropdown">
+            <a href="#" class="user-profile">
+              <img
+                id="userAvatar"
+                src="images/club_logo.jpg"
+                alt="User Avatar"
+                class="user-avatar"
+              />
+              <span id="userName">User Name</span>
+              <span style="font-size: 0.9em">▼</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#profile">My Profile</a>
+              <a href="#settings">Settings</a>
+              <a href="#" id="logoutBtn">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="members-section">
+      <h2>General Members</h2>
+      <div class="members-grid">
+        <!-- Demo Members -->
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Arafat Rahman</div>
+          <div class="member-info">CSE, 1st Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar02.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Nusrat Jahan</div>
+          <div class="member-info">CSE, 2nd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/cricket01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Sakib Hasan</div>
+          <div class="member-info">CSE, 3rd Year</div>
+        </div>
+        <div class="member-card">
+          <img class="member-photo" src="images/dean.jpg" alt="Member Photo" />
+          <div class="member-name">Maliha Sultana</div>
+          <div class="member-info">CSE, 4th Year</div>
+        </div>
+        <div class="member-card">
+          <img class="member-photo" src="images/ful.jpg" alt="Member Photo" />
+          <div class="member-name">Tanvir Ahmed</div>
+          <div class="member-info">CSE, 1st Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar03.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Raisa Rahman</div>
+          <div class="member-info">CSE, 2nd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Fahim Hossain</div>
+          <div class="member-info">CSE, 3rd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar02.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Sumaiya Akter</div>
+          <div class="member-info">CSE, 4th Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/cricket01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Jahidul Islam</div>
+          <div class="member-info">CSE, 1st Year</div>
+        </div>
+        <div class="member-card">
+          <img class="member-photo" src="images/dean.jpg" alt="Member Photo" />
+          <div class="member-name">Mim Sultana</div>
+          <div class="member-info">CSE, 2nd Year</div>
+        </div>
+        <div class="member-card">
+          <img class="member-photo" src="images/ful.jpg" alt="Member Photo" />
+          <div class="member-name">Rashed Khan</div>
+          <div class="member-info">CSE, 3rd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar03.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Tania Rahman</div>
+          <div class="member-info">CSE, 4th Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Sohanur Rahman</div>
+          <div class="member-info">CSE, 1st Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar02.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Farzana Akter</div>
+          <div class="member-info">CSE, 2nd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/cricket01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Imran Hossain</div>
+          <div class="member-info">CSE, 3rd Year</div>
+        </div>
+        <div class="member-card">
+          <img class="member-photo" src="images/dean.jpg" alt="Member Photo" />
+          <div class="member-name">Shamima Nasrin</div>
+          <div class="member-info">CSE, 4th Year</div>
+        </div>
+        <div class="member-card">
+          <img class="member-photo" src="images/ful.jpg" alt="Member Photo" />
+          <div class="member-name">Raihanul Islam</div>
+          <div class="member-info">CSE, 1st Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar03.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Mousumi Akter</div>
+          <div class="member-info">CSE, 2nd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Shuvo Sarker</div>
+          <div class="member-info">CSE, 3rd Year</div>
+        </div>
+        <div class="member-card">
+          <img
+            class="member-photo"
+            src="images/seminar02.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Priya Das</div>
+          <div class="member-info">CSE, 4th Year</div>
+        </div>
+      </div>
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+  </body>
+</html>
