@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/user.css" />
     <script src="scripts.js"></script>
+    <script src="login.js"></script>
   </head>
   <body class="user-page">
     <nav>
@@ -137,7 +138,11 @@
             </div>
             <div class="info-item">
               <label>Department</label>
-              <span id="department">Computer Science & Engineering</span>
+              <span id="department">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Role</label>
+              <span id="userRole">Loading...</span>
             </div>
             <div class="info-item">
               <label>Batch</label>
@@ -191,6 +196,7 @@
         <div class="profile-section">
           <h2>Additional Information</h2>
           <div class="info-grid">
+           
             <div class="info-item full-width">
               <label>Areas of Interest</label>
               <div class="skills-tags" id="interests">Loading...</div>
@@ -260,11 +266,16 @@
         setupAvatarUpload();
       });
 
-      function loadUserData() {
+      // Function to refresh user data (can be called from other pages)
+      function refreshUserData() {
+        loadUserData();
+      }
+
+      async function loadUserData() {
         const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
-        const memberInfo = JSON.parse(
-          localStorage.getItem("memberInfo") || "{}"
-        );
+
+        // Debug: Log user info to console
+        console.log("Loading user data:", userInfo);
 
         // Check if user is logged in
         if (!userInfo.name) {
@@ -278,103 +289,96 @@
         document.getElementById("userEmail").textContent = userInfo.email;
         document.getElementById("accountEmail").textContent = userInfo.email;
         document.getElementById("username").textContent = userInfo.name;
-        document.getElementById("lastLogin").textContent = new Date(
-          userInfo.loginTime || Date.now()
-        ).toLocaleDateString();
-        document.getElementById("accountCreated").textContent = new Date(
-          userInfo.loginTime || Date.now()
-        ).toLocaleDateString();
-        document.getElementById("memberSince").textContent = new Date(
-          userInfo.loginTime || Date.now()
-        ).toLocaleDateString();
 
-        // Load member information (from registration)
-        if (memberInfo.fullName) {
-          document.getElementById("fullName").textContent = memberInfo.fullName;
-        } else {
-          document.getElementById("fullName").textContent = userInfo.name;
-        }
+        // Set dates
+        const currentDate = new Date().toLocaleDateString();
+        document.getElementById("lastLogin").textContent = currentDate;
+        document.getElementById("accountCreated").textContent =
+          userInfo.joinDate || currentDate;
+        document.getElementById("memberSince").textContent =
+          userInfo.joinDate || currentDate;
 
+        // Load member information from userInfo (JSON data)
+        document.getElementById("fullName").textContent = userInfo.name;
         document.getElementById("studentId").textContent =
-          memberInfo.studentId || "Not provided";
+          userInfo.studentId || "Not provided";
         document.getElementById("batch").textContent =
-          memberInfo.batch || "Not provided";
+          userInfo.year || "Not provided";
         document.getElementById("phoneNumber").textContent =
-          memberInfo.phoneNumber || "Not provided";
-        document.getElementById("bloodGroup").textContent =
-          memberInfo.bloodGroup || "Not provided";
-        document.getElementById("dateOfBirth").textContent =
-          memberInfo.dateOfBirth || "Not provided";
-        document.getElementById("address").textContent =
-          memberInfo.address || "Not provided";
+          userInfo.phone || "Not provided";
+        document.getElementById("department").textContent =
+          userInfo.department || "Not provided";
+        document.getElementById("bloodGroup").textContent = "Not provided"; // Not in JSON yet
+        document.getElementById("dateOfBirth").textContent = "Not provided"; // Not in JSON yet
+        document.getElementById("address").textContent = "Not provided"; // Not in JSON yet
 
-        // Load additional information
-        if (memberInfo.interests) {
-          const interestsContainer = document.getElementById("interests");
-          if (
-            Array.isArray(memberInfo.interests) &&
-            memberInfo.interests.length > 0
-          ) {
-            interestsContainer.innerHTML = memberInfo.interests
-              .map((interest) => `<span class="skill-tag">${interest}</span>`)
-              .join("");
-          } else if (
-            typeof memberInfo.interests === "string" &&
-            memberInfo.interests
-          ) {
-            // Handle case where interests might be stored as a string
-            const interests = memberInfo.interests
-              .split(",")
-              .map((item) => item.trim());
-            interestsContainer.innerHTML = interests
-              .map((interest) => `<span class="skill-tag">${interest}</span>`)
-              .join("");
-          } else {
-            interestsContainer.textContent = "Not provided";
-          }
+        // Load additional information with better debugging
+        console.log("Interests:", userInfo.interests);
+        console.log("Skills:", userInfo.skills);
+        console.log("Bio:", userInfo.bio);
+        console.log("Phone:", userInfo.phone);
+
+        // Load interests
+        const interestsContainer = document.getElementById("interests");
+        if (
+          userInfo.interests &&
+          Array.isArray(userInfo.interests) &&
+          userInfo.interests.length > 0
+        ) {
+          interestsContainer.innerHTML = userInfo.interests
+            .map((interest) => `<span class="skill-tag">${interest}</span>`)
+            .join("");
+          console.log("Interests loaded successfully");
         } else {
-          document.getElementById("interests").textContent = "Not provided";
+          interestsContainer.textContent = "Not provided";
+          console.log("No interests found");
         }
 
-        if (memberInfo.skills) {
-          const skillsContainer = document.getElementById("skills");
-          if (
-            Array.isArray(memberInfo.skills) &&
-            memberInfo.skills.length > 0
-          ) {
-            skillsContainer.innerHTML = memberInfo.skills
-              .map((skill) => `<span class="skill-tag">${skill}</span>`)
-              .join("");
-          } else if (
-            typeof memberInfo.skills === "string" &&
-            memberInfo.skills
-          ) {
-            // Handle case where skills might be stored as a string
-            const skills = memberInfo.skills
-              .split(",")
-              .map((item) => item.trim());
-            skillsContainer.innerHTML = skills
-              .map((skill) => `<span class="skill-tag">${skill}</span>`)
-              .join("");
-          } else {
-            skillsContainer.textContent = "Not provided";
-          }
+        // Load skills
+        const skillsContainer = document.getElementById("skills");
+        if (
+          userInfo.skills &&
+          Array.isArray(userInfo.skills) &&
+          userInfo.skills.length > 0
+        ) {
+          skillsContainer.innerHTML = userInfo.skills
+            .map((skill) => `<span class="skill-tag">${skill}</span>`)
+            .join("");
+          console.log("Skills loaded successfully");
         } else {
-          document.getElementById("skills").textContent = "Not provided";
+          skillsContainer.textContent = "Not provided";
+          console.log("No skills found");
         }
 
         // Load bio in header
-        document.getElementById("userBio").textContent =
-          memberInfo.bio || "No bio provided";
+        const userBioElement = document.getElementById("userBio");
+        if (userInfo.bio && userInfo.bio.trim() !== "") {
+          userBioElement.textContent = userInfo.bio;
+          console.log("Bio loaded successfully");
+        } else {
+          userBioElement.textContent = "No bio provided";
+          console.log("No bio found");
+        }
 
         // Load bio in additional info section (for consistency)
-        document.getElementById("bio").textContent =
-          memberInfo.bio || "Not provided";
+        const bioElement = document.getElementById("bio");
+        if (userInfo.bio && userInfo.bio.trim() !== "") {
+          bioElement.textContent = userInfo.bio;
+        } else {
+          bioElement.textContent = "Not provided";
+        }
 
         // Load avatar if available
         if (userInfo.avatar) {
           document.getElementById("userAvatar").src = userInfo.avatar;
         }
+
+        // Load role information
+        if (userInfo.role) {
+          document.getElementById("userRole").textContent = userInfo.role;
+        }
+
+        console.log("User data loading completed");
       }
 
       function setupAvatarUpload() {

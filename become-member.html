@@ -23,6 +23,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <script src="scripts.js"></script>
+    <script src="login.js"></script>
   </head>
   <body>
     <nav>
@@ -210,26 +211,13 @@
       </form>
 
       <a class="back-link" href="index.html">&larr; Back to Home</a>
+
+      <!-- Download Section -->
+      <div id="downloadSection" style="display: none"></div>
     </div>
 
     <script>
-      // Password toggle function
-      function togglePasswordVisibility(inputId) {
-        const input = document.getElementById(inputId);
-        const icon = input.parentElement.querySelector(".password-toggle");
-
-        if (input.type === "password") {
-          input.type = "text";
-          icon.classList.remove("fa-eye");
-          icon.classList.add("fa-eye-slash");
-        } else {
-          input.type = "password";
-          icon.classList.remove("fa-eye-slash");
-          icon.classList.add("fa-eye");
-        }
-      }
-
-      // Password strength checker
+      // Password strength checker (local function for this page)
       document
         .getElementById("password")
         .addEventListener("input", function () {
@@ -248,61 +236,6 @@
           else if (strength === 3) strengthBar.classList.add("strength-fair");
           else if (strength === 4) strengthBar.classList.add("strength-good");
           else strengthBar.classList.add("strength-strong");
-        });
-
-      // Form validation and submission
-      document
-        .getElementById("registrationForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const password = document.getElementById("password").value;
-          const confirmPassword =
-            document.getElementById("confirmPassword").value;
-          const errorMessage = document.getElementById("errorMessage");
-          const successMessage = document.getElementById("successMessage");
-
-          // Hide previous messages
-          errorMessage.style.display = "none";
-          successMessage.style.display = "none";
-
-          // Validate passwords match
-          if (password !== confirmPassword) {
-            errorMessage.textContent = "Passwords do not match!";
-            errorMessage.style.display = "block";
-            return;
-          }
-
-          // Validate password strength
-          if (password.length < 8) {
-            errorMessage.textContent =
-              "Password must be at least 8 characters long!";
-            errorMessage.style.display = "block";
-            return;
-          }
-
-          // Simulate form submission
-          const button = document.querySelector('button[type="submit"]');
-          const originalText = button.textContent;
-          button.textContent = "Creating Account...";
-          button.disabled = true;
-
-          setTimeout(() => {
-            successMessage.textContent =
-              "Account created successfully! Welcome to CSE Club!";
-            successMessage.style.display = "block";
-            document.getElementById("registrationForm").reset();
-            document.getElementById("passwordStrength").className =
-              "password-strength-bar";
-
-            button.textContent = originalText;
-            button.disabled = false;
-
-            // Redirect to login page after 2 seconds
-            setTimeout(() => {
-              window.location.href = "login.html";
-            }, 2000);
-          }, 1500);
         });
     </script>
   </body>

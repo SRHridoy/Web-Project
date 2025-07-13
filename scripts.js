@@ -26,72 +26,10 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Login/Logout functionality
-function checkLoginStatus() {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
-  
-  // Update navigation based on login status
-  const loginLinks = document.querySelectorAll('a[href="login.html"]');
-  const becomeMemberLinks = document.querySelectorAll('a[href="become-member.html"]');
-  
-  loginLinks.forEach(link => {
-    const listItem = link.closest('li');
-    if (isLoggedIn === "true" && userInfo.name) {
-      // User is logged in - show profile option
-      link.textContent = userInfo.name;
-      link.href = "user.html";
-      link.onclick = null;
-      
-      // Add user info tooltip
-      link.title = `Logged in as ${userInfo.name}\nEmail: ${userInfo.email}\nClick to view profile`;
-    } else {
-      // User is not logged in - show login option
-      link.textContent = "Login";
-      link.href = "login.html";
-      link.onclick = null;
-      link.title = "Click to login";
-    }
-  });
-  
-  // Hide/Show "Become a Member" based on login status
-  becomeMemberLinks.forEach(link => {
-    const listItem = link.closest('li');
-    if (isLoggedIn === "true" && userInfo.name) {
-      // User is logged in - hide "Become a Member"
-      if (listItem) {
-        listItem.style.display = 'none';
-      }
-    } else {
-      // User is not logged in - show "Become a Member"
-      if (listItem) {
-        listItem.style.display = '';
-      }
-    }
-  });
-}
 
-function logout() {
-  // Clear login data
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("userInfo");
-  
-  // Show logout message
-  alert("Successfully logged out!");
-  
-  // Update navigation
-  checkLoginStatus();
-  
-  // If on login page, redirect to home
-  if (window.location.pathname.includes('login.html')) {
-    window.location.href = "index.html";
-  }
-}
 
-// Initialize login status check when page loads
+// Initialize slideshow when page loads
 document.addEventListener("DOMContentLoaded", function () {
-  checkLoginStatus();
-  
   const slides = document.querySelectorAll(".slideshow img");
   let currentIndex = 0;
 
@@ -131,3 +69,119 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+// Load and display committee members
+document.addEventListener("DOMContentLoaded", function() {
+  const teamGrid = document.getElementById("teamGrid");
+  if (teamGrid) {
+    loadCommitteeMembers();
+  }
+});
+
+async function loadCommitteeMembers() {
+  try {
+    const response = await fetch('data/committee-members.json');
+    const data = await response.json();
+    
+    const teamGrid = document.getElementById("teamGrid");
+    if (!teamGrid) return;
+    
+    // Clear existing content
+    teamGrid.innerHTML = '';
+    
+    // Get the first 8 members (key positions) for homepage display
+    const keyMembers = data.committeeMembers.slice(0, 8);
+    
+    keyMembers.forEach((member, index) => {
+      const teamCard = document.createElement('div');
+      teamCard.className = `team-card ${index >= 4 ? 'hideOnMobile' : ''}`;
+      
+      // Use actual image path from JSON, fallback to default if not found
+      const imagePath = member.image || 'images/club_logo.jpg';
+      
+      teamCard.innerHTML = `
+        <img src="${imagePath}" alt="${member.role}" class="team-photo" onerror="this.src='images/club_logo.jpg'" />
+        <div class="team-name">${member.name}</div>
+        <div class="team-role">${member.role}</div>
+        <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+        </a>
+      `;
+      
+      teamGrid.appendChild(teamCard);
+    });
+    
+    // Add the "Committee Members..." link
+    const memberBtn = document.createElement('h3');
+  } catch (error) {
+    console.error('Error loading committee members:', error);
+    // Fallback to static content if JSON loading fails
+    const teamGrid = document.getElementById("teamGrid");
+    if (teamGrid) {
+      teamGrid.innerHTML = `
+        <div class="team-card">
+          <img src="images/club_logo.jpg" alt="President" class="team-photo" />
+          <div class="team-name">Adiba Mahjabin Nitu</div>
+          <div class="team-role">President</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+      `;
+    }
+  }
+}
+
+// Load and display testimonials
+document.addEventListener("DOMContentLoaded", function() {
+  const testimonialsGrid = document.getElementById("testimonialsGrid");
+  if (testimonialsGrid) {
+    loadTestimonials();
+  }
+});
+
+async function loadTestimonials() {
+  try {
+    const response = await fetch('data/committee-members.json');
+    const data = await response.json();
+    const testimonialsGrid = document.getElementById("testimonialsGrid");
+    if (!testimonialsGrid) return;
+    testimonialsGrid.innerHTML = '';
+    // Example testimonial texts
+    const testimonialTexts = [
+      "The CSE Club helped me discover my passion for coding and teamwork. Highly recommended for all students!",
+      "Joining the club was the best decision of my university life. The events and workshops are top-notch.",
+      "Great platform for networking and skill development. Proud to be a member of this amazing community."
+    ];
+    // Use first 3 key members for testimonials
+    const keyMembers = data.committeeMembers.slice(0, 3);
+    keyMembers.forEach((member, idx) => {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+      card.innerHTML = `
+        <div class="testimonial-text">${testimonialTexts[idx]}</div>
+        <div class="testimonial-author">— ${member.name}, ${member.role}</div>
+      `;
+      testimonialsGrid.appendChild(card);
+    });
+  } catch (error) {
+    // fallback static testimonials
+    const testimonialsGrid = document.getElementById("testimonialsGrid");
+    if (testimonialsGrid) {
+      testimonialsGrid.innerHTML = `
+        <div class="testimonial-card">
+          <div class="testimonial-text">The CSE Club helped me discover my passion for coding and teamwork. Highly recommended for all students!</div>
+          <div class="testimonial-author">— Adiba Mahjabin Nitu, President</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">Joining the club was the best decision of my university life. The events and workshops are top-notch.</div>
+          <div class="testimonial-author">— Pankaj Bhowmik, Treasurer</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">Great platform for networking and skill development. Proud to be a member of this amazing community.</div>
+          <div class="testimonial-author">— Hamday Rabby Hossain (Auni), General Secretary</div>
+        </div>
+      `;
+    }
+  }
+}

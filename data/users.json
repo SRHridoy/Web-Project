@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Khaled Amin Shawon",
+      "email": "mdkhaledaminshawon@gmail.com",
+      "password": "K2102003A",
+      "studentId": "2102003",
+      "phone": "01797939155",
+      "department": "Computer Science & Engineering",
+      "year": "4th Year",
+      "role": "General Member",
+      "joinDate": "2022-01-15",
+      "interests": ["Web Development", "Machine Learning", "Competitive Programming"],
+      "skills": ["Flutter","HTML","CSS","PHP","JavaScript", "Python", "React", "Node.js"],
+      "bio": "Passionate about technology and always eager to learn new things.",
+      "avatar": "images/khaled.jpeg",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "password": "password123",
+      "studentId": "2002002",
+      "phone": "01787654321",
+      "department": "CSE",
+      "year": "2nd Year",
+      "role": "General Member",
+      "joinDate": "2023-02-20",
+      "interests": ["UI/UX Design", "Mobile Development", "Data Science"],
+      "skills": ["Figma", "Flutter", "SQL", "Java"],
+      "bio": "Creative designer with a passion for user experience.",
+      "avatar": "images/default-avatar.jpg",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Admin User",
+      "email": "admin@cseclub.com",
+      "password": "admin123",
+      "studentId": "2002000",
+      "phone": "01700000000",
+      "department": "CSE",
+      "year": "4th Year",
+      "role": "Admin",
+      "joinDate": "2022-12-01",
+      "interests": ["System Administration", "Network Security", "Database Management"],
+      "skills": ["Linux", "Docker", "MySQL", "Cybersecurity"],
+      "bio": "System administrator with expertise in network security and database management.",
+      "avatar": "images/default-avatar.jpg",
+      "isActive": true
+    }
+  ]
+} 

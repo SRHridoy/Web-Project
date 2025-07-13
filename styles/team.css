@@ -5,13 +5,13 @@
   border-radius: 14px;
   padding: 5px 10px;
 }
-.team-grid {
+.team-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
-.team-card {
+.team-card{
   background: rgba(17, 34, 64, 0.85);
   border-radius: 14px;
   border: 1.5px solid rgba(100, 255, 218, 0.18);
@@ -59,9 +59,28 @@
 .member-info .linkedin-link:hover {
   color: #fff;
 }
-.member-btn{
-  display: none;
-}
+.member-btn {
+  display: flex;
+  width: 40%;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  background: #64ffda;
+  color: #112240;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 5px auto;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  justify-content: center;
+  }
+  .member-btn:hover {
+    background: #003a5c;
+    color: #e0e0e0;
+  }
+  .member-btn a{
+    text-align: center;
+  }
 @media (max-width: 800px){
   .hideOnMobile{
     display: none;
