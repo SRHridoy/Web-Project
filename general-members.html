@@ -6,92 +6,35 @@
     <title>General Members - CSE Club of HSTU</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/hero.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/activities.css">
-    <link rel="stylesheet" href="styles/events.css">
-    <link rel="stylesheet" href="styles/gallery.css">
-    <link rel="stylesheet" href="styles/team.css">
-    <link rel="stylesheet" href="styles/projects.css">
-    <link rel="stylesheet" href="styles/testimonials.css">
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/general-members.css" />
     <script src="scripts.js"></script>
-    <style>
-      .members-section {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 20px;
-        background: #1d2a35;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      }
-      .members-section h2 {
-        color: rgb(5, 170, 108);
-        margin-bottom: 30px;
-        text-align: center;
-      }
-      .members-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 24px;
-      }
-      .member-card {
-        background: #0c1720;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.15);
-        padding: 20px 10px 16px 10px;
-        text-align: center;
-        transition: transform 0.2s, box-shadow 0.2s;
-        border: 2px solid transparent;
-      }
-      .member-card:hover {
-        transform: translateY(-8px) scale(1.04);
-        box-shadow: 0 8px 24px rgba(5, 170, 108, 0.25);
-        border: 2px solid rgb(5, 170, 108);
-      }
-      .member-photo {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid rgb(5, 170, 108);
-        margin-bottom: 12px;
-        background: #1d2a35;
-      }
-      .member-name {
-        color: #fff;
-        font-size: 1.15em;
-        font-weight: bold;
-        margin-bottom: 4px;
-      }
-      .member-info {
-        color: #b0eacd;
-        font-size: 0.98em;
-      }
-      .back-link {
-        display: block;
-        text-align: center;
-        margin-top: 28px;
-        color: #e0e0e0;
-        text-decoration: underline;
-      }
-    </style>
   </head>
   <body>
     <nav>
       <ul>
         <li>
-          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li class="hideOnMobile"><a href="index.html">Home</a></li>
         <li class="hideOnMobile">
           <a href="#">People</a>
           <ul class="dropdown-contain">
             <li><a href="current-committee.html">Current Committee</a></li>
-            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="past-presidents.html">Past Presidents</a></li>
             <li><a href="general-members.html">General Members</a></li>
             <li><a href="become-member.html">Become a Member</a></li>
           </ul>
@@ -105,22 +48,28 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
         <li class="hideOnMobile"><a href="login.html">Login</a></li>
-        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
       </ul>
-<!-- Sidebar -->
+      <!-- Sidebar -->
       <ul class="sidebar">
         <li onclick="toggleMenu()">
-          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li><a href="index.html">Home</a></li>
         <li>
           <a href="#">People</a>
           <ul class="dropdown-contain">
             <li><a href="current-committee.html">Current Committee</a></li>
-            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="past-presidents.html">Past Presidents</a></li>
             <li><a href="general-members.html">General Members</a></li>
             <li><a href="become-member.html">Become a Member</a></li>
           </ul>
@@ -141,9 +90,20 @@
     </nav>
     <div class="members-section">
       <h2>General Members</h2>
+
+      <!-- Filter Buttons -->
+      <div class="filter-container">
+        <button class="filter-btn active" data-year="all">All Members</button>
+        <button class="filter-btn" data-year="1st">1st Year</button>
+        <button class="filter-btn" data-year="2nd">2nd Year</button>
+        <button class="filter-btn" data-year="3rd">3rd Year</button>
+        <button class="filter-btn" data-year="4th">4th Year</button>
+        <button class="filter-btn" data-year="ex">Ex Members</button>
+      </div>
+
       <div class="members-grid">
         <!-- Demo Members -->
-        <div class="member-card">
+        <div class="member-card" data-year="1st">
           <img
             class="member-photo"
             src="images/seminar01.jpg"
@@ -152,7 +112,7 @@
           <div class="member-name">Arafat Rahman</div>
           <div class="member-info">CSE, 1st Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="2nd">
           <img
             class="member-photo"
             src="images/seminar02.jpg"
@@ -161,7 +121,7 @@
           <div class="member-name">Nusrat Jahan</div>
           <div class="member-info">CSE, 2nd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="3rd">
           <img
             class="member-photo"
             src="images/cricket01.jpg"
@@ -170,17 +130,17 @@
           <div class="member-name">Sakib Hasan</div>
           <div class="member-info">CSE, 3rd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="4th">
           <img class="member-photo" src="images/dean.jpg" alt="Member Photo" />
           <div class="member-name">Maliha Sultana</div>
           <div class="member-info">CSE, 4th Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="1st">
           <img class="member-photo" src="images/ful.jpg" alt="Member Photo" />
           <div class="member-name">Tanvir Ahmed</div>
           <div class="member-info">CSE, 1st Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="2nd">
           <img
             class="member-photo"
             src="images/seminar03.jpg"
@@ -189,7 +149,7 @@
           <div class="member-name">Raisa Rahman</div>
           <div class="member-info">CSE, 2nd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="3rd">
           <img
             class="member-photo"
             src="images/seminar01.jpg"
@@ -198,7 +158,7 @@
           <div class="member-name">Fahim Hossain</div>
           <div class="member-info">CSE, 3rd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="4th">
           <img
             class="member-photo"
             src="images/seminar02.jpg"
@@ -207,7 +167,7 @@
           <div class="member-name">Sumaiya Akter</div>
           <div class="member-info">CSE, 4th Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="1st">
           <img
             class="member-photo"
             src="images/cricket01.jpg"
@@ -216,17 +176,17 @@
           <div class="member-name">Jahidul Islam</div>
           <div class="member-info">CSE, 1st Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="2nd">
           <img class="member-photo" src="images/dean.jpg" alt="Member Photo" />
           <div class="member-name">Mim Sultana</div>
           <div class="member-info">CSE, 2nd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="3rd">
           <img class="member-photo" src="images/ful.jpg" alt="Member Photo" />
           <div class="member-name">Rashed Khan</div>
           <div class="member-info">CSE, 3rd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="4th">
           <img
             class="member-photo"
             src="images/seminar03.jpg"
@@ -235,7 +195,7 @@
           <div class="member-name">Tania Rahman</div>
           <div class="member-info">CSE, 4th Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="1st">
           <img
             class="member-photo"
             src="images/seminar01.jpg"
@@ -244,7 +204,7 @@
           <div class="member-name">Sohanur Rahman</div>
           <div class="member-info">CSE, 1st Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="2nd">
           <img
             class="member-photo"
             src="images/seminar02.jpg"
@@ -253,7 +213,7 @@
           <div class="member-name">Farzana Akter</div>
           <div class="member-info">CSE, 2nd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="3rd">
           <img
             class="member-photo"
             src="images/cricket01.jpg"
@@ -262,17 +222,17 @@
           <div class="member-name">Imran Hossain</div>
           <div class="member-info">CSE, 3rd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="4th">
           <img class="member-photo" src="images/dean.jpg" alt="Member Photo" />
           <div class="member-name">Shamima Nasrin</div>
           <div class="member-info">CSE, 4th Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="1st">
           <img class="member-photo" src="images/ful.jpg" alt="Member Photo" />
           <div class="member-name">Raihanul Islam</div>
           <div class="member-info">CSE, 1st Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="2nd">
           <img
             class="member-photo"
             src="images/seminar03.jpg"
@@ -281,7 +241,7 @@
           <div class="member-name">Mousumi Akter</div>
           <div class="member-info">CSE, 2nd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="3rd">
           <img
             class="member-photo"
             src="images/seminar01.jpg"
@@ -290,7 +250,7 @@
           <div class="member-name">Shuvo Sarker</div>
           <div class="member-info">CSE, 3rd Year</div>
         </div>
-        <div class="member-card">
+        <div class="member-card" data-year="4th">
           <img
             class="member-photo"
             src="images/seminar02.jpg"
@@ -299,8 +259,87 @@
           <div class="member-name">Priya Das</div>
           <div class="member-info">CSE, 4th Year</div>
         </div>
+
+        <!-- Ex Members -->
+        <div class="member-card" data-year="ex">
+          <img
+            class="member-photo"
+            src="images/seminar01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Ahmed Khan</div>
+          <div class="member-info">CSE, Ex Member</div>
+        </div>
+        <div class="member-card" data-year="ex">
+          <img
+            class="member-photo"
+            src="images/seminar02.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Fatima Begum</div>
+          <div class="member-info">CSE, Ex Member</div>
+        </div>
+        <div class="member-card" data-year="ex">
+          <img
+            class="member-photo"
+            src="images/cricket01.jpg"
+            alt="Member Photo"
+          />
+          <div class="member-name">Karim Uddin</div>
+          <div class="member-info">CSE, Ex Member</div>
+        </div>
       </div>
       <a class="back-link" href="index.html">&larr; Back to Home</a>
     </div>
+
+    <script>
+      // Member filtering functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const memberCards = document.querySelectorAll(".member-card");
+        const membersGrid = document.querySelector(".members-grid");
+
+        // Initialize all cards as visible
+        memberCards.forEach((card) => {
+          card.classList.add("visible");
+        });
+
+        // Add click event to filter buttons
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const selectedYear = this.getAttribute("data-year");
+
+            // Update active button
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            // First hide all cards
+            memberCards.forEach((card) => {
+              card.classList.remove("visible");
+              card.classList.add("hidden");
+            });
+
+            // Then show filtered cards with staggered animation
+            setTimeout(() => {
+              const visibleCards = [];
+              memberCards.forEach((card) => {
+                const cardYear = card.getAttribute("data-year");
+                if (selectedYear === "all" || cardYear === selectedYear) {
+                  visibleCards.push(card);
+                }
+              });
+
+              // Show cards with staggered delay
+              visibleCards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.remove("hidden");
+                  card.classList.add("visible");
+                }, index * 150); // 150ms delay between each card
+              });
+            }, 400);
+          });
+        });
+      });
+    </script>
   </body>
 </html>

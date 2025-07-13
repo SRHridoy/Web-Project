@@ -1,0 +1,288 @@
+/* general-members.css - General Members page styles */
+body {
+  background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1a2332 100%);
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+}
+
+.members-section {
+  margin: 48px 10px;
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  border-radius: 14px;
+  padding: 5px 10px;
+  background: rgba(17, 34, 64, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.members-section h2 {
+  color: #64ffda;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.members-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+  border-radius: 1px;
+}
+
+/* Filter Container */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(17, 34, 64, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(100, 255, 218, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.filter-btn {
+  background: rgba(17, 34, 64, 0.8);
+  color: #bfc9d1;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(4px);
+}
+
+.filter-btn:hover {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  border-color: rgba(100, 255, 218, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(100, 255, 218, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.filter-btn.active {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 255, 218, 0.2) 0%,
+    rgba(100, 255, 218, 0.1) 100%
+  );
+  color: #64ffda;
+  border-color: rgba(100, 255, 218, 0.5);
+  box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
+  font-weight: 600;
+}
+
+/* Member Card Filter Animation */
+.member-card {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.member-card.hidden {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+  animation: none;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.member-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  position: relative;
+  visibility: visible;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  position: relative;
+  min-height: 400px;
+  justify-items: center;
+  align-items: start;
+}
+
+.member-card {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 35, 50, 0.95) 0%,
+    rgba(17, 34, 64, 0.9) 100%
+  );
+  border-radius: 14px;
+  border: 1.5px solid rgba(100, 255, 218, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 2px 16px rgba(100, 255, 218, 0.1);
+  padding: 1rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+  backdrop-filter: blur(8px);
+  width: 180px;
+  height: 220px;
+  box-sizing: border-box;
+}
+
+.member-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+    0 6px 30px rgba(100, 255, 218, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 45, 60, 0.98) 0%,
+    rgba(20, 40, 70, 0.95) 100%
+  );
+  border-color: rgba(100, 255, 218, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.member-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  border: 3px solid #64ffda;
+  box-shadow: 0 2px 8px rgba(100, 255, 218, 0.13);
+}
+
+.member-name {
+  font-size: 1em;
+  color: #64ffda;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.member-info {
+  color: #bfc9d1;
+  font-size: 0.9em;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #64ffda;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(100, 255, 218, 0.05);
+}
+
+.back-link:hover {
+  background: rgba(100, 255, 218, 0.1);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .members-section {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .members-section h2 {
+    font-size: 2rem;
+  }
+
+  .filter-container {
+    gap: 0.6rem;
+    padding: 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .member-card {
+    width: 160px;
+    height: 200px;
+  }
+
+  .member-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .members-section {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .members-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .filter-container {
+    gap: 0.4rem;
+    padding: 0.6rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-card {
+    width: 140px;
+    height: 180px;
+  }
+
+  .member-photo {
+    width: 80px;
+    height: 80px;
+  }
+}
