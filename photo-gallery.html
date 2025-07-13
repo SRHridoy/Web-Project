@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery - CSE Club HSTU</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/activities.css">
+    <link rel="stylesheet" href="styles/events.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <link rel="stylesheet" href="styles/team.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <link rel="stylesheet" href="styles/testimonials.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <script src="scripts.js"></script>
+    <style>
+      .gallery-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .gallery-section {
+        margin-bottom: 50px;
+        background: linear-gradient(135deg, #112240, #0a192f);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .gallery-section h2 {
+        color: #64ffda;
+        font-size: 2em;
+        margin-bottom: 25px;
+        text-align: center;
+        text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.02);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid rgba(100, 255, 218, 0.1);
+      }
+
+      .gallery-item .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
+        padding: 20px;
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+
+      .gallery-item .overlay h3 {
+        color: #64ffda;
+        margin: 0 0 5px 0;
+        font-size: 1.2em;
+      }
+
+      .gallery-item .overlay p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #8892b0;
+      }
+
+      /* Lightbox styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 25, 47, 0.95);
+        z-index: 1000;
+        padding: 40px;
+      }
+
+      .lightbox.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90vh;
+        border-radius: 10px;
+        border: 3px solid #64ffda;
+      }
+
+      .close-lightbox {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #64ffda;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+      </ul>
+<!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <div class="gallery-container">
+      <div class="gallery-section">
+        <h2>Seminars and Workshops</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/seminar01.jpg" alt="Seminar 1" />
+            <div class="overlay">
+              <h3>AI Seminar</h3>
+              <p>April 2025</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/seminar02.jpg" alt="Seminar 2" />
+            <div class="overlay">
+              <h3>Web Development Workshop</h3>
+              <p>February 2025</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/seminar03.jpg" alt="Seminar 3" />
+            <div class="overlay">
+              <h3>Cyber Security Seminar</h3>
+              <p>March 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Sports Events</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/cricket01.jpg" alt="Cricket Match" />
+            <div class="overlay">
+              <h3>Inter-Department Cricket</h3>
+              <p>January 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Other Events</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/dean.jpg" alt="Meeting with Dean" />
+            <div class="overlay">
+              <h3>Meeting with Dean</h3>
+              <p>May 2025</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/ful.jpg" alt="Cultural Program" />
+            <div class="overlay">
+              <h3>Spring Festival</h3>
+              <p>February 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox">
+      <span class="close-lightbox">&times;</span>
+      <img src="" alt="Lightbox Image" />
+    </div>
+
+    <script>
+      // Lightbox functionality
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const lightbox = document.querySelector(".lightbox");
+      const lightboxImg = lightbox.querySelector("img");
+      const closeLightbox = document.querySelector(".close-lightbox");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const imgSrc = item.querySelector("img").src;
+          lightboxImg.src = imgSrc;
+          lightbox.classList.add("active");
+        });
+      });
+
+      closeLightbox.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
