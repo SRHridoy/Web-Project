@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #005b8f;
+        --secondary: #f9a826;
+        --accent: #e0f2fe;
+        --bg: #f5f7fa;
+        --dark: #222;
+        --light: #fff;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "Montserrat", "Roboto", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--dark);
+      }
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 2rem;
+        background: var(--light);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--primary);
+        text-decoration: none;
+      }
+      .navbar .logo img {
+        height: 38px;
+        border-radius: 50%;
+      }
+      .navbar nav {
+        display: flex;
+        gap: 1.2rem;
+      }
+      .navbar nav a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .navbar nav a:hover {
+        background: var(--primary);
+        color: var(--light);
+      }
+      .navbar .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+      }
+      @media (max-width: 900px) {
+        .navbar nav {
+          display: none;
+          position: absolute;
+          top: 60px;
+          right: 2rem;
+          background: var(--light);
+          flex-direction: column;
+          gap: 0;
+          box-shadow: var(--shadow);
+          border-radius: 8px;
+          min-width: 180px;
+        }
+        .navbar nav.open {
+          display: flex;
+        }
+        .navbar .menu-toggle {
+          display: block;
+        }
+      }
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(0, 91, 143, 0.7),
+            rgba(0, 91, 143, 0.7)
+          ),
+          url("images/seminar01.jpg") center/cover no-repeat;
+        color: var(--light);
+        text-align: center;
+        padding: 5rem 1rem 6rem 1rem;
+        position: relative;
+      }
+      .hero h1 {
+        font-size: 2.7rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+      }
+      .hero .cta-btns {
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .hero .cta-btns a {
+        background: var(--secondary);
+        color: var(--dark);
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow);
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+      }
+      .hero .cta-btns a:hover {
+        background: var(--primary);
+        color: var(--light);
+        transform: translateY(-2px) scale(1.04);
+      }
+      /* About Section */
+      .about-section {
+        background: var(--light);
+        margin: 2.5rem auto;
+        max-width: 1100px;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        padding: 2.5rem 1.5rem 2rem 1.5rem;
+      }
+      .about-section h2 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      .about-section .about-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        align-items: flex-start;
+      }
+      .about-section .about-text {
+        flex: 2;
+        min-width: 250px;
+      }
+      .about-section .about-message {
+        flex: 1;
+        min-width: 220px;
+        background: var(--accent);
+        border-radius: 10px;
+        padding: 1.2rem 1rem;
+        margin-top: 1rem;
+        font-style: italic;
+        color: var(--primary);
+        box-shadow: 0 2px 8px rgba(0, 91, 143, 0.07);
+      }
+      /* Featured Activities */
+      .activities-section {
+        max-width: 1100px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+      }
+      .activities-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+      }
+      .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+      }
+      .activity-card {
+        background: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        transition: transform 0.18s, box-shadow 0.18s;
+        position: relative;
+      }
+      .activity-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0, 91, 143, 0.13);
+      }
+      .activity-card .icon {
+        font-size: 2.2rem;
+        margin-bottom: 0.7rem;
+        color: var(--secondary);
+      }
+      .activity-card h3 {
+        margin: 0.3rem 0 0.7rem 0;
+        color: var(--primary);
+      }
+      .activity-card .learn-btn {
+        margin-top: 1rem;
+        background: var(--primary);
+        color: var(--light);
+        border: none;
+        border-radius: 20px;
+        padding: 0.5rem 1.3rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .activity-card .learn-btn:hover {
+        background: var(--secondary);
+        color: var(--dark);
+      }
+      /* Upcoming Events */
+      .events-section {
+        background: var(--accent);
+        padding: 2.5rem 1rem;
+        margin: 2.5rem 0;
+      }
+      .events-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+        text-align: center;
+      }
+      .events-slider {
+        display: flex;
+        gap: 1.2rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 0.5rem;
+      }
+      .event-card {
+        min-width: 270px;
+        background: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 1.2rem 1rem;
+        margin-bottom: 0.5rem;
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        transition: transform 0.18s, box-shadow 0.18s;
+        position: relative;
+      }
+      .event-card:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0, 91, 143, 0.13);
+      }
+      .event-card .event-title {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.4rem;
+      }
+      .event-card .event-date {
+        color: var(--secondary);
+        font-size: 1.05rem;
+        margin-bottom: 0.3rem;
+      }
+      .event-card .event-location {
+        font-size: 0.98rem;
+        margin-bottom: 0.7rem;
+        color: #555;
+      }
+      .event-card .register-btn {
+        background: var(--secondary);
+        color: var(--dark);
+        border: none;
+        border-radius: 18px;
+        padding: 0.45rem 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .event-card .register-btn:hover {
+        background: var(--primary);
+        color: var(--light);
+      }
+      /* Projects */
+      .projects-section {
+        max-width: 1100px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+      }
+      .projects-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+      .project-card {
+        background: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 1.3rem 1.1rem;
+        transition: transform 0.18s, box-shadow 0.18s;
+        position: relative;
+      }
+      .project-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0, 91, 143, 0.13);
+      }
+      .project-card .project-title {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.4rem;
+      }
+      .project-card .project-stack {
+        font-size: 0.98rem;
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+      }
+      .project-card .project-desc {
+        font-size: 0.97rem;
+        margin-bottom: 0.7rem;
+        color: #444;
+      }
+      .project-card .project-links a {
+        margin-right: 0.7rem;
+        color: var(--primary);
+        text-decoration: underline;
+        font-size: 0.98rem;
+        transition: color 0.2s;
+      }
+      .project-card .project-links a:hover {
+        color: var(--secondary);
+      }
+      /* Team */
+      .team-section {
+        background: var(--accent);
+        padding: 2.5rem 1rem;
+        margin: 2.5rem 0;
+      }
+      .team-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+        text-align: center;
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .team-card {
+        background: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 1.1rem 0.7rem 1.3rem 0.7rem;
+        text-align: center;
+        transition: transform 0.18s, box-shadow 0.18s;
+        position: relative;
+      }
+      .team-card:hover {
+        transform: translateY(-4px) scale(1.04);
+        box-shadow: 0 8px 32px rgba(0, 91, 143, 0.13);
+      }
+      .team-card img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 0.7rem;
+        border: 3px solid var(--primary);
+      }
+      .team-card .team-name {
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 0.2rem;
+      }
+      .team-card .team-role {
+        font-size: 0.98rem;
+        color: var(--secondary);
+        margin-bottom: 0.4rem;
+      }
+      .team-card .team-linkedin {
+        color: #0a66c2;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .team-card .team-linkedin:hover {
+        color: #004182;
+      }
+      /* Gallery */
+      .gallery-section {
+        max-width: 1100px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+      }
+      .gallery-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+      }
+      .gallery-grid img {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+        height: 120px;
+        transition: transform 0.18s, box-shadow 0.18s;
+        box-shadow: 0 2px 8px rgba(0, 91, 143, 0.07);
+        cursor: pointer;
+      }
+      .gallery-grid img:hover {
+        transform: scale(1.07);
+        box-shadow: 0 8px 32px rgba(0, 91, 143, 0.13);
+      }
+      /* Blog/News */
+      .blog-section {
+        max-width: 1100px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+      }
+      .blog-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+      }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+      .blog-card {
+        background: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 1.2rem 1rem;
+        transition: transform 0.18s, box-shadow 0.18s;
+        position: relative;
+      }
+      .blog-card:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0, 91, 143, 0.13);
+      }
+      .blog-card .blog-title {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.4rem;
+      }
+      .blog-card .blog-date {
+        color: var(--secondary);
+        font-size: 0.98rem;
+        margin-bottom: 0.3rem;
+      }
+      .blog-card .blog-desc {
+        font-size: 0.97rem;
+        margin-bottom: 0.7rem;
+        color: #444;
+      }
+      /* Testimonials */
+      .testimonials-section {
+        background: var(--accent);
+        padding: 2.5rem 1rem;
+        margin: 2.5rem 0;
+      }
+      .testimonials-section h2 {
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+        text-align: center;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .testimonial-card {
+        background: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 1.2rem 1rem;
+        font-style: italic;
+        color: #333;
+        position: relative;
+      }
+      .testimonial-card .testimonial-author {
+        margin-top: 1rem;
+        font-weight: 600;
+        color: var(--primary);
+        font-style: normal;
+      }
+      /* Contact/Footer */
+      footer {
+        background: var(--primary);
+        color: var(--light);
+        padding: 2.2rem 1rem 1.2rem 1rem;
+        text-align: center;
+        margin-top: 2.5rem;
+      }
+      .footer-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1100px;
+        margin: 0 auto 1.2rem auto;
+        gap: 2rem;
+      }
+      .footer-contact,
+      .footer-social,
+      .footer-form {
+        flex: 1 1 220px;
+        min-width: 200px;
+      }
+      .footer-contact h3,
+      .footer-social h3,
+      .footer-form h3 {
+        color: var(--secondary);
+        margin-bottom: 0.7rem;
+      }
+      .footer-social a {
+        color: var(--light);
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        transition: color 0.2s;
+        text-decoration: none;
+      }
+      .footer-social a:hover {
+        color: var(--secondary);
+      }
+      .footer-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .footer-form input,
+      .footer-form textarea {
+        border: none;
+        border-radius: 6px;
+        padding: 0.6rem;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+      .footer-form textarea {
+        min-height: 60px;
+        resize: vertical;
+      }
+      .footer-form button {
+        background: var(--secondary);
+        color: var(--dark);
+        border: none;
+        border-radius: 20px;
+        padding: 0.5rem 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .footer-form button:hover {
+        background: var(--light);
+        color: var(--primary);
+      }
+      .footer-bottom {
+        margin-top: 1.2rem;
+        font-size: 0.98rem;
+        color: #e0e0e0;
+      }
+      @media (max-width: 700px) {
+        .about-section .about-flex {
+          flex-direction: column;
+        }
+        .footer-flex {
+          flex-direction: column;
+          gap: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header/Navbar -->
+    <header>
+      <div class="navbar">
+        <a href="#" class="logo">
+          <img src="images/club_logo.jpg" alt="CSE Club Logo" />
+          CSE Club of HSTU
+        </a>
+        <button class="menu-toggle" id="menuToggle">&#9776;</button>
+        <nav id="mainNav">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#events">Events</a>
+          <a href="#projects">Projects</a>
+          <a href="#team">Team</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#blog">Blog / News</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <h1>Welcome to CSE Club of HSTU</h1>
+      <p>Innovate | Learn | Lead</p>
+      <div class="cta-btns">
+        <a href="#contact">Join Us</a>
+        <a href="#events">Explore Events</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <h2>আমাদের সম্পর্কে – About the Club</h2>
+      <div class="about-flex">
+        <div class="about-text">
+          <p>
+            The CSE Club of HSTU is a vibrant community of students and faculty
+            members dedicated to fostering innovation, collaboration, and
+            excellence in the field of Computer Science and Engineering.
+          </p>
+          <ul>
+            <li>
+              <b>Mission:</b> To empower students with technical skills,
+              leadership, and teamwork through diverse activities.
+            </li>
+            <li>
+              <b>Vision:</b> To be a leading student organization in technology,
+              creativity, and social impact at HSTU.
+            </li>
+          </ul>
+        </div>
+        <div class="about-message">
+          <b>Message from the President:</b><br />
+          "We welcome all passionate learners to join our journey of innovation
+          and growth. Together, we can make a difference!"
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Activities -->
+    <section class="activities-section" id="activities">
+      <h2>Featured Activities – ক্লাবের কার্যক্রম</h2>
+      <div class="activities-grid">
+        <div class="activity-card">
+          <div class="icon">💻</div>
+          <h3>Programming Contests</h3>
+          <p>Sharpen your coding skills and compete with the best minds.</p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+        <div class="activity-card">
+          <div class="icon">🎤</div>
+          <h3>Workshops & Seminars</h3>
+          <p>Hands-on learning from industry experts and faculty.</p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+        <div class="activity-card">
+          <div class="icon">🚀</div>
+          <h3>Tech Fest</h3>
+          <p>Showcase your innovations and explore new technologies.</p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+        <div class="activity-card">
+          <div class="icon">👨‍💻</div>
+          <h3>Hackathons</h3>
+          <p>Collaborate, build, and solve real-world problems in teams.</p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+        <div class="activity-card">
+          <div class="icon">🤝</div>
+          <h3>Community Outreach</h3>
+          <p>Engage in social impact projects and tech awareness campaigns.</p>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="events-section" id="events">
+      <h2>ঘটনাবলি – Upcoming Events</h2>
+      <div class="events-slider" id="eventsSlider">
+        <!-- Event cards will be injected by JS -->
+      </div>
+    </section>
+
+    <!-- Recent Projects -->
+    <section class="projects-section" id="projects">
+      <h2>প্রযুক্তি উদ্ভাবন – Recent Projects</h2>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project cards will be injected by JS -->
+      </div>
+    </section>
+
+    <!-- Executive Team -->
+    <section class="team-section" id="team">
+      <h2>টিম সদস্য – Meet the Executive Team</h2>
+      <div class="team-grid" id="teamGrid">
+        <!-- Team cards will be injected by JS -->
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section" id="gallery">
+      <h2>ক্লাব গ্যালারি – Club Gallery</h2>
+      <div class="gallery-grid">
+        <img src="images/seminar01.jpg" alt="Gallery 1" />
+        <img src="images/seminar02.jpg" alt="Gallery 2" />
+        <img src="images/seminar03.jpg" alt="Gallery 3" />
+        <img src="images/cricket01.jpg" alt="Gallery 4" />
+        <img src="images/ful.jpg" alt="Gallery 5" />
+        <img src="images/dean.jpg" alt="Gallery 6" />
+      </div>
+    </section>
+
+    <!-- Blog/News -->
+    <section class="blog-section" id="blog">
+      <h2>Blog / News – ব্লগ ও সংবাদ</h2>
+      <div class="blog-grid" id="blogGrid">
+        <!-- Blog cards will be injected by JS -->
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+      <h2>Testimonials – মতামত</h2>
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <!-- Testimonial cards will be injected by JS -->
+      </div>
+    </section>
+
+    <!-- Contact/Footer -->
+    <footer id="contact">
+      <div class="footer-flex">
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>
+            Email:
+            <a href="mailto:cseclub@hstu.ac.bd" style="color: #fff"
+              >cseclub@hstu.ac.bd</a
+            >
+          </p>
+          <p>Department of CSE, HSTU</p>
+          <p>Dinajpur, Bangladesh</p>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <a href="#" title="Facebook">&#x1F426;</a>
+          <a href="#" title="Instagram">&#x1F33A;</a>
+          <a href="#" title="GitHub">&#x1F5C3;</a>
+        </div>
+        <div class="footer-form">
+          <h3>যোগাযোগ করুন</h3>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send</button>
+            <div
+              id="formMsg"
+              style="font-size: 0.98rem; margin-top: 0.5rem"
+            ></div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 CSE Club of HSTU. All rights reserved. |
+        <a href="#" style="color: #e0e0e0">Privacy Policy</a> |
+        <a href="#" style="color: #e0e0e0">Terms</a>
+      </div>
+    </footer>
+
+    <script>
+      // Navbar mobile toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const mainNav = document.getElementById("mainNav");
+      menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("open");
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) mainNav.classList.remove("open");
+      });
+
+      // Demo data for events
+      const events = [
+        {
+          title: "Seminar on Artificial Intelligence",
+          date: "April 2025",
+          location: "CSE Seminar Hall",
+          link: "#",
+        },
+        {
+          title: "Annual Coding Contest",
+          date: "March 2025",
+          location: "Online",
+          link: "#",
+        },
+        {
+          title: "Workshop on Web Development",
+          date: "February 2025",
+          location: "CSE Lab 2",
+          link: "#",
+        },
+        {
+          title: "Tech Fest 2025",
+          date: "May 2025",
+          location: "HSTU Campus",
+          link: "#",
+        },
+        {
+          title: "Hackathon: Solve for Bangladesh",
+          date: "June 2025",
+          location: "Online",
+          link: "#",
+        },
+      ];
+      const eventsSlider = document.getElementById("eventsSlider");
+      events.forEach((ev) => {
+        eventsSlider.innerHTML += `
+          <div class="event-card">
+            <div class="event-title">${ev.title}</div>
+            <div class="event-date">${ev.date}</div>
+            <div class="event-location">${ev.location}</div>
+            <a href="${ev.link}" class="register-btn">Register</a>
+          </div>
+        `;
+      });
+
+      // Demo data for projects
+      const projects = [
+        {
+          title: "Smart Attendance System",
+          stack: "Python, Flask, MySQL",
+          desc: "Automated attendance using face recognition.",
+          github: "#",
+          demo: "#",
+        },
+        {
+          title: "Club Website",
+          stack: "HTML, CSS, JS",
+          desc: "Official website for CSE Club of HSTU.",
+          github: "#",
+          demo: "#",
+        },
+        {
+          title: "Event Management App",
+          stack: "React Native, Firebase",
+          desc: "Mobile app for event registration and updates.",
+          github: "#",
+          demo: "#",
+        },
+        {
+          title: "Online Judge Platform",
+          stack: "Node.js, MongoDB",
+          desc: "Practice coding and compete online.",
+          github: "#",
+          demo: "#",
+        },
+      ];
+      const projectsGrid = document.getElementById("projectsGrid");
+      projects.forEach((pr) => {
+        projectsGrid.innerHTML += `
+          <div class="project-card">
+            <div class="project-title">${pr.title}</div>
+            <div class="project-stack">${pr.stack}</div>
+            <div class="project-desc">${pr.desc}</div>
+            <div class="project-links">
+              <a href="${pr.github}" target="_blank">GitHub</a>
+              <a href="${pr.demo}" target="_blank">Live Demo</a>
+            </div>
+          </div>
+        `;
+      });
+
+      // Demo data for team
+      const team = [
+        {
+          img: "images/cricket01.jpg",
+          name: "Adiba Mahjabin Nitu",
+          role: "President",
+          linkedin: "#",
+        },
+        {
+          img: "images/ful.jpg",
+          name: "Pankaj Bhowmick",
+          role: "Treasurer",
+          linkedin: "#",
+        },
+        {
+          img: "images/seminar01.jpg",
+          name: "Md. Nishat Ahmed",
+          role: "Vice President",
+          linkedin: "#",
+        },
+        {
+          img: "images/seminar02.jpg",
+          name: "Sadia Rahman",
+          role: "General Secretary",
+          linkedin: "#",
+        },
+        {
+          img: "images/seminar03.jpg",
+          name: "Tanvir Hasan",
+          role: "Joint Secretary",
+          linkedin: "#",
+        },
+        {
+          img: "images/dean.jpg",
+          name: "Raisa Sultana",
+          role: "Event Coordinator",
+          linkedin: "#",
+        },
+        {
+          img: "images/seminar01.jpg",
+          name: "Fahim Hossain",
+          role: "Assistant Treasurer",
+          linkedin: "#",
+        },
+        {
+          img: "images/seminar02.jpg",
+          name: "Sumaiya Akter",
+          role: "Public Relations",
+          linkedin: "#",
+        },
+        {
+          img: "images/cricket01.jpg",
+          name: "Jahidul Islam",
+          role: "IT Secretary",
+          linkedin: "#",
+        },
+        {
+          img: "images/ful.jpg",
+          name: "Mim Sultana",
+          role: "Cultural Secretary",
+          linkedin: "#",
+        },
+      ];
+      const teamGrid = document.getElementById("teamGrid");
+      team.forEach((member) => {
+        teamGrid.innerHTML += `
+          <div class="team-card">
+            <img src="${member.img}" alt="${member.role}" />
+            <div class="team-name">${member.name}</div>
+            <div class="team-role">${member.role}</div>
+            <a href="${member.linkedin}" class="team-linkedin" target="_blank" title="LinkedIn">in</a>
+          </div>
+        `;
+      });
+
+      // Demo data for blog/news
+      const blogs = [
+        {
+          title: "How to Prepare for Programming Contests",
+          date: "Feb 2025",
+          desc: "Tips and resources for beginners and advanced coders.",
+        },
+        {
+          title: "CSE Club Tech Fest 2025 Announced!",
+          date: "Jan 2025",
+          desc: "Get ready for the biggest tech event of the year.",
+        },
+        {
+          title: "Workshop Recap: Web Development",
+          date: "Dec 2024",
+          desc: "A summary of our latest hands-on workshop.",
+        },
+      ];
+      const blogGrid = document.getElementById("blogGrid");
+      blogs.forEach((blog) => {
+        blogGrid.innerHTML += `
+          <div class="blog-card">
+            <div class="blog-title">${blog.title}</div>
+            <div class="blog-date">${blog.date}</div>
+            <div class="blog-desc">${blog.desc}</div>
+          </div>
+        `;
+      });
+
+      // Demo data for testimonials
+      const testimonials = [
+        {
+          quote:
+            "Joining the CSE Club was the best decision of my university life!",
+          author: "Alif Hossain, Ex-President",
+        },
+        {
+          quote: "The workshops and contests helped me land my first job.",
+          author: "Sadia Rahman, Member",
+        },
+        {
+          quote: "A wonderful platform for networking and learning.",
+          author: "Dr. Mahmudul Hasan, Faculty Advisor",
+        },
+      ];
+      const testimonialsGrid = document.getElementById("testimonialsGrid");
+      testimonials.forEach((t) => {
+        testimonialsGrid.innerHTML += `
+          <div class="testimonial-card">
+            “${t.quote}”
+            <div class="testimonial-author">— ${t.author}</div>
+          </div>
+        `;
+      });
+
+      // Contact form (demo, no backend)
+      const contactForm = document.getElementById("contactForm");
+      const formMsg = document.getElementById("formMsg");
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        formMsg.textContent = "Thank you for contacting us! (Demo only)";
+        contactForm.reset();
+        setTimeout(() => {
+          formMsg.textContent = "";
+        }, 3500);
+      });
+    </script>
+  </body>
+</html>
