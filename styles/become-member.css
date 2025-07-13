@@ -1,0 +1,277 @@
+/* Become Member Page Styles */
+.registration-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background: linear-gradient(
+    135deg,
+    rgba(29, 42, 53, 0.9),
+    rgba(12, 23, 32, 0.95)
+  );
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #64ffda, #0a192f, #64ffda);
+}
+
+.registration-container h2 {
+  color: #64ffda;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.registration-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #8892b0;
+  font-weight: 500;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Password field container */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.registration-form input,
+.registration-form select {
+  width: 100%;
+  padding: 15px 18px;
+  border: 2px solid rgba(100, 255, 218, 0.2);
+  border-radius: 12px;
+  background: rgba(10, 25, 47, 0.8);
+  color: #e6f1ff;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+/* Password toggle icon */
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #8892b0;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.password-toggle:hover {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+}
+
+.password-toggle:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Adjust input padding for password fields */
+.password-field input {
+  padding-right: 50px;
+}
+
+.registration-form input:focus,
+.registration-form select:focus {
+  outline: none;
+  border-color: #64ffda;
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+  background: rgba(10, 25, 47, 0.9);
+}
+
+.registration-form input::placeholder {
+  color: #8892b0;
+}
+
+.registration-form select option {
+  background: #0a192f;
+  color: #e6f1ff;
+  padding: 10px;
+}
+
+.registration-form button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #64ffda, #0a192f);
+  color: #0a192f;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.registration-form button:hover::before {
+  left: 100%;
+}
+
+.registration-form button:hover {
+  background: linear-gradient(135deg, #0a192f, #64ffda);
+  color: #64ffda;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+}
+
+.registration-form button:active {
+  transform: translateY(0);
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  color: #8892b0;
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.back-link:hover {
+  color: #64ffda;
+  background: rgba(100, 255, 218, 0.1);
+  text-decoration: none;
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 5px;
+  height: 4px;
+  border-radius: 2px;
+  background: #333;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.strength-weak {
+  background: #ff4757;
+  width: 25%;
+}
+.strength-fair {
+  background: #ffa502;
+  width: 50%;
+}
+.strength-good {
+  background: #2ed573;
+  width: 75%;
+}
+.strength-strong {
+  background: #64ffda;
+  width: 100%;
+}
+
+/* Error and success messages */
+.message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  display: none;
+}
+
+.error-message {
+  background: rgba(255, 71, 87, 0.1);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  color: #ff4757;
+}
+
+.success-message {
+  background: rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  color: #64ffda;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .registration-container {
+    margin: 40px 20px;
+    padding: 30px 25px;
+  }
+
+  .registration-container h2 {
+    font-size: 1.8em;
+  }
+
+  .registration-form input,
+  .registration-form select {
+    padding: 12px 15px;
+  }
+
+  .registration-form button {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .registration-container {
+    margin: 30px 15px;
+    padding: 25px 20px;
+  }
+
+  .registration-container h2 {
+    font-size: 1.6em;
+  }
+}

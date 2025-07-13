@@ -4,83 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Become a Member - CSE Club of HSTU</title>
-    <link rel="stylesheet" href="styles/styles.css" />
     <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/hero.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/activities.css">
-    <link rel="stylesheet" href="styles/events.css">
-    <link rel="stylesheet" href="styles/gallery.css">
-    <link rel="stylesheet" href="styles/team.css">
-    <link rel="stylesheet" href="styles/projects.css">
-    <link rel="stylesheet" href="styles/testimonials.css">
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/become-member.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <script src="scripts.js"></script>
-    <style>
-      .registration-container {
-        max-width: 400px;
-        margin: 40px auto;
-        background: #1d2a35;
-        padding: 30px 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      }
-      .registration-container h2 {
-        color: rgb(5, 170, 108);
-        margin-bottom: 20px;
-      }
-      .registration-form label {
-        display: block;
-        margin-bottom: 6px;
-        color: #e0e0e0;
-        text-align: left;
-      }
-      .registration-form input,
-      .registration-form select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 1px solid #333;
-        border-radius: 5px;
-        background: #0c1720;
-        color: #e0e0e0;
-      }
-      .registration-form button {
-        width: 100%;
-        padding: 12px;
-        background: rgb(5, 170, 108);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1em;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      .registration-form button:hover {
-        background: #138d6a;
-      }
-      .back-link {
-        display: block;
-        text-align: center;
-        margin-top: 18px;
-        color: #e0e0e0;
-        text-decoration: underline;
-      }
-      @media (max-width: 500px) {
-        .registration-container {
-          padding: 18px 5px;
-        }
-      }
-    </style>
   </head>
   <body>
     <nav>
       <ul>
         <li>
-          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li class="hideOnMobile"><a href="index.html">Home</a></li>
         <li class="hideOnMobile">
@@ -101,15 +51,21 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
         <li class="hideOnMobile"><a href="login.html">Login</a></li>
-        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
       </ul>
-<!-- Sidebar -->
+      <!-- Sidebar -->
       <ul class="sidebar">
         <li onclick="toggleMenu()">
-          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li><a href="index.html">Home</a></li>
         <li>
@@ -135,45 +91,219 @@
         <li><a href="login.html">Login</a></li>
       </ul>
     </nav>
-    
+
     <div class="registration-container">
       <h2>Become a Member</h2>
-      <form class="registration-form">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
+      <!-- Messages -->
+      <div id="errorMessage" class="message error-message"></div>
+      <div id="successMessage" class="message success-message"></div>
 
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" required />
+      <form class="registration-form" id="registrationForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
 
-        <label for="department">Department</label>
-        <input type="text" id="department" name="department" required />
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
 
-        <label for="year">Year</label>
-        <select id="year" name="year" required>
-          <option value="">Select Year</option>
-          <option value="1st">1st Year</option>
-          <option value="2nd">2nd Year</option>
-          <option value="3rd">3rd Year</option>
-          <option value="4th">4th Year</option>
-        </select>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
+        <div class="form-group">
+          <label for="studentId">Student ID</label>
+          <input
+            type="text"
+            id="studentId"
+            name="studentId"
+            placeholder="Enter your student ID"
+            required
+          />
+        </div>
 
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-          required
-        />
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="CSE">Computer Science & Engineering</option>
+            <option value="EEE">Electrical & Electronic Engineering</option>
+            <option value="ME">Mechanical Engineering</option>
+            <option value="CE">Civil Engineering</option>
+            <option value="TE">Textile Engineering</option>
+            <option value="FE">Food Engineering</option>
+            <option value="AE">Agricultural Engineering</option>
+          </select>
+        </div>
 
-        <button type="submit">Register</button>
+        <div class="form-group">
+          <label for="year">Year</label>
+          <select id="year" name="year" required>
+            <option value="">Select Year</option>
+            <option value="1st">1st Year</option>
+            <option value="2nd">2nd Year</option>
+            <option value="3rd">3rd Year</option>
+            <option value="4th">4th Year</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a strong password"
+              required
+            />
+            <i
+              class="fas fa-eye password-toggle"
+              onclick="togglePasswordVisibility('password')"
+            ></i>
+          </div>
+          <div class="password-strength">
+            <div class="password-strength-bar" id="passwordStrength"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="password-field">
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              required
+            />
+            <i
+              class="fas fa-eye password-toggle"
+              onclick="togglePasswordVisibility('confirmPassword')"
+            ></i>
+          </div>
+        </div>
+
+        <button type="submit">Create Account</button>
       </form>
+
       <a class="back-link" href="index.html">&larr; Back to Home</a>
     </div>
+
+    <script>
+      // Password toggle function
+      function togglePasswordVisibility(inputId) {
+        const input = document.getElementById(inputId);
+        const icon = input.parentElement.querySelector(".password-toggle");
+
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          input.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      }
+
+      // Password strength checker
+      document
+        .getElementById("password")
+        .addEventListener("input", function () {
+          const password = this.value;
+          const strengthBar = document.getElementById("passwordStrength");
+
+          let strength = 0;
+          if (password.length >= 8) strength++;
+          if (/[a-z]/.test(password)) strength++;
+          if (/[A-Z]/.test(password)) strength++;
+          if (/[0-9]/.test(password)) strength++;
+          if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+          strengthBar.className = "password-strength-bar";
+          if (strength <= 2) strengthBar.classList.add("strength-weak");
+          else if (strength === 3) strengthBar.classList.add("strength-fair");
+          else if (strength === 4) strengthBar.classList.add("strength-good");
+          else strengthBar.classList.add("strength-strong");
+        });
+
+      // Form validation and submission
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+          const errorMessage = document.getElementById("errorMessage");
+          const successMessage = document.getElementById("successMessage");
+
+          // Hide previous messages
+          errorMessage.style.display = "none";
+          successMessage.style.display = "none";
+
+          // Validate passwords match
+          if (password !== confirmPassword) {
+            errorMessage.textContent = "Passwords do not match!";
+            errorMessage.style.display = "block";
+            return;
+          }
+
+          // Validate password strength
+          if (password.length < 8) {
+            errorMessage.textContent =
+              "Password must be at least 8 characters long!";
+            errorMessage.style.display = "block";
+            return;
+          }
+
+          // Simulate form submission
+          const button = document.querySelector('button[type="submit"]');
+          const originalText = button.textContent;
+          button.textContent = "Creating Account...";
+          button.disabled = true;
+
+          setTimeout(() => {
+            successMessage.textContent =
+              "Account created successfully! Welcome to CSE Club!";
+            successMessage.style.display = "block";
+            document.getElementById("registrationForm").reset();
+            document.getElementById("passwordStrength").className =
+              "password-strength-bar";
+
+            button.textContent = originalText;
+            button.disabled = false;
+
+            // Redirect to login page after 2 seconds
+            setTimeout(() => {
+              window.location.href = "login.html";
+            }, 2000);
+          }, 1500);
+        });
+    </script>
   </body>
 </html>

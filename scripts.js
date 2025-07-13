@@ -33,7 +33,7 @@ function checkLoginStatus() {
   
   // Update navigation based on login status
   const loginLinks = document.querySelectorAll('a[href="login.html"]');
-  const loginListItems = document.querySelectorAll('li:has(a[href="login.html"])');
+  const becomeMemberLinks = document.querySelectorAll('a[href="become-member.html"]');
   
   loginLinks.forEach(link => {
     const listItem = link.closest('li');
@@ -51,6 +51,22 @@ function checkLoginStatus() {
       link.href = "login.html";
       link.onclick = null;
       link.title = "Click to login";
+    }
+  });
+  
+  // Hide/Show "Become a Member" based on login status
+  becomeMemberLinks.forEach(link => {
+    const listItem = link.closest('li');
+    if (isLoggedIn === "true" && userInfo.name) {
+      // User is logged in - hide "Become a Member"
+      if (listItem) {
+        listItem.style.display = 'none';
+      }
+    } else {
+      // User is not logged in - show "Become a Member"
+      if (listItem) {
+        listItem.style.display = '';
+      }
     }
   });
 }
