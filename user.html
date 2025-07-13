@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/user.css" />
+    <script src="scripts.js"></script>
+  </head>
+  <body class="user-page">
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
+      </ul>
+      <!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-container">
+      <div class="user-header">
+        <div class="user-avatar">
+          <img src="images/club_logo.jpg" alt="User Avatar" id="userAvatar" />
+          <div class="avatar-edit">
+            <label for="avatarInput" class="edit-btn">📷</label>
+            <input
+              type="file"
+              id="avatarInput"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+        </div>
+        <div class="user-info">
+          <h1 id="userName">Loading...</h1>
+          <p id="userEmail">Loading...</p>
+          <div class="user-bio" id="userBio">Loading...</div>
+          <div class="user-status">
+            <span class="status-badge active">Active Member</span>
+            <span class="member-since"
+              >Member since: <span id="memberSince">Loading...</span></span
+            >
+          </div>
+        </div>
+        <div class="user-actions">
+          <button class="action-btn edit-profile" onclick="editProfile()">
+            Edit Profile
+          </button>
+          <button class="action-btn logout-btn" onclick="logout()">
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <div class="user-content">
+        <div class="profile-section">
+          <h2>Personal Information</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Full Name</label>
+              <span id="fullName">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Student ID</label>
+              <span id="studentId">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Department</label>
+              <span id="department">Computer Science & Engineering</span>
+            </div>
+            <div class="info-item">
+              <label>Batch</label>
+              <span id="batch">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Phone Number</label>
+              <span id="phoneNumber">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Blood Group</label>
+              <span id="bloodGroup">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Date of Birth</label>
+              <span id="dateOfBirth">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Address</label>
+              <span id="address">Loading...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>Account Information</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Username</label>
+              <span id="username">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Email</label>
+              <span id="accountEmail">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Account Created</label>
+              <span id="accountCreated">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Last Login</label>
+              <span id="lastLogin">Loading...</span>
+            </div>
+            <div class="info-item">
+              <label>Account Status</label>
+              <span class="status-badge verified">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>Additional Information</h2>
+          <div class="info-grid">
+            <div class="info-item full-width">
+              <label>Areas of Interest</label>
+              <div class="skills-tags" id="interests">Loading...</div>
+            </div>
+            <div class="info-item full-width">
+              <label>Programming Skills</label>
+              <div class="skills-tags" id="skills">Loading...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>Club Activities</h2>
+          <div class="activities-stats">
+            <div class="stat-card">
+              <div class="stat-number" id="eventsAttended">0</div>
+              <div class="stat-label">Events Attended</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="projectsCompleted">0</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="contestsWon">0</div>
+              <div class="stat-label">Contests Won</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="volunteerHours">0</div>
+              <div class="stat-label">Volunteer Hours</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h2>Recent Activities</h2>
+          <div class="activity-timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Today</div>
+              <div class="timeline-content">
+                <h4>Profile Updated</h4>
+                <p>You updated your profile information</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Yesterday</div>
+              <div class="timeline-content">
+                <h4>Logged In</h4>
+                <p>Successfully logged into your account</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Last Week</div>
+              <div class="timeline-content">
+                <h4>Account Created</h4>
+                <p>Welcome to CSE Club of HSTU!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Load user data when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        loadUserData();
+        setupAvatarUpload();
+      });
+
+      function loadUserData() {
+        const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
+        const memberInfo = JSON.parse(
+          localStorage.getItem("memberInfo") || "{}"
+        );
+
+        // Check if user is logged in
+        if (!userInfo.name) {
+          alert("Please login first!");
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Load basic account info
+        document.getElementById("userName").textContent = userInfo.name;
+        document.getElementById("userEmail").textContent = userInfo.email;
+        document.getElementById("accountEmail").textContent = userInfo.email;
+        document.getElementById("username").textContent = userInfo.name;
+        document.getElementById("lastLogin").textContent = new Date(
+          userInfo.loginTime || Date.now()
+        ).toLocaleDateString();
+        document.getElementById("accountCreated").textContent = new Date(
+          userInfo.loginTime || Date.now()
+        ).toLocaleDateString();
+        document.getElementById("memberSince").textContent = new Date(
+          userInfo.loginTime || Date.now()
+        ).toLocaleDateString();
+
+        // Load member information (from registration)
+        if (memberInfo.fullName) {
+          document.getElementById("fullName").textContent = memberInfo.fullName;
+        } else {
+          document.getElementById("fullName").textContent = userInfo.name;
+        }
+
+        document.getElementById("studentId").textContent =
+          memberInfo.studentId || "Not provided";
+        document.getElementById("batch").textContent =
+          memberInfo.batch || "Not provided";
+        document.getElementById("phoneNumber").textContent =
+          memberInfo.phoneNumber || "Not provided";
+        document.getElementById("bloodGroup").textContent =
+          memberInfo.bloodGroup || "Not provided";
+        document.getElementById("dateOfBirth").textContent =
+          memberInfo.dateOfBirth || "Not provided";
+        document.getElementById("address").textContent =
+          memberInfo.address || "Not provided";
+
+        // Load additional information
+        if (memberInfo.interests) {
+          const interestsContainer = document.getElementById("interests");
+          if (
+            Array.isArray(memberInfo.interests) &&
+            memberInfo.interests.length > 0
+          ) {
+            interestsContainer.innerHTML = memberInfo.interests
+              .map((interest) => `<span class="skill-tag">${interest}</span>`)
+              .join("");
+          } else if (
+            typeof memberInfo.interests === "string" &&
+            memberInfo.interests
+          ) {
+            // Handle case where interests might be stored as a string
+            const interests = memberInfo.interests
+              .split(",")
+              .map((item) => item.trim());
+            interestsContainer.innerHTML = interests
+              .map((interest) => `<span class="skill-tag">${interest}</span>`)
+              .join("");
+          } else {
+            interestsContainer.textContent = "Not provided";
+          }
+        } else {
+          document.getElementById("interests").textContent = "Not provided";
+        }
+
+        if (memberInfo.skills) {
+          const skillsContainer = document.getElementById("skills");
+          if (
+            Array.isArray(memberInfo.skills) &&
+            memberInfo.skills.length > 0
+          ) {
+            skillsContainer.innerHTML = memberInfo.skills
+              .map((skill) => `<span class="skill-tag">${skill}</span>`)
+              .join("");
+          } else if (
+            typeof memberInfo.skills === "string" &&
+            memberInfo.skills
+          ) {
+            // Handle case where skills might be stored as a string
+            const skills = memberInfo.skills
+              .split(",")
+              .map((item) => item.trim());
+            skillsContainer.innerHTML = skills
+              .map((skill) => `<span class="skill-tag">${skill}</span>`)
+              .join("");
+          } else {
+            skillsContainer.textContent = "Not provided";
+          }
+        } else {
+          document.getElementById("skills").textContent = "Not provided";
+        }
+
+        // Load bio in header
+        document.getElementById("userBio").textContent =
+          memberInfo.bio || "No bio provided";
+
+        // Load bio in additional info section (for consistency)
+        document.getElementById("bio").textContent =
+          memberInfo.bio || "Not provided";
+
+        // Load avatar if available
+        if (userInfo.avatar) {
+          document.getElementById("userAvatar").src = userInfo.avatar;
+        }
+      }
+
+      function setupAvatarUpload() {
+        const avatarInput = document.getElementById("avatarInput");
+        const userAvatar = document.getElementById("userAvatar");
+
+        avatarInput.addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              userAvatar.src = e.target.result;
+
+              // Update user info with new avatar
+              const userInfo = JSON.parse(
+                localStorage.getItem("userInfo") || "{}"
+              );
+              userInfo.avatar = e.target.result;
+              localStorage.setItem("userInfo", JSON.stringify(userInfo));
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+
+      function editProfile() {
+        window.location.href = "edit-profile.html";
+      }
+
+      function logout() {
+        if (confirm("Are you sure you want to logout?")) {
+          localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("userInfo");
+          alert("Successfully logged out!");
+          window.location.href = "index.html";
+        }
+      }
+    </script>
+  </body>
+</html>
