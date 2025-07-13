@@ -1,0 +1,33 @@
+/* base.css - Global styles, variables, typography, utility classes */
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0px 10px;
+  line-height: 1.6;
+  background-image: url("images/club_logo.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: relative;
+  color: #e6f1ff;
+}
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(10, 25, 47, 0.82);
+}
+@media (max-width: 700px) {
+  body {
+    background-size: 240px;
+  }
+}
+body > * {
+  position: relative;
+}
