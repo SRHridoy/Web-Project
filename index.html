@@ -4,94 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSE Club of HSTU</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const slides = document.querySelectorAll(".slideshow img");
-        let currentIndex = 0;
-
-        function showNextSlide() {
-          slides[currentIndex].classList.remove("active");
-          currentIndex = (currentIndex + 1) % slides.length;
-          slides[currentIndex].classList.add("active");
-        }
-
-        setInterval(showNextSlide, 3000); // Change slide every 3 seconds
-      });
-    </script>
+    <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/activities.css">
+    <link rel="stylesheet" href="styles/events.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <link rel="stylesheet" href="styles/team.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <link rel="stylesheet" href="styles/testimonials.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <script src="scripts.js"></script>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="nav-left">
-        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
-        <a href="about-us.html"
-          ><span style="font-size: 1.2em">ℹ️</span> About</a
-        >
-        <div class="dropdown">
-          <a href="#people"
-            ><span style="font-size: 1.2em">👥</span> People
-            <span style="font-size: 0.9em">▼</span></a
-          >
-          <div class="dropdown-content">
-            <a href="current-committee.html">Current Committee</a>
-            <a href="#past-presidents">Past Presidents</a>
-            <a href="general-members.html">General Members</a>
-            <a href="become-member.html">Become a Member</a>
-          </div>
-        </div>
-        <a href="#recent-activities"
-          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
-        >
-        <div class="dropdown">
-          <a href="#Events"
-            ><span style="font-size: 1.2em">🎉</span> Events
-            <span style="font-size: 0.9em">▼</span></a
-          >
-          <div class="dropdown-content">
-            <a href="upcoming-events.html">Upcoming Events</a>
-            <a href="registration-links.html">Registration Links</a>
-            <a href="event-calendar.html">Event Calendar</a>
-            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
-          </div>
-        </div>
-        <a href="#contact"
-          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
-        >
-      </div>
-      <div class="nav-right">
-        <!-- Login Button (shown when not logged in) -->
-        <div id="loginSection" class="login-section">
-          <a href="login.html" class="login-btn"
-            ><span style="font-size: 1.2em">🔐</span> Login</a
-          >
-        </div>
-        <!-- User Profile (shown when logged in) -->
-        <div id="userSection" class="user-section" style="display: none">
-          <div class="dropdown">
-            <a href="#" class="user-profile">
-              <img
-                id="userAvatar"
-                src="images/club_logo.jpg"
-                alt="User Avatar"
-                class="user-avatar"
-              />
-              <span id="userName">User Name</span>
-              <span style="font-size: 0.9em">▼</span>
-            </a>
-            <div class="dropdown-content">
-              <a href="#profile">My Profile</a>
-              <a href="#settings">Settings</a>
-              <a href="#" id="logoutBtn">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
+   <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+      </ul>
+<!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> <span >CSE Club Of HSTU</span></a>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
     </nav>
-    <header>
-      <div class="logo-container">
-        <img src="images/club_logo.jpg" alt="CSE Club Logo" class="club-logo" />
-      </div>
-      <h1 class="glowing">CSE Club of HSTU</h1>
+
+
+
+<!-- Hero Section -->
+<section class="hero-section styled-section" id="home" >
+  <div class="hero-content glass">
+    <img src="images/club_logo.jpg" alt="CSE Club Logo" class="hero-logo">
+    <h1 class="glowing bounce-text">
+      <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span> <span>t</span><span>o</span> <span>C</span><span>S</span><span>E</span> <span>C</span><span>l</span><span>u</span><span>b</span> <span>o</span><span>f</span> <span>H</span><span>S</span><span>T</span><span>U</span>
+    </h1>
+    <p>Innovate | Learn | Lead</p>
+    <div class="cta-btns">
+      <a href="#contact" class="event-link-btn">Join Us</a>
+      <a href="#events" class="event-link-btn">Explore Events</a>
+    </div>
+  </div>
+</section>
+    </section>
       <div class="slideshow">
         <img src="images/seminar01.jpg" alt="HSTU Image 1" class="active" />
         <img src="images/seminar02.jpg" alt="HSTU Image 2" />
@@ -99,244 +103,387 @@
         <img src="images/dean.jpg" alt="HSTU Image 4" />
         <img src="images/ful.jpg" alt="HSTU Image 5" />
         <img src="images/seminar03.jpg" alt="HSTU Image 6" />
+        <div class="slideshow-overlay"></div>
       </div>
     </header>
 
-    <section id="leaders" class="club-leaders">
-      <h2>Meet Our Leaders</h2>
-      <div class="leaders-carousel-flex-container">
-        <button class="carousel-arrow left" id="carouselPrev">&#8592;</button>
-        <div class="leaders-flex-carousel" id="leadersFlexCarousel">
-          <!-- Leader cards will be injected by JS -->
+    
+
+    <!-- About Section -->
+    <section class="about-section styled-section" id="about">
+      <div class="glass">
+      <h2><a href="about-us.html">About the Club</a></h2>
+      <div class="about-flex">
+        <div class="about-text">
+          <p>
+            The CSE Club of HSTU is a vibrant community of students and faculty
+            members dedicated to fostering innovation, collaboration, and
+            excellence in the field of Computer Science and Engineering.
+          </p>
+          <ul>
+            <li>
+              <b>Mission:</b> To empower students with technical skills,
+              leadership, and teamwork through diverse activities.
+            </li>
+            <li>
+              <b>Vision:</b> To be a leading student organization in technology,
+              creativity, and social impact at HSTU.
+            </li>
+          </ul>
         </div>
-        <button class="carousel-arrow right" id="carouselNext">&#8594;</button>
+        <div class="about-message">
+          <b>Message from the President:</b><br />
+          <span>
+              "We welcome all passionate learners to join our journey of innovation
+              and growth. Together, we can make a difference!"
+          </span>
+        </div>
+      </div>
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Events Organized</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- Featured Activities -->
+    <section class="activities-section styled-section" id="activities">
+      <div class="glass">
+      <h2><a href="">Featured Activities</a></h2>
+      <div class="activities-grid">
+        <div class="activity-card">
+          <div class="icon">💻</div>
+          <h3>Programming Contests</h3>
+          <p>Sharpen your coding skills and compete with the best minds.</p>
+        </div>
+        <div class="activity-card">
+          <div class="icon">🎤</div>
+          <h3>Workshops & Seminars</h3>
+          <p>Hands-on learning from industry experts and faculty.</p>
+        </div>
+        <div class="activity-card">
+          <div class="icon">🚀</div>
+          <h3>Tech Fest</h3>
+          <p>Showcase your innovations and explore new technologies.</p>
+        </div>
+        <div class="activity-card">
+          <div class="icon">👨‍💻</div>
+          <h3>Hackathons</h3>
+          <p>Collaborate, build, and solve real-world problems in teams.</p>
+        </div>
+        <div class="activity-card">
+          <div class="icon">🤝</div>
+          <h3>Community Outreach</h3>
+          <p>Engage in social impact projects and tech awareness campaigns.</p>
+        </div>
+      </div>
       </div>
     </section>
 
-    <section id="about" class="about-club">
-      <h2>About the Club</h2>
-      <p>
-        The CSE Club of HSTU is a vibrant community of students and faculty
-        members dedicated to fostering innovation, collaboration, and excellence
-        in the field of Computer Science and Engineering.
-      </p>
-    </section>
-
-    <section id="events" class="recent-events">
-      <h2>Recent Events</h2>
-      <ul>
-        <li>Seminar on Artificial Intelligence - April 2025</li>
-        <li>Annual Coding Contest - March 2025</li>
-        <li>Workshop on Web Development - February 2025</li>
-      </ul>
-    </section>
-
-    <!-- Events Brief Section -->
-    <section id="events-brief" class="events-brief">
-      <h2><span style="font-size: 1.2em">🎉</span> Events</h2>
-      <p>
-        Stay updated with the latest seminars, workshops, contests, and social
-        gatherings organized by the CSE Club of HSTU. Explore upcoming events,
-        register, and view the full event calendar below.
-      </p>
-      <div class="event-links">
-        <a href="upcoming-events.html" class="event-link-btn"
-          >Upcoming Events</a
-        >
-        <a href="registration-links.html" class="event-link-btn"
-          >Registration Links</a
-        >
-        <a href="event-calendar.html" class="event-link-btn">Event Calendar</a>
+    <!-- Upcoming Events -->
+    <section class="events-section styled-section" id="events">
+      <h2> Upcoming Events</h2>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-title">Python Programming Workshop</div>
+          <div class="event-date">May 10, 2025</div>
+          <div class="event-location">CSE Lab 1, HSTU</div>
+          <div class="event-desc">A hands-on workshop for beginners and enthusiasts to learn Python programming from scratch.</div>
+          <a href="#" class="event-btn">Register</a>
+        </div>
+        <div class="event-card">
+          <div class="event-title">Seminar: AI in Everyday Life</div>
+          <div class="event-date">May 20, 2025</div>
+          <div class="event-location">Auditorium, HSTU</div>
+          <div class="event-desc">Explore how Artificial Intelligence is shaping our daily lives and future careers.</div>
+          <a href="#" class="event-btn">Details</a>
+        </div>
+        <div class="event-card">
+          <div class="event-title">Annual Coding Contest</div>
+          <div class="event-date">June 5, 2025</div>
+          <div class="event-location">Online</div>
+          <div class="event-desc">Showcase your coding skills and compete with the best minds in the club!</div>
+          <a href="#" class="event-btn">Participate</a>
+        </div>
       </div>
     </section>
-    <!-- End Events Brief Section -->
 
-    <section id="contact" class="contact">
-      <h2>Contact Us</h2>
-      <p>
-        Like us on <a href="#">Facebook</a>, follow us on
-        <a href="#">LinkedIn</a>, or visit us at our university location below:
-      </p>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902!2d90.389!3d23.750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2z23.750!5e0!3m2!1sen!2s!4v1234567890"
-        width="600"
-        height="450"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-      ></iframe>
+    <section class="projects-section styled-section" id="projects">
+      <h2>Recent Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title">Smart Attendance System</div>
+          <div class="project-stack">Python, OpenCV, MySQL</div>
+          <div class="project-desc">Face recognition-based attendance system for classrooms, reducing manual effort and errors.</div>
+          <div class="project-links">
+            <a href="#" target="_blank">Demo</a>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Club Website Revamp</div>
+          <div class="project-stack">HTML, CSS, JavaScript</div>
+          <div class="project-desc">A modern, responsive website for the CSE Club, featuring events, gallery, and member management.</div>
+          <div class="project-links">
+            <a href="#" target="_blank">Live</a>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Event Registration Portal</div>
+          <div class="project-stack">React, Node.js, MongoDB</div>
+          <div class="project-desc">Online portal for event registration, participant tracking, and automated email notifications.</div>
+          <div class="project-links">
+            <a href="#" target="_blank">Demo</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <footer>
-      <p>&copy; 2025 CSE Club of HSTU. All rights reserved.</p>
-    </footer>
+    <!-- Executive Team -->
+    <section class="team-section styled-section" id="team">
+      <h2>Meet the Executive Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="images/cricket01.jpg" alt="President" class="team-photo" />
+          <div class="team-name">Adiba Mahjabin Nitu</div>
+          <div class="team-role">President</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card">
+          <img src="images/ful.jpg" alt="Treasurer" class="team-photo" />
+          <div class="team-name">Pankaj Bhowmick</div>
+          <div class="team-role">Treasurer</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card">
+          <img src="images/seminar01.jpg" alt="Vice President" class="team-photo" />
+          <div class="team-name">Md. Nishat Ahmed</div>
+          <div class="team-role">Vice President</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card">
+          <img src="images/seminar02.jpg" alt="General Secretary" class="team-photo" />
+          <div class="team-name">Sadia Rahman</div>
+          <div class="team-role">General Secretary</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card hideOnMobile">
+          <img src="images/seminar03.jpg" alt="Joint Secretary" class="team-photo" />
+          <div class="team-name">Tanvir Hasan</div>
+          <div class="team-role">Joint Secretary</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card hideOnMobile">
+          <img src="images/dean.jpg" alt="Event Coordinator" class="team-photo" />
+          <div class="team-name">Raisa Sultana</div>
+          <div class="team-role">Event Coordinator</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card hideOnMobile">
+          <img src="images/seminar01.jpg" alt="Assistant Treasurer" class="team-photo" />
+          <div class="team-name">Fahim Hossain</div>
+          <div class="team-role">Assistant Treasurer</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card hideOnMobile">
+          <img src="images/seminar02.jpg" alt="Public Relations" class="team-photo" />
+          <div class="team-name">Sumaiya Akter</div>
+          <div class="team-role">Public Relations</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card hideOnMobile">
+          <img src="images/cricket01.jpg" alt="IT Secretary" class="team-photo" />
+          <div class="team-name">Jahidul Islam</div>
+          <div class="team-role">IT Secretary</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <div class="team-card hideOnMobile">
+          <img src="images/ful.jpg" alt="Cultural Secretary" class="team-photo" />
+          <div class="team-name">Mim Sultana</div>
+          <div class="team-role">Cultural Secretary</div>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/><rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/><path d="M12 10.5H14.5C16.1569 10.5 17.5 11.8431 17.5 13.5V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10.5Z" fill="white"/></svg>
+          </a>
+        </div>
+        <h3 class="member-btn"><a href="current-committee.html">Committee Members...</a></h3>
+      </div>
+    </section>
 
-    <script>
-      // Login/User Management
-      function checkLoginStatus() {
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
-        const loginSection = document.getElementById("loginSection");
-        const userSection = document.getElementById("userSection");
-        const userName = document.getElementById("userName");
-        const userAvatar = document.getElementById("userAvatar");
-
-        if (isLoggedIn === "true") {
-          // User is logged in
-          loginSection.style.display = "none";
-          userSection.style.display = "block";
-
-          // Get user info from localStorage
-          const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
-          userName.textContent = userInfo.name || "User Name";
-          if (userInfo.avatar) {
-            userAvatar.src = userInfo.avatar;
-          }
-        } else {
-          // User is not logged in
-          loginSection.style.display = "block";
-          userSection.style.display = "none";
-        }
-      }
-
-      // Logout function
-      function logout() {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("userInfo");
-        checkLoginStatus();
-      }
-
-      // Add logout event listener
-      document.addEventListener("DOMContentLoaded", function () {
-        checkLoginStatus();
-
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-          logoutBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            logout();
-          });
-        }
-      });
-
-      // Listen for login success (from login page)
-      window.addEventListener("storage", function (e) {
-        if (e.key === "isLoggedIn") {
-          checkLoginStatus();
-        }
-      });
-
-      // Demo leaders data (10 members)
-      const leaders = [
-        {
-          img: "images/cricket01.jpg",
-          name: "Professor. Adiba Mahjabin Nitu",
-          role: "President",
-        },
-        {
-          img: "images/ful.jpg",
-          name: "Lecturer. Pankaj Bhowmick",
-          role: "Treasurer",
-        },
-        {
-          img: "images/seminar01.jpg",
-          name: "Md. Nishat Ahmed",
-          role: "Vice President",
-        },
-        {
-          img: "images/seminar02.jpg",
-          name: "Sadia Rahman",
-          role: "General Secretary",
-        },
-        {
-          img: "images/seminar03.jpg",
-          name: "Tanvir Hasan",
-          role: "Joint Secretary",
-        },
-        {
-          img: "images/dean.jpg",
-          name: "Raisa Sultana",
-          role: "Event Coordinator",
-        },
-        {
-          img: "images/seminar01.jpg",
-          name: "Fahim Hossain",
-          role: "Assistant Treasurer",
-        },
-        {
-          img: "images/seminar02.jpg",
-          name: "Sumaiya Akter",
-          role: "Public Relations",
-        },
-        {
-          img: "images/cricket01.jpg",
-          name: "Jahidul Islam",
-          role: "IT Secretary",
-        },
-        {
-          img: "images/ful.jpg",
-          name: "Mim Sultana",
-          role: "Cultural Secretary",
-        },
-      ];
-      const flexCarousel = document.getElementById("leadersFlexCarousel");
-      let current = 2; // Centered index
-      let isTransitioning = false;
-
-      function getVisibleLeaders(center, total = 5) {
-        const half = Math.floor(total / 2);
-        let visible = [];
-        for (let i = -half; i <= half; i++) {
-          let idx = (center + i + leaders.length) % leaders.length;
-          visible.push({ ...leaders[idx], pos: i });
-        }
-        return visible;
-      }
-
-      function renderFlexCarousel() {
-        flexCarousel.innerHTML = "";
-        const visible = getVisibleLeaders(current, 5);
-        visible.forEach(({ img, name, role, pos }) => {
-          let scale = pos === 0 ? 1 : pos === -1 || pos === 1 ? 0.82 : 0.68;
-          let opacity = pos === 0 ? 1 : pos === -1 || pos === 1 ? 0.85 : 0.6;
-          let z = 10 - Math.abs(pos);
-          let cardClass = "leader-flex-card";
-          if (pos === 0) cardClass += " center";
-          else if (Math.abs(pos) === 1) cardClass += " mid";
-          else cardClass += " side";
-          flexCarousel.innerHTML += `
-            <div class="${cardClass}" style="transform: scale(${scale}); opacity:${opacity}; z-index:${z};">
-              <img src="${img}" alt="${role}" />
-              <h3>${name}</h3>
-              <p>${role}</p>
+    <!-- Gallery (Professional Modern UI) -->
+    <section class="gallery-section" id="gallery">
+      <h1><a href="photo-gallery.html">Gallery</a></h1>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="images/seminar01.jpg" alt="Seminar 2024">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Seminar 2024</h3>
+                <p>AI & Innovation</p>
+              </div>
             </div>
-          `;
-        });
-      }
+          </div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="images/seminar02.jpg" alt="Workshop 2024">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Workshop 2024</h3>
+                <p>Web Development</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="images/seminar03.jpg" alt="Tech Fest">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Tech Fest</h3>
+                <p>Annual Festival</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="images/cricket01.jpg" alt="Cricket Tournament">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Cricket Tournament</h3>
+                <p>Sports Event</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="images/ful.jpg" alt="Spring Celebration">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Spring Celebration</h3>
+                <p>Cultural Program</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="images/dean.jpg" alt="With Dean">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>With Dean</h3>
+                <p>Special Moment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      function moveFlexCarousel(dir) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        current = (current + dir + leaders.length) % leaders.length;
-        renderFlexCarousel();
-        setTimeout(() => {
-          isTransitioning = false;
-        }, 600);
-      }
+    <section class="testimonials-section styled-section" id="testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            “The CSE Club helped me discover my passion for coding and teamwork. Highly recommended for all students!”
+          </div>
+          <div class="testimonial-author">— Adiba Mahjabin Nitu, President</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            “Joining the club was the best decision of my university life. The events and workshops are top-notch.”
+          </div>
+          <div class="testimonial-author">— Pankaj Bhowmick, Treasurer</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            “Great platform for networking and skill development. Proud to be a member of this amazing community.”
+          </div>
+          <div class="testimonial-author">— Sadia Rahman, General Secretary</div>
+        </div>
+      </div>
+    </section>
 
-      document.getElementById("carouselPrev").onclick = () =>
-        moveFlexCarousel(-1);
-      document.getElementById("carouselNext").onclick = () =>
-        moveFlexCarousel(1);
-
-      let flexInterval = setInterval(() => moveFlexCarousel(1), 4000);
-      flexCarousel.addEventListener("mouseenter", () =>
-        clearInterval(flexInterval)
-      );
-      flexCarousel.addEventListener("mouseleave", () => {
-        flexInterval = setInterval(() => moveFlexCarousel(1), 4000);
-      });
-
-      renderFlexCarousel();
-    </script>
+    <footer id="contact">
+      <div class="footer-flex">
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>
+            Email:
+            <a href="mailto:cseclub@hstu.ac.bd">cseclub@hstu.ac.bd</a>
+          </p>
+          <p>Department of CSE, HSTU</p>
+          <p>Dinajpur, Bangladesh</p>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <a href="https://facebook.com/" title="Facebook" target="_blank" rel="noopener"><img src="images/facebook.png" alt=""></a>
+          <a href="https://instagram.com/" title="Instagram" target="_blank" rel="noopener"><img src="images/social.png" alt=""></a>
+          <a href="https://github.com/" title="GitHub" target="_blank" rel="noopener"><img src="images/github.png" alt=""></a>
+        </div>
+        <div class="footer-form">
+          <h3>Contact</h3>
+          <form id="contactForm" autocomplete="off">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send</button>
+            <div
+              id="formMsg"
+              style="font-size: 0.98rem; margin-top: 0.5rem"
+            ></div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 CSE Club of HSTU. All rights reserved. |
+        <a href="#" style="color: #e0e0e0">Privacy Policy</a> |
+        <a href="#" style="color: #e0e0e0">Terms</a>
+      </div>
+    </footer>
   </body>
 </html>
