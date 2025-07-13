@@ -6,19 +6,20 @@
     <title>Event Calendar - CSE Club of HSTU</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/hero.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/activities.css">
-    <link rel="stylesheet" href="styles/events.css">
-    <link rel="stylesheet" href="styles/gallery.css">
-    <link rel="stylesheet" href="styles/team.css">
-    <link rel="stylesheet" href="styles/projects.css">
-    <link rel="stylesheet" href="styles/testimonials.css">
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
     <script src="scripts.js"></script>
+    <script src="login.js"></script>
     <style>
       .calendar-section {
         max-width: 1100px;
@@ -227,7 +228,9 @@
     <nav>
       <ul>
         <li>
-          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li class="hideOnMobile"><a href="index.html">Home</a></li>
         <li class="hideOnMobile">
@@ -248,15 +251,21 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
         <li class="hideOnMobile"><a href="login.html">Login</a></li>
-        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
       </ul>
-<!-- Sidebar -->
+      <!-- Sidebar -->
       <ul class="sidebar">
         <li onclick="toggleMenu()">
-          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li><a href="index.html">Home</a></li>
         <li>
