@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Calendar - CSE Club of HSTU</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/activities.css">
+    <link rel="stylesheet" href="styles/events.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <link rel="stylesheet" href="styles/team.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <link rel="stylesheet" href="styles/testimonials.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <script src="scripts.js"></script>
     <style>
       .calendar-section {
         max-width: 1100px;
@@ -210,72 +224,65 @@
     </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="nav-left">
-        <a href="index.html"><span style="font-size: 1.2em">🏠</span> Home</a>
-        <a href="about-us.html"
-          ><span style="font-size: 1.2em">ℹ️</span> About</a
-        >
-        <div class="dropdown">
-          <a href="#people"
-            ><span style="font-size: 1.2em">👥</span> People
-            <span style="font-size: 0.9em">▼</span></a
-          >
-          <div class="dropdown-content">
-            <a href="#current-committee">Current Committee</a>
-            <a href="#past-presidents">Past Presidents</a>
-            <a href="general-members.html">General Members</a>
-            <a href="become-member.html">Become a Member</a>
-          </div>
-        </div>
-        <a href="#recent-activities"
-          ><span style="font-size: 1.2em">📰</span> Recent Activities</a
-        >
-        <div class="dropdown">
-          <a href="#Events"
-            ><span style="font-size: 1.2em">🎉</span> Events
-            <span style="font-size: 0.9em">▼</span></a
-          >
-          <div class="dropdown-content">
-            <a href="upcoming-events.html">Upcoming Events</a>
-            <a href="registration-links.html">Registration Links</a>
-            <a href="event-calendar.html">Event Calendar</a>
-            <a href="#past-events">Past Events (Photos, Videos, Summaries)</a>
-          </div>
-        </div>
-        <a href="#contact"
-          ><span style="font-size: 1.2em">✉️</span> Contact Us</a
-        >
-      </div>
-      <div class="nav-right">
-        <!-- Login Button (shown when not logged in) -->
-        <div id="loginSection" class="login-section">
-          <a href="login.html" class="login-btn"
-            ><span style="font-size: 1.2em">🔐</span> Login</a
-          >
-        </div>
-        <!-- User Profile (shown when logged in) -->
-        <div id="userSection" class="user-section" style="display: none">
-          <div class="dropdown">
-            <a href="#" class="user-profile">
-              <img
-                id="userAvatar"
-                src="images/club_logo.jpg"
-                alt="User Avatar"
-                class="user-avatar"
-              />
-              <span id="userName">User Name</span>
-              <span style="font-size: 0.9em">▼</span>
-            </a>
-            <div class="dropdown-content">
-              <a href="#profile">My Profile</a>
-              <a href="#settings">Settings</a>
-              <a href="#" id="logoutBtn">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+      </ul>
+<!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
     </nav>
+
     <div class="calendar-section">
       <div class="calendar-header">
         <div class="calendar-title">Event Calendar</div>
