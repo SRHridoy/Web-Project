@@ -1,0 +1,64 @@
+/* testimonials.css - Testimonials section styles */
+.testimonials-section {
+  margin: 48px 10px;
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  border-radius: 14px;
+  padding: 24px 16px;
+  background: rgba(17, 34, 64, 0.85);
+  box-shadow: 0 2px 16px rgba(100, 255, 218, 0.07);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding: 0;
+  }
+}
+.testimonial-card {
+  background: rgba(17, 34, 64, 0.85);
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(100, 255, 218, 0.07);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 160px;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 4px 24px rgba(100, 255, 218, 0.13);
+}
+.testimonial-card .testimonial-text {
+  color: #bfc9d1;
+  font-size: 1.08em;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+  font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  /* Added style for better readability */
+  text-shadow: 0 1px 4px rgba(100,255,218,0.07);
+}
+.testimonial-card .testimonial-author {
+  color: #64ffda;
+  font-size: 1.07em;
+  font-weight: 700;
+  margin-top: auto;
+  letter-spacing: 0.02em;
+  /* Added style for emphasis */
+  text-shadow: 0 1px 6px rgba(100,255,218,0.09);
+}

@@ -1,0 +1,340 @@
+/* Registration Links Styles - Matching Website Theme */
+.reg-section {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(10, 25, 47, 0.8);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.reg-section h2 {
+  color: #64ffda;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.reg-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+  border-radius: 2px;
+}
+
+.reg-section p {
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+.reg-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reg-list li {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 255, 218, 0.05) 0%,
+    rgba(100, 255, 218, 0.02) 100%
+  );
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(100, 255, 218, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reg-list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #64ffda, #14edd4);
+  border-radius: 2px;
+}
+
+.reg-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(100, 255, 218, 0.15);
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+.reg-list strong {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  display: block;
+  text-shadow: 0 2px 8px rgba(100, 255, 218, 0.1);
+}
+
+.reg-list .desc {
+  color: #b0eacd;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.register-btn {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    rgba(100, 255, 218, 0.1) 0%,
+    rgba(100, 255, 218, 0.05) 100%
+  );
+  color: #64ffda;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #64ffda;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 255, 218, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.register-btn:hover::before {
+  left: 100%;
+}
+
+.register-btn:hover {
+  background: rgba(100, 255, 218, 0.2);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2);
+}
+
+.back-link {
+  display: inline-block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #64ffda;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border: 2px solid #64ffda;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(100, 255, 218, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.back-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 255, 218, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.back-link:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2);
+}
+
+.back-link:hover::before {
+  left: 100%;
+}
+
+.back-link:hover {
+  color: #fff;
+}
+
+.event-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.event-status.open {
+  background: rgba(100, 255, 218, 0.2);
+  color: #64ffda;
+  border: 1px solid rgba(100, 255, 218, 0.4);
+}
+
+.event-status.closing {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.event-status.closed {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.event-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.event-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.event-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.event-meta span {
+  color: #64ffda;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.event-meta span::before {
+  font-size: 1.1em;
+}
+
+.event-meta .date::before {
+  content: "📅";
+}
+
+.event-meta .time::before {
+  content: "⏰";
+}
+
+.event-meta .venue::before {
+  content: "📍";
+}
+
+.event-meta .seats::before {
+  content: "👥";
+}
+
+.info-box {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 255, 218, 0.08) 0%,
+    rgba(100, 255, 218, 0.03) 100%
+  );
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.info-box::before {
+  content: "ℹ️";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #0a192f;
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+
+.info-box p {
+  color: #b0eacd;
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width:800x) {
+  .reg-section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .reg-section h2 {
+    font-size: 2rem;
+  }
+
+  .reg-list li {
+    padding: 1.2rem;
+  }
+
+  .reg-list strong {
+    font-size: 1.1em;
+  }
+
+  .event-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .register-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

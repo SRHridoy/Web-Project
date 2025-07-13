@@ -1,0 +1,134 @@
+/* styles.css - Global, utility, and reset styles only. Section-specific styles have been moved to separate files. */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  background: #0a192f;
+  color: #bfc9d1;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+a:hover {
+  color: #64ffda;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background: #112240;
+}
+::-webkit-scrollbar-thumb {
+  background: #64ffda;
+  border-radius: 8px;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 0 6px;
+  }
+}
+
+/* Glassmorphism utility class */
+.glass {
+  background: rgba(18, 34, 64, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(10, 25, 47, 0.18),
+    0 2px 8px rgba(100, 255, 218, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 10px 20px;
+}
+/* Usage: Add class="glass" to any element for a glass effect */
+
+/* Slideshow styles - beautiful, modern, and responsive */
+.slideshow {
+  position: relative;
+  max-width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1d2a35;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(10, 25, 47, 0.18),
+    0 2px 8px rgba(100, 255, 218, 0.08);
+  margin: 32px 10px auto;
+}
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(100, 255, 218, 0.1);
+  transition: opacity 1s cubic-bezier(0.4, 0.2, 0.6, 1);
+  z-index: 1;
+}
+.slideshow img.active {
+  opacity: 1;
+  z-index: 2;
+}
+.slideshow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 25, 47, 0.55),
+    rgba(10, 25, 47, 0.18)
+  );
+  border-radius: 22px;
+  z-index: 3;
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  .slideshow {
+    height: 220px;
+    border-radius: 12px;
+  }
+  .slideshow img,
+  .slideshow-overlay {
+    height: 220px;
+    border-radius: 12px;
+  }
+}

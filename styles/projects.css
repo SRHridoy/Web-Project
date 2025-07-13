@@ -1,0 +1,80 @@
+/* projects.css - Recent Projects section styles */
+.projects-section {
+  margin: 48px 10px;
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  border-radius: 14px;
+  padding: 24px 16px;
+  background: rgba(17, 34, 64, 0.85);
+  box-shadow: 0 2px 16px rgba(100, 255, 218, 0.07);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding: 0;
+  }
+}
+.project-card {
+  background: rgba(17, 34, 64, 0.85);
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(100, 255, 218, 0.07);
+  padding: 24px 16px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 180px;
+}
+.project-card:hover {
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 4px 24px rgba(100, 255, 218, 0.13);
+}
+.project-card .project-title {
+  font-size: 1.25em;
+  color: #64ffda;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+.project-card .project-desc {
+  color: #bfc9d1;
+  font-size: 1.05em;
+  margin-bottom: 0.7rem;
+  line-height: 1.5;
+}
+.project-card .project-links a {
+  color: #64ffda;
+  text-decoration: none;
+  font-size: 0.98em;
+  margin-right: 14px;
+  margin-top: 10px;
+  background: rgba(100,255,218,0.08);
+  border: 1px solid #64ffda;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(100,255,218,0.07);
+  display: inline-block;
+}
+.project-card .project-links a:hover {
+  background: #64ffda;
+  color: #112240;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(100,255,218,0.15);
+}
