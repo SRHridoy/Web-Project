@@ -6,94 +6,27 @@
     <title>Current Committee - CSE Club of HSTU</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/hero.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/activities.css">
-    <link rel="stylesheet" href="styles/events.css">
-    <link rel="stylesheet" href="styles/gallery.css">
-    <link rel="stylesheet" href="styles/team.css">
-    <link rel="stylesheet" href="styles/projects.css">
-    <link rel="stylesheet" href="styles/testimonials.css">
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
     <script src="scripts.js"></script>
-    <style>
-      .committee-section {
-        max-width: 1100px;
-        margin: 40px auto;
-        background: #1d2a35;
-        padding: 32px 18px;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      }
-      .committee-section h2 {
-        color: rgb(5, 170, 108);
-        margin-bottom: 30px;
-        text-align: center;
-      }
-      .committee-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 28px;
-      }
-      .committee-card {
-        background: linear-gradient(135deg, #138d6a 0%, #1d2a35 100%);
-        border-radius: 12px;
-        box-shadow: 0 4px 18px rgba(5, 170, 108, 0.18);
-        padding: 28px 16px 20px 16px;
-        text-align: center;
-        transition: transform 0.2s, box-shadow 0.2s;
-        border: 2px solid transparent;
-        position: relative;
-      }
-      .committee-card:hover {
-        transform: translateY(-8px) scale(1.04);
-        box-shadow: 0 8px 32px rgba(5, 170, 108, 0.25);
-        border: 2px solid rgb(5, 170, 108);
-      }
-      .committee-photo {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #fff;
-        margin-bottom: 14px;
-        background: #1d2a35;
-        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.1);
-      }
-      .committee-name {
-        color: #fff;
-        font-size: 1.18em;
-        font-weight: bold;
-        margin-bottom: 4px;
-      }
-      .committee-position {
-        color: #fbc02d;
-        font-size: 1.05em;
-        font-weight: 500;
-        margin-bottom: 6px;
-      }
-      .committee-desc {
-        color: #b0eacd;
-        font-size: 0.98em;
-        margin-bottom: 0;
-      }
-      .back-link {
-        display: block;
-        text-align: center;
-        margin-top: 32px;
-        color: #e0e0e0;
-        text-decoration: underline;
-      }
-    </style>
   </head>
   <body>
     <nav>
       <ul>
         <li>
-          <a class="logo" href="index.html"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li class="hideOnMobile"><a href="index.html">Home</a></li>
         <li class="hideOnMobile">
@@ -114,15 +47,21 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li class="hideOnMobile"><a href="notice-board.html">Notice Board</a></li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
         <li class="hideOnMobile"><a href="login.html">Login</a></li>
-        <li class="menu-button" onclick="toggleMenu()"><a href="#"><img src="menu.png" alt="menu"></a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
       </ul>
-<!-- Sidebar -->
+      <!-- Sidebar -->
       <ul class="sidebar">
         <li onclick="toggleMenu()">
-          <a class="logo" href="#"><img src="images/club_logo.jpg" alt="CSE"> CSE Club Of HSTU</a>
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
         </li>
         <li><a href="index.html">Home</a></li>
         <li>
@@ -149,82 +88,93 @@
       </ul>
     </nav>
 
-    <div class="committee-section">
+    <div class="team-section">
       <h2>Current Committee Members</h2>
-      <div class="committee-grid">
-        <div class="committee-card">
-          <img
-            class="committee-photo"
-            src="images/cricket01.jpg"
-            alt="President"
-          />
-          <div class="committee-name">Professor. Adiba Mahjabin Nitu</div>
-          <div class="committee-position">President</div>
-          <div class="committee-desc">
-            Leading the club with vision and dedication, inspiring innovation
-            and teamwork.
-          </div>
-        </div>
-        <div class="committee-card">
-          <img class="committee-photo" src="images/ful.jpg" alt="Treasurer" />
-          <div class="committee-name">Lecturer. Pankaj Bhowmick</div>
-          <div class="committee-position">Treasurer</div>
-          <div class="committee-desc">
-            Managing club finances and ensuring smooth operation of all events.
-          </div>
-        </div>
-        <div class="committee-card">
-          <img
-            class="committee-photo"
-            src="images/seminar01.jpg"
-            alt="Vice President"
-          />
-          <div class="committee-name">Md. Nishat Ahmed</div>
-          <div class="committee-position">Vice President</div>
-          <div class="committee-desc">
-            Supporting the president and coordinating club activities and
-            outreach.
-          </div>
-        </div>
-        <div class="committee-card">
-          <img
-            class="committee-photo"
-            src="images/seminar02.jpg"
-            alt="General Secretary"
-          />
-          <div class="committee-name">Sadia Rahman</div>
-          <div class="committee-position">General Secretary</div>
-          <div class="committee-desc">
-            Responsible for club documentation, communication, and event
-            planning.
-          </div>
-        </div>
-        <div class="committee-card">
-          <img
-            class="committee-photo"
-            src="images/seminar03.jpg"
-            alt="Joint Secretary"
-          />
-          <div class="committee-name">Tanvir Hasan</div>
-          <div class="committee-position">Joint Secretary</div>
-          <div class="committee-desc">
-            Assisting in secretarial duties and supporting event management.
-          </div>
-        </div>
-        <div class="committee-card">
-          <img
-            class="committee-photo"
-            src="images/dean.jpg"
-            alt="Event Coordinator"
-          />
-          <div class="committee-name">Raisa Sultana</div>
-          <div class="committee-position">Event Coordinator</div>
-          <div class="committee-desc">
-            Organizing and executing club events with creativity and efficiency.
-          </div>
-        </div>
+      <div class="team-grid" id="committeeGrid">
+        <!-- Committee members will be loaded dynamically from JSON -->
       </div>
       <a class="back-link" href="index.html">&larr; Back to Home</a>
     </div>
+
+    <style>
+      .back-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 2rem;
+        color: #64ffda;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 0.8rem 1.5rem;
+        border: 1px solid rgba(100, 255, 218, 0.3);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: rgba(100, 255, 218, 0.05);
+      }
+
+      .back-link:hover {
+        background: rgba(100, 255, 218, 0.1);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
+      }
+
+      .member-contact {
+        color: #fbc02d;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 0.5rem;
+        background: rgba(251, 192, 45, 0.1);
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        display: inline-block;
+        border: 1px solid rgba(251, 192, 45, 0.3);
+      }
+    </style>
+
+    <script>
+      // Load committee members from JSON file
+      document.addEventListener("DOMContentLoaded", function () {
+        loadCommitteeMembers();
+      });
+
+      async function loadCommitteeMembers() {
+        try {
+          const response = await fetch("data/committee-members.json");
+          const data = await response.json();
+          const committeeGrid = document.getElementById("committeeGrid");
+
+          data.committeeMembers.forEach((member) => {
+            const memberCard = createMemberCard(member);
+            committeeGrid.appendChild(memberCard);
+          });
+        } catch (error) {
+          console.error("Error loading committee members:", error);
+          document.getElementById("committeeGrid").innerHTML =
+            '<p style="text-align: center; color: #64ffda;">Error loading committee members. Please try again later.</p>';
+        }
+      }
+
+      function createMemberCard(member) {
+        const card = document.createElement("div");
+        card.className = "team-card";
+
+        const studentIdText = member.studentId
+          ? `Student ID: ${member.studentId}`
+          : member.description;
+
+        card.innerHTML = `
+          <img src="${member.image}" alt="${member.role}" />
+          <div class="member-info">
+            <div class="member-name">${member.name}</div>
+            <div class="member-role">${member.role}</div>
+            <p>${studentIdText}</p>
+            <div class="member-contact">${member.phone}</div>
+          </div>
+        `;
+
+        return card;
+      }
+    </script>
   </body>
 </html>
