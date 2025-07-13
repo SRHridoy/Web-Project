@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Presidents - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="past-presidents.html">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
+      </ul>
+      <!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="past-presidents.html">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="presidents-section">
+      <h2>Past Presidents</h2>
+      <p class="section-description">
+        Honoring the legacy of our former leaders who have shaped the CSE Club's
+        journey
+      </p>
+
+      <div class="presidents-grid">
+        <!-- 2023-2024 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/seminar01.jpg" alt="President 2023-2024" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Dr. Ahmed Khan</h3>
+            <p class="president-year">2023 - 2024</p>
+            <p class="president-achievements">
+              Led the club through digital transformation initiatives and
+              expanded membership to 200+ students.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2022-2023 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/seminar02.jpg" alt="President 2022-2023" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Prof. Fatima Begum</h3>
+            <p class="president-year">2022 - 2023</p>
+            <p class="president-achievements">
+              Established the annual coding competition and introduced industry
+              partnership programs.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2021-2022 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/cricket01.jpg" alt="President 2021-2022" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Md. Karim Uddin</h3>
+            <p class="president-year">2021 - 2022</p>
+            <p class="president-achievements">
+              Successfully navigated the club through the pandemic with virtual
+              events and online workshops.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2020-2021 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/dean.jpg" alt="President 2020-2021" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Dr. Maliha Sultana</h3>
+            <p class="president-year">2020 - 2021</p>
+            <p class="president-achievements">
+              Launched the first international collaboration program and
+              organized the inaugural tech symposium.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2019-2020 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/ful.jpg" alt="President 2019-2020" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Tanvir Ahmed</h3>
+            <p class="president-year">2019 - 2020</p>
+            <p class="president-achievements">
+              Expanded the club's reach to neighboring universities and
+              established mentorship programs.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2018-2019 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/seminar03.jpg" alt="President 2018-2019" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Raisa Rahman</h3>
+            <p class="president-year">2018 - 2019</p>
+            <p class="president-achievements">
+              Introduced the first hackathon event and established the club's
+              social media presence.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2017-2018 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/seminar01.jpg" alt="President 2017-2018" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Fahim Hossain</h3>
+            <p class="president-year">2017 - 2018</p>
+            <p class="president-achievements">
+              Established the club's first research wing and organized the
+              inaugural programming contest.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2016-2017 -->
+        <div class="president-card">
+          <div class="president-photo">
+            <img src="images/seminar02.jpg" alt="President 2016-2017" />
+          </div>
+          <div class="president-info">
+            <h3 class="president-name">Sumaiya Akter</h3>
+            <p class="president-year">2016 - 2017</p>
+            <p class="president-achievements">
+              Founded the CSE Club and established its core structure and
+              mission.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <a class="back-link" href="index.html">&larr; Back to Home</a>
+    </div>
+
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #0a192f 0%,
+          #112240 50%,
+          #1a2332 100%
+        );
+        min-height: 100vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #e0e0e0;
+      }
+
+      .presidents-section {
+        max-width: 1200px;
+        margin: 48px auto;
+        padding: 2rem;
+        background: rgba(17, 34, 64, 0.85);
+        border-radius: 16px;
+        border: 1.5px solid rgba(100, 255, 218, 0.18);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      .presidents-section h2 {
+        color: #64ffda;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .presidents-section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #64ffda, transparent);
+        border-radius: 1px;
+      }
+
+      .section-description {
+        text-align: center;
+        color: #bfc9d1;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+
+      .presidents-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .president-card {
+        background: linear-gradient(
+          135deg,
+          rgba(26, 35, 50, 0.95) 0%,
+          rgba(17, 34, 64, 0.9) 100%
+        );
+        border-radius: 16px;
+        border: 1.5px solid rgba(100, 255, 218, 0.25);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+          0 2px 16px rgba(100, 255, 218, 0.1);
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        backdrop-filter: blur(8px);
+      }
+
+      .president-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+          0 6px 30px rgba(100, 255, 218, 0.25);
+        border-color: rgba(100, 255, 218, 0.4);
+      }
+
+      .president-photo {
+        flex-shrink: 0;
+      }
+
+      .president-photo img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #64ffda;
+        box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .president-card:hover .president-photo img {
+        transform: scale(1.1);
+        box-shadow: 0 6px 24px rgba(100, 255, 218, 0.3);
+      }
+
+      .president-info {
+        flex: 1;
+      }
+
+      .president-name {
+        color: #64ffda;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+      }
+
+      .president-year {
+        color: #fbc02d;
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        background: rgba(251, 192, 45, 0.1);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        display: inline-block;
+        border: 1px solid rgba(251, 192, 45, 0.3);
+      }
+
+      .president-achievements {
+        color: #bfc9d1;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .back-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 2rem;
+        color: #64ffda;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 0.8rem 1.5rem;
+        border: 1px solid rgba(100, 255, 218, 0.3);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: rgba(100, 255, 218, 0.05);
+      }
+
+      .back-link:hover {
+        background: rgba(100, 255, 218, 0.1);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .presidents-section {
+          margin: 2rem 1rem;
+          padding: 1.5rem;
+        }
+
+        .presidents-section h2 {
+          font-size: 2rem;
+        }
+
+        .presidents-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .president-card {
+          flex-direction: column;
+          text-align: center;
+          padding: 1.5rem;
+        }
+
+        .president-photo img {
+          width: 100px;
+          height: 100px;
+        }
+
+        .president-name {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .presidents-section {
+          margin: 1rem;
+          padding: 1rem;
+        }
+
+        .presidents-section h2 {
+          font-size: 1.8rem;
+        }
+
+        .president-card {
+          padding: 1rem;
+        }
+
+        .president-photo img {
+          width: 80px;
+          height: 80px;
+        }
+
+        .president-name {
+          font-size: 1.1rem;
+        }
+
+        .president-year {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </body>
+</html>
