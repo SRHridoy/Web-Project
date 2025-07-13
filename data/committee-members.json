@@ -1,0 +1,247 @@
+{
+  "committeeMembers": [
+    {
+      "id": 1,
+      "name": "Adiba Mahjabin Nitu, Chairman, Dept. of CSE",
+      "role": "President",
+      "studentId": null,
+      "phone": "01716407820",
+      "image": "Cse_Club/Nitu_mam.jpg",
+      "description": "Leading the CSE Club with vision and dedication."
+    },
+    {
+      "id": 2,
+      "name": "Md. Meheraf Hossan Nishat",
+      "role": "Vice President",
+      "studentId": "2002021",
+      "phone": "01732962394",
+      "image": "Cse_Club/Nishat.jpg",
+      "description": "Supporting the president and coordinating club activities."
+    },
+    {
+      "id": 3,
+      "name": "Hamday Rabby Hossain (Auni)",
+      "role": "General Secretary",
+      "studentId": "2002007",
+      "phone": "01720908856",
+      "image": "Cse_Club/Auni.jpg",
+      "description": "Responsible for club documentation and communication."
+    },
+    {
+      "id": 4,
+      "name": "Pankaj Bhowmik, Lecturer Dept. of CSE",
+      "role": "Treasurer",
+      "studentId": null,
+      "phone": "01791848439",
+      "image": "Cse_Club/Pankaj_sir.jpg",
+      "description": "Managing club finances and operations."
+    },
+    {
+      "id": 5,
+      "name": "Md. Abu Sufian (Shawon)",
+      "role": "Assistant Treasurer",
+      "studentId": "2002006",
+      "phone": "01636366798",
+      "image": "Cse_Club/Md_Abu_Sufian.jpg",
+      "description": "Assisting in financial management."
+    },
+    {
+      "id": 6,
+      "name": "Fahim Hasan Dipo",
+      "role": "Organizing Secretary",
+      "studentId": "2102004",
+      "phone": "01792447035",
+      "image": "Cse_Club/Dipu.jpg",
+      "description": "Organizing club events and activities."
+    },
+    {
+      "id": 7,
+      "name": "Md. Al Hasnain Bin Arif",
+      "role": "Registrar",
+      "studentId": "2102038",
+      "phone": "01894154618",
+      "image": "Cse_Club/Hasnain.jpg",
+      "description": "Managing member registration and records."
+    },
+    {
+      "id": 8,
+      "name": "G. M. Najmul Hasan",
+      "role": "Event and Workshop Secretary",
+      "studentId": "2102055",
+      "phone": "01722854779",
+      "image": "Cse_Club/Nazmul.jpg",
+      "description": "Coordinating events and workshops."
+    },
+    {
+      "id": 9,
+      "name": "Sultan Mahmud Opu",
+      "role": "IT Secretary",
+      "studentId": "2102080",
+      "phone": "01959433800",
+      "image": "Cse_Club/Sultan.jpg",
+      "description": "Managing IT infrastructure and digital platforms."
+    },
+    {
+      "id": 10,
+      "name": "Md. Ashikur Arman",
+      "role": "Publication Secretary",
+      "studentId": "2002005",
+      "phone": "01843905734",
+      "image": "Cse_Club/Arman.jpg",
+      "description": "Handling publications and media content."
+    },
+    {
+      "id": 11,
+      "name": "Maima Faiza Monisha",
+      "role": "Cultural Secretary",
+      "studentId": "2102052",
+      "phone": "01921882969",
+      "image": "Cse_Club/Monisha.jpg",
+      "description": "Organizing cultural events and activities."
+    },
+    {
+      "id": 12,
+      "name": "Md. Tanvir Ahmmed Shuvo",
+      "role": "Sports Secretary",
+      "studentId": "2102054",
+      "phone": "01786249411",
+      "image": "Cse_Club/Tanvir.jpg",
+      "description": "Coordinating sports activities and competitions."
+    },
+    {
+      "id": 13,
+      "name": "Eusa Sarowar Utal",
+      "role": "Assistant General Secretary",
+      "studentId": "2102045",
+      "phone": "01767057949",
+      "image": "Cse_Club/utal.jpg",
+      "description": "Assisting in general secretarial duties."
+    },
+    {
+      "id": 14,
+      "name": "Rubai Khan",
+      "role": "Assistant Organizing Secretary",
+      "studentId": "2202028",
+      "phone": "01782249594",
+      "image": "Cse_Club/Rubai.jpg",
+      "description": "Supporting organizing activities."
+    },
+    {
+      "id": 15,
+      "name": "Md. Asadullahel Galib",
+      "role": "Assistant Registrar",
+      "studentId": "2202008",
+      "phone": "01610003117",
+      "image": "Cse_Club/Galib.jpg",
+      "description": "Assisting in registration processes."
+    },
+    {
+      "id": 16,
+      "name": "Akihito Chakma",
+      "role": "Assistant Event and Workshop Secretary",
+      "studentId": "2202049",
+      "phone": "01630177882",
+      "image": "Cse_Club/Bisal.jpg",
+      "description": "Supporting event and workshop coordination."
+    },
+    {
+      "id": 17,
+      "name": "Md. Shahriar Alom",
+      "role": "Assistant IT Secretary",
+      "studentId": "2202043",
+      "phone": "01521775809",
+      "image": "Cse_Club/shakil.jpg",
+      "description": "Assisting in IT management."
+    },
+    {
+      "id": 18,
+      "name": "Sadia Afrin Shuchi",
+      "role": "Assistant Publication Secretary",
+      "studentId": "2202050",
+      "phone": "01727975839",
+      "image": "Cse_Club/Shuchi.jpg",
+      "description": "Supporting publication activities."
+    },
+    {
+      "id": 19,
+      "name": "Md. Ashraful Islam",
+      "role": "Assistant Cultural Secretary",
+      "studentId": "2202038",
+      "phone": "01874018711",
+      "image": "Cse_Club/Asraful.jpg",
+      "description": "Assisting in cultural activities."
+    },
+    {
+      "id": 20,
+      "name": "Md. Sunzim Mostak",
+      "role": "Assistant Sports Secretary",
+      "studentId": "2202040",
+      "phone": "01403061279",
+      "image": "Cse_Club/Sunzim.jpg",
+      "description": "Supporting sports activities."
+    },
+    {
+      "id": 21,
+      "name": "Md. Sakhawat Hossen Rudra",
+      "role": "Executive Member",
+      "studentId": "2002048",
+      "phone": "01790888204",
+      "image": "Cse_Club/Rudra.jpg",
+      "description": "Executive committee member."
+    },
+    {
+      "id": 22,
+      "name": "Zamil Hossain Maruf",
+      "role": "Executive Member",
+      "studentId": "2002050",
+      "phone": "01704492782",
+      "image": "Cse_Club/Maruf.jpg",
+      "description": "Executive committee member."
+    },
+    {
+      "id": 23,
+      "name": "Gaosul Azam Mridul",
+      "role": "Executive Member",
+      "studentId": "2002045",
+      "phone": "01568786175",
+      "image": "Cse_Club/MridulVai.jpg",
+      "description": "Executive committee member."
+    },
+    {
+      "id": 24,
+      "name": "Md. Abu Talha Taufique",
+      "role": "Executive Member",
+      "studentId": "2002019",
+      "phone": "01796660101",
+      "image": "Cse_Club/Taufic.jpg",
+      "description": "Executive committee member."
+    },
+    {
+      "id": 25,
+      "name": "Mahmudul Hasan Abin",
+      "role": "Junior Executive Member",
+      "studentId": "2302040",
+      "phone": "01780946249",
+      "image": "Cse_Club/Abin.jpg",
+      "description": "Junior executive committee member."
+    },
+    {
+      "id": 26,
+      "name": "Md. Shahnewaz Parvez Shanu",
+      "role": "Junior Executive Member",
+      "studentId": "2302055",
+      "phone": "01761025561",
+      "image": "Cse_Club/parvez.jpg",
+      "description": "Junior executive committee member."
+    },
+    {
+      "id": 27,
+      "name": "Kumary Shoshee Rani Karmoker",
+      "role": "Junior Executive Member",
+      "studentId": "2302062",
+      "phone": "01889665649",
+      "image": "Cse_Club/Sosi.jpg",
+      "description": "Junior executive committee member."
+    }
+  ]
+} 
