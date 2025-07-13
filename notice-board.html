@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notice Board - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/notice-board.css" />
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
+      </ul>
+      <!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <div class="notice-section">
+      <h2>Notice Board</h2>
+      <div class="notice-filter">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Academic</button>
+        <button class="filter-btn">Events</button>
+        <button class="filter-btn">General</button>
+        <button class="filter-btn">Urgent</button>
+      </div>
+      <ul class="notice-list">
+        <li class="notice-item">
+          <div class="notice-priority high"></div>
+          <div class="notice-title">
+            🚨 URGENT: Final Year Project Submission Deadline
+          </div>
+          <div class="notice-date">Posted on: January 20, 2024</div>
+          <div class="notice-content">
+            Attention all final year students! The deadline for project
+            submission has been moved to January 25, 2024. Please ensure all
+            documentation and code are properly organized and submitted through
+            the student portal. Late submissions will not be accepted.
+          </div>
+          <span class="notice-tag">Academic</span>
+        </li>
+        <li class="notice-item">
+          <div class="notice-priority medium"></div>
+          <div class="notice-title">Python Workshop Registration Extended</div>
+          <div class="notice-date">Posted on: January 18, 2024</div>
+          <div class="notice-content">
+            Due to high demand, the registration deadline for the Python
+            Programming Workshop has been extended to January 22, 2024. This
+            workshop will cover advanced topics including Django, Flask, and
+            Data Science libraries. Don't miss this opportunity to enhance your
+            programming skills!
+          </div>
+          <span class="notice-tag">Events</span>
+        </li>
+        <li class="notice-item">
+          <div class="notice-priority low"></div>
+          <div class="notice-title">Important: Lab Schedule Changes</div>
+          <div class="notice-date">Posted on: January 17, 2024</div>
+          <div class="notice-content">
+            Please note that the lab schedule for CSE-301 has been updated. The
+            new schedule will be effective from next week. Check your student
+            portal for detailed timings. All affected students will receive
+            individual notifications.
+          </div>
+          <span class="notice-tag">Academic</span>
+        </li>
+        <li class="notice-item">
+          <div class="notice-priority medium"></div>
+          <div class="notice-title">Call for Volunteers: Tech Fest 2024</div>
+          <div class="notice-date">Posted on: January 15, 2024</div>
+          <div class="notice-content">
+            We are looking for enthusiastic volunteers for the upcoming Tech
+            Fest 2024. This is a great opportunity to gain event management
+            experience and network with industry professionals. Positions
+            available: Event Coordinator, Technical Support, Registration Desk,
+            and Media Team.
+          </div>
+          <span class="notice-tag">General</span>
+        </li>
+        <li class="notice-item">
+          <div class="notice-priority low"></div>
+          <div class="notice-title">CSE Club Annual General Meeting</div>
+          <div class="notice-date">Posted on: January 14, 2024</div>
+          <div class="notice-content">
+            The Annual General Meeting of CSE Club will be held on January 30,
+            2024, at 3:00 PM in the Main Auditorium. All members are requested
+            to attend. Agenda includes: Annual Report Presentation, Budget
+            Review, and Election of New Committee Members.
+          </div>
+          <span class="notice-tag">General</span>
+        </li>
+        <li class="notice-item">
+          <div class="notice-priority medium"></div>
+          <div class="notice-title">Hackathon 2024: Registration Open</div>
+          <div class="notice-date">Posted on: January 12, 2024</div>
+          <div class="notice-content">
+            Registration for the annual Hackathon 2024 is now open! This year's
+            theme is "Sustainable Technology Solutions". Teams of 2-4 members
+            can participate. Prizes worth 50,000 BDT to be won. Registration
+            deadline: February 5, 2024.
+          </div>
+          <span class="notice-tag">Events</span>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // Filter functionality
+      document.querySelectorAll(".filter-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          const filter = button.textContent.toLowerCase();
+          const notices = document.querySelectorAll(".notice-item");
+
+          notices.forEach((notice) => {
+            const tag = notice
+              .querySelector(".notice-tag")
+              .textContent.toLowerCase();
+            const priority = notice.querySelector(".notice-priority");
+            const isUrgent = priority && priority.classList.contains("high");
+
+            if (
+              filter === "all" ||
+              tag === filter ||
+              (filter === "urgent" && isUrgent)
+            ) {
+              notice.style.display = "block";
+            } else {
+              notice.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Add hover effects for notice items
+      document.querySelectorAll(".notice-item").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          item.style.transform = "translateY(-3px)";
+        });
+
+        item.addEventListener("mouseleave", () => {
+          item.style.transform = "translateY(0)";
+        });
+      });
+
+      // User authentication check (placeholder)
+      const isLoggedIn = false; // Replace with actual auth check
+      const loginSection = document.getElementById("loginSection");
+      const userSection = document.getElementById("userSection");
+
+      if (isLoggedIn) {
+        loginSection.style.display = "none";
+        userSection.style.display = "block";
+      } else {
+        loginSection.style.display = "block";
+        userSection.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
