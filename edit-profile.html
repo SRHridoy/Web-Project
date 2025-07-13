@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/activities.css" />
+    <link rel="stylesheet" href="styles/events.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/team.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
+    <link rel="stylesheet" href="styles/testimonials.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/edit-profile.css" />
+    <script src="scripts.js"></script>
+  </head>
+  <body class="edit-profile-page">
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="menu.png" alt="menu" /></a>
+        </li>
+      </ul>
+      <!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="#past-presidents">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="edit-container">
+      <div class="edit-header">
+        <h1>Edit Profile</h1>
+        <p>Update your personal information and account details</p>
+      </div>
+
+      <div class="success-message" id="successMessage" style="display: none">
+        Profile updated successfully!
+      </div>
+
+      <div class="error-message" id="errorMessage" style="display: none">
+        Please fill in all required fields.
+      </div>
+
+      <form class="edit-form" id="editForm">
+        <!-- Personal Information Section -->
+        <div class="form-section">
+          <h2>Personal Information</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" required />
+            </div>
+            <div class="form-group">
+              <label for="studentId">Student ID *</label>
+              <input type="text" id="studentId" name="studentId" required />
+            </div>
+            <div class="form-group">
+              <label for="batch">Batch *</label>
+              <select id="batch" name="batch" required>
+                <option value="">Select Batch</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number *</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" required />
+            </div>
+            <div class="form-group">
+              <label for="bloodGroup">Blood Group</label>
+              <select id="bloodGroup" name="bloodGroup">
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input type="date" id="dateOfBirth" name="dateOfBirth" />
+            </div>
+            <div class="form-group full-width">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Information Section -->
+        <div class="form-section">
+          <h2>Account Information</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="username">Username *</label>
+              <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="currentPassword">Current Password</label>
+              <div class="password-input">
+                <input
+                  type="password"
+                  id="currentPassword"
+                  name="currentPassword"
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  onclick="togglePassword('currentPassword')"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <div class="password-input">
+                <input type="password" id="newPassword" name="newPassword" />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  onclick="togglePassword('newPassword')"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm New Password</label>
+              <div class="password-input">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  onclick="togglePassword('confirmPassword')"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Information Section -->
+        <div class="form-section">
+          <h2>Additional Information</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Areas of Interest</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="web-dev"
+                    name="interests"
+                    value="web-development"
+                  />
+                  <label for="web-dev">Web Development</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="mobile-dev"
+                    name="interests"
+                    value="mobile-development"
+                  />
+                  <label for="mobile-dev">Mobile Development</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="ai-ml"
+                    name="interests"
+                    value="ai-ml"
+                  />
+                  <label for="ai-ml">AI & Machine Learning</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="cybersecurity"
+                    name="interests"
+                    value="cybersecurity"
+                  />
+                  <label for="cybersecurity">Cybersecurity</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="data-science"
+                    name="interests"
+                    value="data-science"
+                  />
+                  <label for="data-science">Data Science</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="game-dev"
+                    name="interests"
+                    value="game-development"
+                  />
+                  <label for="game-dev">Game Development</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="competitive-prog"
+                    name="interests"
+                    value="competitive-programming"
+                  />
+                  <label for="competitive-prog">Competitive Programming</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="ui-ux"
+                    name="interests"
+                    value="ui-ux"
+                  />
+                  <label for="ui-ux">UI/UX Design</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Programming Skills</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="python"
+                    name="skills"
+                    value="python"
+                  />
+                  <label for="python">Python</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="java" name="skills" value="java" />
+                  <label for="java">Java</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="javascript"
+                    name="skills"
+                    value="javascript"
+                  />
+                  <label for="javascript">JavaScript</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="cpp" name="skills" value="cpp" />
+                  <label for="cpp">C++</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="c" name="skills" value="c" />
+                  <label for="c">C</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="php" name="skills" value="php" />
+                  <label for="php">PHP</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="react"
+                    name="skills"
+                    value="react"
+                  />
+                  <label for="react">React</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="nodejs"
+                    name="skills"
+                    value="nodejs"
+                  />
+                  <label for="nodejs">Node.js</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="mysql"
+                    name="skills"
+                    value="mysql"
+                  />
+                  <label for="mysql">MySQL</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="mongodb"
+                    name="skills"
+                    value="mongodb"
+                  />
+                  <label for="mongodb">MongoDB</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label for="bio">Bio</label>
+              <textarea
+                id="bio"
+                name="bio"
+                rows="4"
+                placeholder="Tell us about yourself, your goals, and interests..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" onclick="goBack()">
+            Cancel
+          </button>
+          <button type="submit" class="btn-primary" id="saveBtn">
+            <span id="saveText">Save Changes</span>
+            <span id="saveLoading" class="loading" style="display: none"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // Load user data when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        loadUserData();
+        setupFormValidation();
+      });
+
+      function loadUserData() {
+        const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
+        const memberInfo = JSON.parse(
+          localStorage.getItem("memberInfo") || "{}"
+        );
+
+        // Check if user is logged in
+        if (!userInfo.name) {
+          alert("Please login first!");
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Load basic account info
+        document.getElementById("username").value = userInfo.name;
+        document.getElementById("email").value = userInfo.email;
+
+        // Load member information (from registration)
+        if (memberInfo.fullName) {
+          document.getElementById("fullName").value = memberInfo.fullName;
+        } else {
+          document.getElementById("fullName").value = userInfo.name;
+        }
+
+        document.getElementById("studentId").value = memberInfo.studentId || "";
+        document.getElementById("batch").value = memberInfo.batch || "";
+        document.getElementById("phoneNumber").value =
+          memberInfo.phoneNumber || "";
+        document.getElementById("bloodGroup").value =
+          memberInfo.bloodGroup || "";
+        document.getElementById("dateOfBirth").value =
+          memberInfo.dateOfBirth || "";
+        document.getElementById("address").value = memberInfo.address || "";
+        document.getElementById("bio").value = memberInfo.bio || "";
+
+        // Load interests and skills
+        if (memberInfo.interests) {
+          const interests = Array.isArray(memberInfo.interests)
+            ? memberInfo.interests
+            : [memberInfo.interests];
+
+          interests.forEach((interest) => {
+            const checkbox = document.querySelector(
+              `input[name="interests"][value="${interest}"]`
+            );
+            if (checkbox) {
+              checkbox.checked = true;
+            }
+          });
+        }
+
+        if (memberInfo.skills) {
+          const skills = Array.isArray(memberInfo.skills)
+            ? memberInfo.skills
+            : [memberInfo.skills];
+
+          skills.forEach((skill) => {
+            const checkbox = document.querySelector(
+              `input[name="skills"][value="${skill}"]`
+            );
+            if (checkbox) {
+              checkbox.checked = true;
+            }
+          });
+        }
+      }
+
+      function setupFormValidation() {
+        const form = document.getElementById("editForm");
+        const saveBtn = document.getElementById("saveBtn");
+        const saveText = document.getElementById("saveText");
+        const saveLoading = document.getElementById("saveLoading");
+        const successMessage = document.getElementById("successMessage");
+        const errorMessage = document.getElementById("errorMessage");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Show loading state
+          saveBtn.disabled = true;
+          saveText.style.display = "none";
+          saveLoading.style.display = "inline-block";
+          successMessage.style.display = "none";
+          errorMessage.style.display = "none";
+
+          // Get form data
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData);
+
+          // Handle multiple selections for interests and skills
+          const interestsCheckboxes = document.querySelectorAll(
+            'input[name="interests"]:checked'
+          );
+          const skillsCheckboxes = document.querySelectorAll(
+            'input[name="skills"]:checked'
+          );
+
+          data.interests = Array.from(interestsCheckboxes).map(
+            (checkbox) => checkbox.value
+          );
+          data.skills = Array.from(skillsCheckboxes).map(
+            (checkbox) => checkbox.value
+          );
+
+          // Validate required fields
+          const requiredFields = [
+            "fullName",
+            "studentId",
+            "batch",
+            "phoneNumber",
+            "username",
+            "email",
+          ];
+          const missingFields = requiredFields.filter((field) => !data[field]);
+
+          if (missingFields.length > 0) {
+            showError("Please fill in all required fields.");
+            return;
+          }
+
+          // Validate password if changing
+          if (data.newPassword && data.newPassword !== data.confirmPassword) {
+            showError("New passwords do not match.");
+            return;
+          }
+
+          // Validate email format
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(data.email)) {
+            showError("Please enter a valid email address.");
+            return;
+          }
+
+          // Simulate API call delay
+          setTimeout(() => {
+            // Update user info
+            const userInfo = JSON.parse(
+              localStorage.getItem("userInfo") || "{}"
+            );
+            userInfo.name = data.username;
+            userInfo.email = data.email;
+            localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+            // Update member info
+            const memberInfo = {
+              fullName: data.fullName,
+              studentId: data.studentId,
+              batch: data.batch,
+              phoneNumber: data.phoneNumber,
+              bloodGroup: data.bloodGroup,
+              dateOfBirth: data.dateOfBirth,
+              address: data.address,
+              bio: data.bio,
+              interests: data.interests,
+              skills: data.skills,
+            };
+            localStorage.setItem("memberInfo", JSON.stringify(memberInfo));
+
+            // Show success message
+            showSuccess("Profile updated successfully!");
+
+            // Redirect to profile page after delay
+            setTimeout(() => {
+              window.location.href = "user.html";
+            }, 1500);
+          }, 1000);
+        });
+      }
+
+      function showError(message) {
+        const errorMessage = document.getElementById("errorMessage");
+        const saveBtn = document.getElementById("saveBtn");
+        const saveText = document.getElementById("saveText");
+        const saveLoading = document.getElementById("saveLoading");
+
+        errorMessage.textContent = message;
+        errorMessage.style.display = "block";
+
+        // Reset button state
+        saveBtn.disabled = false;
+        saveText.style.display = "inline";
+        saveLoading.style.display = "none";
+      }
+
+      function showSuccess(message) {
+        const successMessage = document.getElementById("successMessage");
+        successMessage.textContent = message;
+        successMessage.style.display = "block";
+      }
+
+      function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        const button = input.nextElementSibling;
+
+        if (input.type === "password") {
+          input.type = "text";
+          button.textContent = "🙈";
+        } else {
+          input.type = "password";
+          button.textContent = "👁️";
+        }
+      }
+
+      function goBack() {
+        if (
+          confirm(
+            "Are you sure you want to cancel? Any unsaved changes will be lost."
+          )
+        ) {
+          window.location.href = "user.html";
+        }
+      }
+    </script>
+  </body>
+</html>
