@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chatbot Test - HSTU CSE Club</title>
+		<link rel="stylesheet" href="styles/chatbot.css" />
+		<style>
+			body {
+				font-family: "Montserrat", sans-serif;
+				margin: 0;
+				padding: 20px;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+				color: white;
+			}
+			.test-container {
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+			}
+			p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				opacity: 0.9;
+			}
+			.test-info {
+				background: rgba(255, 255, 255, 0.1);
+				padding: 20px;
+				border-radius: 15px;
+				backdrop-filter: blur(10px);
+				margin-bottom: 30px;
+			}
+			.test-info h2 {
+				margin-top: 0;
+				color: #ffd700;
+			}
+			.test-info ul {
+				text-align: left;
+				max-width: 500px;
+				margin: 0 auto;
+			}
+			.test-info li {
+				margin-bottom: 10px;
+				padding: 8px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 8px;
+			}
+			.back-btn {
+				display: inline-block;
+				background: rgba(255, 255, 255, 0.2);
+				color: white;
+				padding: 12px 24px;
+				text-decoration: none;
+				border-radius: 25px;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(10px);
+			}
+			.back-btn:hover {
+				background: rgba(255, 255, 255, 0.3);
+				transform: translateY(-2px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test-container">
+			<h1>🤖 Chatbot Test Page</h1>
+			<p>Test the floating chatbot functionality</p>
+
+			<div class="test-info">
+				<h2>Test Instructions:</h2>
+				<ul>
+					<li>
+						✅ Look for the floating chatbot button in the
+						bottom-left corner
+					</li>
+					<li>✅ Click the button to open the chat window</li>
+					<li>✅ Try sending a message in Bangla or English</li>
+					<li>✅ Test the quick reply buttons</li>
+					<li>✅ Check the typing indicator animation</li>
+					<li>✅ Test responsive design on mobile</li>
+					<li>✅ Verify smooth scrolling and animations</li>
+				</ul>
+			</div>
+
+			<div class="test-info">
+				<h2>Expected Features:</h2>
+				<ul>
+					<li>
+						🎯 Beautiful floating button with gradient and hover
+						effects
+					</li>
+					<li>🎯 Smooth slide-in animation for chat window</li>
+					<li>🎯 Typing indicator with animated dots</li>
+					<li>🎯 Quick reply buttons for common questions</li>
+					<li>🎯 Notification badge after 5 seconds</li>
+					<li>🎯 Pulse animation on the toggle button</li>
+					<li>🎯 Responsive design for mobile devices</li>
+					<li>🎯 Smooth scrolling for messages</li>
+				</ul>
+			</div>
+
+			<a href="homepage.html" class="back-btn">← Back to Homepage</a>
+		</div>
+
+		<script src="chatbot/chat_bot.js"></script>
+	</body>
+</html>
