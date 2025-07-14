@@ -60,3 +60,4 @@ coverage/
 # Misc
 *.orig
 
+chatbot/chat_bot.js

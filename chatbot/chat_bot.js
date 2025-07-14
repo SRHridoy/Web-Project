@@ -1,4 +1,4 @@
-const apiKey = "YOUR_GEMINI_API_KEY"; // এখানে আপনার জেমিনি API key বসান
+const apiKey = "AIzaSyBIP6KFUuoM8oo_3q4ttDPNmNhw91gaii4";
 
 // Chatbot UI Elements
 let chatlog;
@@ -7,6 +7,79 @@ let sendButton;
 let chatbotWindow;
 let chatbotToggle;
 let typingIndicator;
+
+// HSTU ওয়েবসাইট থেকে কপি করা তথ্য (সংক্ষেপে)
+const hstuInfo = `
+হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় (HSTU) বাংলাদেশের একটি স্বনামধন্য পাবলিক বিশ্ববিদ্যালয়।
+
+প্রতিষ্ঠা: ১৯৯৯ সাল
+অবস্থান: দিনাজপুর, বাংলাদেশ
+ওয়েবসাইট: https://www.hstu.ac.bd
+যোগাযোগ: registrar@hstu.ac.bd, ফোন: +880247488001
+
+প্রধান ভবনসমূহ: প্রশাসনিক ভবন, একাডেমিক ভবন, লাইব্রেরি, গবেষণা কেন্দ্র, ছাত্রাবাস, ছাত্রীনিবাস, মেডিকেল সেন্টার, খেলার মাঠ ইত্যাদি।
+
+অনুষদসমূহ:
+- কৃষি অনুষদ
+- কম্পিউটার সায়েন্স ও ইঞ্জিনিয়ারিং অনুষদ
+- ইঞ্জিনিয়ারিং অনুষদ
+- বিজনেস স্টাডিজ অনুষদ
+- মৎস্য বিজ্ঞান অনুষদ
+- ভেটেরিনারি ও এনিম্যাল সায়েন্স অনুষদ
+- বিজ্ঞান অনুষদ
+- সামাজিক বিজ্ঞান ও মানবিক অনুষদ
+
+বিভাগসমূহ (উদাহরণ):
+- কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিং (CSE)
+- ইলেকট্রিক্যাল অ্যান্ড ইলেকট্রনিক ইঞ্জিনিয়ারিং (EEE)
+- সিভিল ইঞ্জিনিয়ারিং (CE)
+- কৃষি
+- মৎস্য
+- ভেটেরিনারি
+- ফুড প্রসেসিং
+
+শিক্ষার্থী সংখ্যা: প্রায় ১২,০০০+
+শিক্ষক সংখ্যা: প্রায় ৫০০+
+
+বিশ্ববিদ্যালয়ের লক্ষ্য:
+- আধুনিক ও মানসম্মত শিক্ষা প্রদান
+- গবেষণা ও উদ্ভাবন
+- জাতীয় ও আন্তর্জাতিক পর্যায়ে অবদান রাখা
+
+CSE Club, HSTU:
+CSE Club হলো হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিং বিভাগের একটি ছাত্র সংগঠন।
+
+ক্লাবের উদ্দেশ্য:
+- শিক্ষার্থীদের প্রযুক্তিগত দক্ষতা বৃদ্ধি
+- প্রোগ্রামিং প্রতিযোগিতা আয়োজন
+- সেমিনার, ওয়ার্কশপ, ও টেক টক
+- সফট স্কিল ও ক্যারিয়ার ডেভেলপমেন্ট
+- জাতীয় ও আন্তর্জাতিক প্রতিযোগিতায় অংশগ্রহণ
+- ক্লাব সদস্যদের মধ্যে নেটওয়ার্কিং ও সহযোগিতা
+
+ক্লাবের নিয়মিত কার্যক্রম:
+- ইনট্রা-ডিপার্টমেন্ট প্রোগ্রামিং কনটেস্ট
+- সেমিনার ও ওয়ার্কশপ (প্রোগ্রামিং, ওয়েব ডেভেলপমেন্ট, AI, ক্যারিয়ার, ইত্যাদি)
+- প্রোজেক্ট শো-কে'জ
+- টিম বিল্ডিং ও মেম্বার মিটআপ
+- সোশ্যাল ওয়ার্ক
+
+ক্লাব সদস্যপদ:
+- CSE বিভাগের যেকোনো শিক্ষার্থী সদস্য হতে পারে
+- সদস্য হতে নির্দিষ্ট ফর্ম পূরণ ও ফি প্রদান করতে হয়
+- সদস্যরা ক্লাবের সকল ইভেন্ট ও সুযোগ-সুবিধা পায়
+
+ক্লাবের যোগাযোগ:
+- ইমেইল: cseclub@hstu.ac.bd
+- ফেসবুক: https://www.facebook.com/cseclubhstu
+- অফিস: CSE Building, HSTU
+
+বিশেষ অর্জন:
+- ক্লাবের সদস্যরা জাতীয় ও আন্তর্জাতিক প্রোগ্রামিং কনটেস্টে পুরস্কারপ্রাপ্ত
+- বিভিন্ন আইটি কোম্পানিতে ক্লাবের সাবেক সদস্যরা কর্মরত
+
+নোটিশ, ভর্তি, রেজাল্ট, ও অন্যান্য তথ্যের জন্য বিশ্ববিদ্যালয়ের অফিসিয়াল ওয়েবসাইট দেখুন: https://www.hstu.ac.bd
+`;
 
 // Initialize chatbot when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -39,11 +112,6 @@ function initializeChatbot() {
 
 	// Add welcome message
 	addWelcomeMessage();
-
-	// Add quick replies after welcome message
-	setTimeout(() => {
-		addQuickReplies();
-	}, 1000);
 
 	// Add pulse animation to toggle button after 3 seconds
 	setTimeout(() => {
@@ -134,43 +202,41 @@ async function sendMessage() {
 	const message = userInput.value.trim();
 	if (!message) return;
 
-	// Disable input and send button
 	userInput.disabled = true;
 	sendButton.disabled = true;
 
-	// Add user message
 	addMessage(message, "user");
 	userInput.value = "";
-
-	// Show typing indicator
 	showTypingIndicator();
 
 	try {
-		const systemPrompt = `
-You are an AI assistant who only answer questions related to HSTU and its CSE Club. 
-If asked anything outside this scope, politely say that you're restricted to only HSTU and CSE Club topics.
-Reply in Bangla if the question is in Bangla.
-Always be helpful, friendly, and provide accurate information about HSTU CSE Club.
+		// এখানে prompt তৈরি করুন
+		const prompt = `
+শুধুমাত্র নিচের তথ্যের ভিত্তিতে উত্তর দাও এবং সবসময় বাংলায় উত্তর দাও:
+${hstuInfo}
+
+প্রশ্ন: ${message}
 `;
 
 		const response = await fetch(
-			"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" +
-				apiKey,
+			"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
 			{
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: {
+					"Content-Type": "application/json",
+					"X-goog-api-key": apiKey,
+				},
 				body: JSON.stringify({
 					contents: [
-						{ role: "user", parts: [{ text: systemPrompt }] },
-						{ role: "user", parts: [{ text: message }] },
+						{
+							parts: [{ text: prompt }],
+						},
 					],
 				}),
 			}
 		);
 
 		const data = await response.json();
-
-		// Hide typing indicator
 		hideTypingIndicator();
 
 		if (
@@ -196,7 +262,6 @@ Always be helpful, friendly, and provide accurate information about HSTU CSE Clu
 		);
 	}
 
-	// Re-enable input and send button
 	userInput.disabled = false;
 	sendButton.disabled = false;
 	userInput.focus();
@@ -209,37 +274,6 @@ function showTypingIndicator() {
 
 function hideTypingIndicator() {
 	typingIndicator.classList.remove("active");
-}
-
-// Add some helpful quick replies
-function addQuickReplies() {
-	const quickReplies = [
-		"ক্লাব সম্পর্কে জানতে চাই",
-		"আজকের ইভেন্ট কী?",
-		"কমিটি সদস্যদের তালিকা",
-		"সদস্যতা নিতে চাই",
-	];
-
-	const quickRepliesHTML = `
-        <div class="quick-replies">
-            ${quickReplies
-				.map(
-					(reply) => `
-                <button class="quick-reply-btn" onclick="sendQuickReply('${reply}')">
-                    ${reply}
-                </button>
-            `
-				)
-				.join("")}
-        </div>
-    `;
-
-	chatlog.innerHTML += quickRepliesHTML;
-}
-
-function sendQuickReply(text) {
-	userInput.value = text;
-	sendMessage();
 }
 
 function addNotificationBadge() {
