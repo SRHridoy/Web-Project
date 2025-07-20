@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Access - CSE Club HSTU</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+        color: #e0e0e0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .admin-access {
+        background: rgba(16, 32, 61, 0.9);
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        border: 1px solid rgba(100, 255, 218, 0.3);
+        backdrop-filter: blur(10px);
+        max-width: 500px;
+        width: 90%;
+      }
+
+      .admin-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #64ffda, #4db3a3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2em;
+        color: #0a192f;
+      }
+
+      .admin-title {
+        color: #64ffda;
+        font-size: 1.8em;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .admin-subtitle {
+        color: #8892b0;
+        margin-bottom: 30px;
+        font-size: 1.1em;
+      }
+
+      .access-btn {
+        background: #64ffda;
+        color: #0a192f;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+      }
+
+      .access-btn:hover {
+        background: #4db3a3;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
+      }
+
+      .back-btn {
+        background: rgba(100, 255, 218, 0.1);
+        color: #64ffda;
+        border: 1px solid rgba(100, 255, 218, 0.3);
+      }
+
+      .back-btn:hover {
+        background: rgba(100, 255, 218, 0.2);
+      }
+
+      .admin-features {
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        padding: 10px;
+        background: rgba(100, 255, 218, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid #64ffda;
+      }
+
+      .feature-icon {
+        color: #64ffda;
+        font-size: 1.2em;
+        width: 20px;
+      }
+
+      .feature-text {
+        color: #e0e0e0;
+        font-size: 0.95em;
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .notification.show {
+        transform: translateX(0);
+      }
+
+      .notification.error {
+        background: #f44336;
+      }
+
+      @media (max-width: 600px) {
+        .admin-access {
+          padding: 30px 20px;
+        }
+
+        .admin-title {
+          font-size: 1.5em;
+        }
+
+        .access-btn {
+          padding: 12px 25px;
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-access">
+      <div class="admin-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+
+      <h1 class="admin-title">Admin Access</h1>
+      <p class="admin-subtitle">CSE Club of HSTU - Administrative Panel</p>
+
+      <div id="accessButtons">
+        <a href="admin-panel.html" class="access-btn" id="adminPanelBtn">
+          <i class="fas fa-tachometer-alt"></i> Access Admin Panel
+        </a>
+        <a href="../index.html" class="access-btn back-btn">
+          <i class="fas fa-home"></i> Back to Site
+        </a>
+      </div>
+
+      <div class="admin-features">
+        <h3 style="color: #64ffda; margin-bottom: 15px; text-align: center">
+          Admin Features
+        </h3>
+
+        <div class="feature-item">
+          <i class="fas fa-users feature-icon"></i>
+          <span class="feature-text">Member Management</span>
+        </div>
+
+        <div class="feature-item">
+          <i class="fas fa-calendar-alt feature-icon"></i>
+          <span class="feature-text">Event Management</span>
+        </div>
+
+        <div class="feature-item">
+          <i class="fas fa-bullhorn feature-icon"></i>
+          <span class="feature-text">Notice Management</span>
+        </div>
+
+        <div class="feature-item">
+          <i class="fas fa-chart-bar feature-icon"></i>
+          <span class="feature-text">Reports & Analytics</span>
+        </div>
+
+        <div class="feature-item">
+          <i class="fas fa-cog feature-icon"></i>
+          <span class="feature-text">System Settings</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="../scripts.js"></script>
+    <script src="../login.js"></script>
+    <script>
+      // Check admin access - Login requirement disabled
+      function checkAdminAccess() {
+        // Login requirement removed - allow direct access
+        return true;
+      }
+
+      // Show notification
+      function showNotification(message, type = "success") {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.className = `notification ${type}`;
+        notification.classList.add("show");
+
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        // Always show admin panel button - login requirement disabled
+        document.getElementById("adminPanelBtn").style.display = "inline-block";
+      });
+    </script>
+  </body>
+</html>
