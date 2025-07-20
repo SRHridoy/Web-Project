@@ -1,0 +1,270 @@
+/* Notice Management CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(16, 32, 61, 0.8);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.page-title {
+  color: #64ffda;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.back-btn {
+  background: #64ffda;
+  color: #0a192f;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #4db3a3;
+  transform: translateY(-2px);
+}
+
+.notice-form {
+  background: rgba(16, 32, 61, 0.8);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.form-title {
+  color: #64ffda;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #64ffda;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 6px;
+  background: rgba(10, 25, 47, 0.8);
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #64ffda;
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #64ffda;
+  color: #0a192f;
+}
+
+.btn-primary:hover {
+  background: #4db3a3;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #8892b0;
+  color: #e0e0e0;
+}
+
+.btn-secondary:hover {
+  background: #6b7280;
+}
+
+.notices-container {
+  background: rgba(16, 32, 61, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.container-title {
+  color: #64ffda;
+  font-size: 1.3em;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 6px;
+  background: rgba(10, 25, 47, 0.8);
+  color: #e0e0e0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+th {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: rgba(100, 255, 218, 0.05);
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-active {
+  background: rgba(100, 255, 218, 0.2);
+  color: #64ffda;
+}
+
+.status-inactive {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-danger {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #ee5a52;
+}
+
+.btn-warning {
+  background: #ffa726;
+  color: #0a192f;
+}
+
+.btn-warning:hover {
+  background: #ff9800;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.success {
+  background: #4caf50;
+}
+
+.notification.error {
+  background: #f44336;
+}
+
+.notification.warning {
+  background: #ff9800;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .container-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .search-box {
+    flex-direction: column;
+  }
+}
