@@ -22,8 +22,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <script src="scripts.js"></script>
-    <script src="login.js"></script>
   </head>
   <body>
     <nav>
@@ -56,9 +54,11 @@
           <a href="notice-board.html">Notice Board</a>
         </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="hideOnMobile">
+          <a href="login.html" id="navLoginLink">Login</a>
+        </li>
         <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="menu.png" alt="menu" /></a>
+          <a href="#"><img src="images/menu.png" alt="menu" /></a>
         </li>
       </ul>
       <!-- Sidebar -->
@@ -89,7 +89,7 @@
         </li>
         <li><a href="notice-board.html">Notice Board</a></li>
         <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
       </ul>
     </nav>
 
@@ -100,7 +100,11 @@
       <div id="errorMessage" class="message error-message"></div>
       <div id="successMessage" class="message success-message"></div>
 
-      <form class="registration-form" id="registrationForm">
+      <form
+        class="registration-form"
+        id="registrationForm"
+        onsubmit="event.preventDefault(); (async () => { try { await window.register(); } catch (e) { console.error('Error calling register:', e); alert('An error occurred during registration. Please check the console.'); } })();"
+      >
         <div class="form-group">
           <label for="name">Full Name</label>
           <input
@@ -127,8 +131,8 @@
           <label for="phone">Phone Number</label>
           <input
             type="tel"
-            id="phone"
-            name="phone"
+            id="contactNumber"
+            name="contactNumber"
             placeholder="Enter your phone number"
             required
           />
@@ -147,7 +151,7 @@
 
         <div class="form-group">
           <label for="department">Department</label>
-          <select id="department" name="department" required>
+          <select id="dept" name="dept" required>
             <option value="">Select Department</option>
             <option value="CSE">Computer Science & Engineering</option>
             <option value="EEE">Electrical & Electronic Engineering</option>
@@ -190,23 +194,6 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <div class="password-field">
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="Confirm your password"
-              required
-            />
-            <i
-              class="fas fa-eye password-toggle"
-              onclick="togglePasswordVisibility('confirmPassword')"
-            ></i>
-          </div>
-        </div>
-
         <button type="submit">Create Account</button>
       </form>
 
@@ -216,6 +203,9 @@
       <div id="downloadSection" style="display: none"></div>
     </div>
 
+    <script src="scripts.js"></script>
+    <script src="Authentication/auth.js" type="module"></script>
+    <script src="Authentication/updateUI.js"></script>
     <script>
       // Password strength checker (local function for this page)
       document

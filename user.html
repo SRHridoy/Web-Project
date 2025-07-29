@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="styles/testimonials.css" />
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/user.css" />
-    <script src="scripts.js"></script>
-    <script src="login.js"></script>
   </head>
   <body class="user-page">
     <nav>
@@ -52,9 +50,11 @@
           <a href="notice-board.html">Notice Board</a>
         </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="hideOnMobile">
+          <a href="login.html" id="navLoginLink">Login</a>
+        </li>
         <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="menu.png" alt="menu" /></a>
+          <a href="#"><img src="images/menu.png" alt="menu" /></a>
         </li>
       </ul>
       <!-- Sidebar -->
@@ -83,9 +83,11 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li><a href="notice-board.html">Notice Board</a></li>
+        <li>
+          <a href="notice-board.html">Notice Board</a>
+        </li>
         <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
       </ul>
     </nav>
 
@@ -94,328 +96,131 @@
         <div class="user-avatar">
           <img src="images/club_logo.jpg" alt="User Avatar" id="userAvatar" />
           <div class="avatar-edit">
-            <label for="avatarInput" class="edit-btn">📷</label>
-            <input
-              type="file"
-              id="avatarInput"
-              accept="image/*"
-              style="display: none"
-            />
+            <a href="edit-profile.html"
+              ><i class="fas fa-camera edit-btn"></i
+            ></a>
           </div>
         </div>
         <div class="user-info">
-          <h1 id="userName">Loading...</h1>
-          <p id="userEmail">Loading...</p>
-          <div class="user-bio" id="userBio">Loading...</div>
+          <h1 id="profile-name">User Name</h1>
+          <p id="user-email">user@example.com</p>
+          <p class="user-bio" id="user-bio">
+            "A passionate member of the CSE Club committed to learning and
+            innovation."
+          </p>
           <div class="user-status">
             <span class="status-badge active">Active Member</span>
-            <span class="member-since"
-              >Member since: <span id="memberSince">Loading...</span></span
+            <span class="status-badge verified">Verified</span>
+            <span class="member-since" id="member-since"
+              >Member since: 2023</span
             >
           </div>
         </div>
         <div class="user-actions">
-          <button class="action-btn edit-profile" onclick="editProfile()">
-            Edit Profile
-          </button>
-          <button class="action-btn logout-btn" onclick="logout()">
-            Logout
+          <a href="edit-profile.html" class="action-btn"
+            ><i class="fas fa-edit"></i> Edit Profile</a
+          >
+          <button onclick="logout()" class="action-btn logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
           </button>
         </div>
       </div>
 
-      <div class="user-content">
-        <div class="profile-section">
-          <h2>Personal Information</h2>
-          <div class="info-grid">
-            <div class="info-item">
-              <label>Full Name</label>
-              <span id="fullName">Loading...</span>
+      <div id="profile-section" class="profile-section" style="display: none">
+        <h2>Detailed Profile Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Student ID:</label>
+            <span id="profile-student-id"></span>
+          </div>
+          <div class="info-item">
+            <label>Department:</label>
+            <span id="profile-dept"></span>
+          </div>
+          <div class="info-item">
+            <label>Year:</label>
+            <span id="profile-year"></span>
+          </div>
+          <div class="info-item">
+            <label>Contact Number:</label>
+            <span id="profile-contact-number"></span>
+          </div>
+          <div class="info-item full-width">
+            <label>Interests:</label>
+            <div class="skills-tags" id="profile-interests">
+              <!-- Dynamic interests will be added here -->
+              <span class="skill-tag">Web Development</span>
+              <span class="skill-tag">AI/ML</span>
+              <span class="skill-tag">Competitive Programming</span>
             </div>
-            <div class="info-item">
-              <label>Student ID</label>
-              <span id="studentId">Loading...</span>
+          </div>
+          <div class="info-item full-width">
+            <label>Skills:</label>
+            <div class="skills-tags" id="profile-skills">
+              <!-- Dynamic skills will be added here -->
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">React</span>
             </div>
-            <div class="info-item">
-              <label>Department</label>
-              <span id="department">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Role</label>
-              <span id="userRole">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Batch</label>
-              <span id="batch">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Phone Number</label>
-              <span id="phoneNumber">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Blood Group</label>
-              <span id="bloodGroup">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Date of Birth</label>
-              <span id="dateOfBirth">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Address</label>
-              <span id="address">Loading...</span>
-            </div>
+          </div>
+          <div class="info-item full-width">
+            <label>Bio:</label>
+            <p class="bio-content" id="profile-bio-content"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activities & Stats Section -->
+      <div
+        id="activities-section"
+        class="profile-section"
+        style="display: none"
+      >
+        <h2>Activities & Stats</h2>
+        <div class="activities-stats">
+          <div class="stat-card">
+            <div class="stat-number" id="events-attended">0</div>
+            <div class="stat-label">Events Attended</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="projects-contributed">0</div>
+            <div class="stat-label">Projects Contributed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="certificates-earned">0</div>
+            <div class="stat-label">Certificates Earned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="forums-posts">0</div>
+            <div class="stat-label">Forum Posts</div>
           </div>
         </div>
 
-        <div class="profile-section">
-          <h2>Account Information</h2>
-          <div class="info-grid">
-            <div class="info-item">
-              <label>Username</label>
-              <span id="username">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Email</label>
-              <span id="accountEmail">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Account Created</label>
-              <span id="accountCreated">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Last Login</label>
-              <span id="lastLogin">Loading...</span>
-            </div>
-            <div class="info-item">
-              <label>Account Status</label>
-              <span class="status-badge verified">Verified</span>
+        <h3>Recent Activities</h3>
+        <div class="activity-timeline" id="activity-timeline">
+          <!-- Dynamic activities will be loaded here -->
+          <div class="timeline-item">
+            <div class="timeline-date">May 10, 2024</div>
+            <div class="timeline-content">
+              <h4>Attended Python Workshop</h4>
+              <p>
+                Learned advanced Python concepts and built a small web
+                application.
+              </p>
             </div>
           </div>
-        </div>
-
-        <div class="profile-section">
-          <h2>Additional Information</h2>
-          <div class="info-grid">
-           
-            <div class="info-item full-width">
-              <label>Areas of Interest</label>
-              <div class="skills-tags" id="interests">Loading...</div>
-            </div>
-            <div class="info-item full-width">
-              <label>Programming Skills</label>
-              <div class="skills-tags" id="skills">Loading...</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-section">
-          <h2>Club Activities</h2>
-          <div class="activities-stats">
-            <div class="stat-card">
-              <div class="stat-number" id="eventsAttended">0</div>
-              <div class="stat-label">Events Attended</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number" id="projectsCompleted">0</div>
-              <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number" id="contestsWon">0</div>
-              <div class="stat-label">Contests Won</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number" id="volunteerHours">0</div>
-              <div class="stat-label">Volunteer Hours</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-section">
-          <h2>Recent Activities</h2>
-          <div class="activity-timeline">
-            <div class="timeline-item">
-              <div class="timeline-date">Today</div>
-              <div class="timeline-content">
-                <h4>Profile Updated</h4>
-                <p>You updated your profile information</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-date">Yesterday</div>
-              <div class="timeline-content">
-                <h4>Logged In</h4>
-                <p>Successfully logged into your account</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-date">Last Week</div>
-              <div class="timeline-content">
-                <h4>Account Created</h4>
-                <p>Welcome to CSE Club of HSTU!</p>
-              </div>
+          <div class="timeline-item">
+            <div class="timeline-date">April 28, 2024</div>
+            <div class="timeline-content">
+              <h4>Contributed to Club Website</h4>
+              <p>Implemented responsive navigation bar and fixed CSS bugs.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <script>
-      // Load user data when page loads
-      document.addEventListener("DOMContentLoaded", function () {
-        loadUserData();
-        setupAvatarUpload();
-      });
-
-      // Function to refresh user data (can be called from other pages)
-      function refreshUserData() {
-        loadUserData();
-      }
-
-      async function loadUserData() {
-        const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
-
-        // Debug: Log user info to console
-        console.log("Loading user data:", userInfo);
-
-        // Check if user is logged in
-        if (!userInfo.name) {
-          alert("Please login first!");
-          window.location.href = "login.html";
-          return;
-        }
-
-        // Load basic account info
-        document.getElementById("userName").textContent = userInfo.name;
-        document.getElementById("userEmail").textContent = userInfo.email;
-        document.getElementById("accountEmail").textContent = userInfo.email;
-        document.getElementById("username").textContent = userInfo.name;
-
-        // Set dates
-        const currentDate = new Date().toLocaleDateString();
-        document.getElementById("lastLogin").textContent = currentDate;
-        document.getElementById("accountCreated").textContent =
-          userInfo.joinDate || currentDate;
-        document.getElementById("memberSince").textContent =
-          userInfo.joinDate || currentDate;
-
-        // Load member information from userInfo (JSON data)
-        document.getElementById("fullName").textContent = userInfo.name;
-        document.getElementById("studentId").textContent =
-          userInfo.studentId || "Not provided";
-        document.getElementById("batch").textContent =
-          userInfo.year || "Not provided";
-        document.getElementById("phoneNumber").textContent =
-          userInfo.phone || "Not provided";
-        document.getElementById("department").textContent =
-          userInfo.department || "Not provided";
-        document.getElementById("bloodGroup").textContent = "Not provided"; // Not in JSON yet
-        document.getElementById("dateOfBirth").textContent = "Not provided"; // Not in JSON yet
-        document.getElementById("address").textContent = "Not provided"; // Not in JSON yet
-
-        // Load additional information with better debugging
-        console.log("Interests:", userInfo.interests);
-        console.log("Skills:", userInfo.skills);
-        console.log("Bio:", userInfo.bio);
-        console.log("Phone:", userInfo.phone);
-
-        // Load interests
-        const interestsContainer = document.getElementById("interests");
-        if (
-          userInfo.interests &&
-          Array.isArray(userInfo.interests) &&
-          userInfo.interests.length > 0
-        ) {
-          interestsContainer.innerHTML = userInfo.interests
-            .map((interest) => `<span class="skill-tag">${interest}</span>`)
-            .join("");
-          console.log("Interests loaded successfully");
-        } else {
-          interestsContainer.textContent = "Not provided";
-          console.log("No interests found");
-        }
-
-        // Load skills
-        const skillsContainer = document.getElementById("skills");
-        if (
-          userInfo.skills &&
-          Array.isArray(userInfo.skills) &&
-          userInfo.skills.length > 0
-        ) {
-          skillsContainer.innerHTML = userInfo.skills
-            .map((skill) => `<span class="skill-tag">${skill}</span>`)
-            .join("");
-          console.log("Skills loaded successfully");
-        } else {
-          skillsContainer.textContent = "Not provided";
-          console.log("No skills found");
-        }
-
-        // Load bio in header
-        const userBioElement = document.getElementById("userBio");
-        if (userInfo.bio && userInfo.bio.trim() !== "") {
-          userBioElement.textContent = userInfo.bio;
-          console.log("Bio loaded successfully");
-        } else {
-          userBioElement.textContent = "No bio provided";
-          console.log("No bio found");
-        }
-
-        // Load bio in additional info section (for consistency)
-        const bioElement = document.getElementById("bio");
-        if (userInfo.bio && userInfo.bio.trim() !== "") {
-          bioElement.textContent = userInfo.bio;
-        } else {
-          bioElement.textContent = "Not provided";
-        }
-
-        // Load avatar if available
-        if (userInfo.avatar) {
-          document.getElementById("userAvatar").src = userInfo.avatar;
-        }
-
-        // Load role information
-        if (userInfo.role) {
-          document.getElementById("userRole").textContent = userInfo.role;
-        }
-
-        console.log("User data loading completed");
-      }
-
-      function setupAvatarUpload() {
-        const avatarInput = document.getElementById("avatarInput");
-        const userAvatar = document.getElementById("userAvatar");
-
-        avatarInput.addEventListener("change", function (e) {
-          const file = e.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              userAvatar.src = e.target.result;
-
-              // Update user info with new avatar
-              const userInfo = JSON.parse(
-                localStorage.getItem("userInfo") || "{}"
-              );
-              userInfo.avatar = e.target.result;
-              localStorage.setItem("userInfo", JSON.stringify(userInfo));
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-      }
-
-      function editProfile() {
-        window.location.href = "edit-profile.html";
-      }
-
-      function logout() {
-        if (confirm("Are you sure you want to logout?")) {
-          localStorage.removeItem("isLoggedIn");
-          localStorage.removeItem("userInfo");
-          alert("Successfully logged out!");
-          window.location.href = "index.html";
-        }
-      }
-    </script>
+    <script src="scripts.js"></script>
+    <script src="Authentication/updateUI.js"></script>
+    <script src="Authentication/auth.js" type="module"></script>
   </body>
 </html>

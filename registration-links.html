@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/registration.css" />
     <script src="scripts.js"></script>
-    <script src="login.js"></script>
   </head>
   <body>
     <nav>
@@ -53,9 +52,11 @@
           <a href="notice-board.html">Notice Board</a>
         </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="hideOnMobile">
+          <a href="login.html" id="navLoginLink">Login</a>
+        </li>
         <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="menu.png" alt="menu" /></a>
+          <a href="#"><img src="images/menu.png" alt="menu" /></a>
         </li>
       </ul>
       <!-- Sidebar -->
@@ -86,7 +87,7 @@
         </li>
         <li><a href="notice-board.html">Notice Board</a></li>
         <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
       </ul>
     </nav>
     <div class="reg-section">
@@ -104,8 +105,9 @@
             <div class="event-info">
               <strong>🐍 Python Programming Workshop</strong>
               <span class="desc">
-                A comprehensive hands-on workshop to learn Python basics, advanced concepts, 
-                and real-world applications including web development and data science.
+                A comprehensive hands-on workshop to learn Python basics,
+                advanced concepts, and real-world applications including web
+                development and data science.
               </span>
               <div class="event-meta">
                 <span class="date">Jan 25, 2025</span>
@@ -122,15 +124,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🤖 Seminar: AI in Everyday Life</strong>
               <span class="desc">
-                Discover how artificial intelligence is shaping our world. Guest speakers 
-                from industry and academia will share insights on AI applications.
+                Discover how artificial intelligence is shaping our world. Guest
+                speakers from industry and academia will share insights on AI
+                applications.
               </span>
               <div class="event-meta">
                 <span class="date">Jan 28, 2025</span>
@@ -147,15 +150,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>💻 Annual Coding Contest</strong>
               <span class="desc">
-                Test your coding skills and compete with the best! Solve algorithmic 
-                problems and win exciting prizes. Open to all CSE students.
+                Test your coding skills and compete with the best! Solve
+                algorithmic problems and win exciting prizes. Open to all CSE
+                students.
               </span>
               <div class="event-meta">
                 <span class="date">Feb 5, 2025</span>
@@ -172,14 +176,14 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🎉 CSE Club Social Meetup</strong>
               <span class="desc">
-                An informal get-together for all club members. Fun activities, 
+                An informal get-together for all club members. Fun activities,
                 networking opportunities, and delicious refreshments included!
               </span>
               <div class="event-meta">
@@ -197,15 +201,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🔧 Web Development Bootcamp</strong>
               <span class="desc">
-                Intensive 3-day bootcamp covering HTML, CSS, JavaScript, and modern 
-                frameworks. Build real projects and enhance your portfolio.
+                Intensive 3-day bootcamp covering HTML, CSS, JavaScript, and
+                modern frameworks. Build real projects and enhance your
+                portfolio.
               </span>
               <div class="event-meta">
                 <span class="date">Feb 15-17, 2025</span>
@@ -222,15 +227,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>📱 Mobile App Development Workshop</strong>
               <span class="desc">
-                Learn to build mobile applications using React Native and Flutter. 
-                Create cross-platform apps and publish them to app stores.
+                Learn to build mobile applications using React Native and
+                Flutter. Create cross-platform apps and publish them to app
+                stores.
               </span>
               <div class="event-meta">
                 <span class="date">Feb 22, 2025</span>
@@ -247,15 +253,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🎯 Data Science & Machine Learning</strong>
               <span class="desc">
-                Introduction to data science, machine learning algorithms, and 
-                practical applications using Python libraries like pandas, numpy, and scikit-learn.
+                Introduction to data science, machine learning algorithms, and
+                practical applications using Python libraries like pandas,
+                numpy, and scikit-learn.
               </span>
               <div class="event-meta">
                 <span class="date">Mar 5, 2025</span>
@@ -272,15 +279,15 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🌐 Cybersecurity Workshop</strong>
               <span class="desc">
-                Learn about cybersecurity fundamentals, ethical hacking, and 
-                how to protect systems from various cyber threats.
+                Learn about cybersecurity fundamentals, ethical hacking, and how
+                to protect systems from various cyber threats.
               </span>
               <div class="event-meta">
                 <span class="date">Mar 12, 2025</span>
@@ -297,15 +304,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🎨 UI/UX Design Workshop</strong>
               <span class="desc">
-                Master the principles of user interface and user experience design. 
-                Learn to create beautiful and functional digital products.
+                Master the principles of user interface and user experience
+                design. Learn to create beautiful and functional digital
+                products.
               </span>
               <div class="event-meta">
                 <span class="date">Mar 19, 2025</span>
@@ -322,15 +330,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status open">Open</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🚀 Tech Career Fair 2025</strong>
               <span class="desc">
-                Connect with industry professionals, learn about job opportunities, 
-                and get insights into the tech industry. Open to all students.
+                Connect with industry professionals, learn about job
+                opportunities, and get insights into the tech industry. Open to
+                all students.
               </span>
               <div class="event-meta">
                 <span class="date">July 25, 2025</span>
@@ -347,15 +356,16 @@
             >📝 Register Now</a
           >
         </li>
-        
+
         <li>
           <div class="event-status closed">Closed</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🎓 Final Year Project Exhibition</strong>
               <span class="desc">
-                Annual exhibition showcasing innovative projects by final year students. 
-                Industry experts will evaluate and provide feedback on projects.
+                Annual exhibition showcasing innovative projects by final year
+                students. Industry experts will evaluate and provide feedback on
+                projects.
               </span>
               <div class="event-meta">
                 <span class="date">Dec 15, 2024</span>
@@ -368,19 +378,20 @@
           <a
             href="#"
             class="register-btn"
-            style="opacity: 0.5; pointer-events: none;"
+            style="opacity: 0.5; pointer-events: none"
             >❌ Registration Closed</a
           >
         </li>
-        
+
         <li>
           <div class="event-status closed">Closed</div>
           <div class="event-details">
             <div class="event-info">
               <strong>🏆 Inter-University Programming Contest</strong>
               <span class="desc">
-                Competitive programming contest with participants from various universities. 
-                Solve complex algorithmic problems and win prestigious awards.
+                Competitive programming contest with participants from various
+                universities. Solve complex algorithmic problems and win
+                prestigious awards.
               </span>
               <div class="event-meta">
                 <span class="date">Dec 10, 2024</span>
@@ -393,7 +404,7 @@
           <a
             href="#"
             class="register-btn"
-            style="opacity: 0.5; pointer-events: none;"
+            style="opacity: 0.5; pointer-events: none"
             >❌ Registration Closed</a
           >
         </li>
@@ -494,6 +505,6 @@
       sortEventsByDateDesc();
       updateEventStatus();
     </script>
-    </script>
+    <script src="Authentication/auth.js" type="module"></script>
   </body>
 </html>

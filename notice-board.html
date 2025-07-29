@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/notice-board.css" />
     <script src="scripts.js"></script>
-    <script src="login.js"></script>
   </head>
   <body>
     <nav>
@@ -53,9 +52,11 @@
           <a href="notice-board.html">Notice Board</a>
         </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="hideOnMobile">
+          <a href="login.html" id="navLoginLink">Login</a>
+        </li>
         <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="menu.png" alt="menu" /></a>
+          <a href="#"><img src="images/menu.png" alt="menu" /></a>
         </li>
       </ul>
       <!-- Sidebar -->
@@ -84,9 +85,11 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li><a href="notice-board.html">Notice Board</a></li>
+        <li>
+          <a href="notice-board.html">Notice Board</a>
+        </li>
         <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
       </ul>
     </nav>
     <div class="notice-section">
@@ -236,5 +239,7 @@
         userSection.style.display = "none";
       }
     </script>
+    <script src="scripts.js"></script>
+    <script src="Authentication/auth.js" type="module"></script>
   </body>
 </html>

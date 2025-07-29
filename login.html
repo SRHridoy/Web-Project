@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="styles/testimonials.css" />
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/login.css" />
-    <script src="scripts.js"></script>
-    <script src="login.js"></script>
   </head>
   <body class="login-page">
     <nav>
@@ -53,9 +51,11 @@
           <a href="notice-board.html">Notice Board</a>
         </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile"><a href="login.html">Login</a></li>
+        <li class="hideOnMobile">
+          <a href="login.html" id="navLoginLink">Login</a>
+        </li>
         <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="menu.png" alt="menu" /></a>
+          <a href="#"><img src="images/menu.png" alt="menu" /></a>
         </li>
       </ul>
       <!-- Sidebar -->
@@ -86,7 +86,7 @@
         </li>
         <li><a href="notice-board.html">Notice Board</a></li>
         <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
       </ul>
     </nav>
 
@@ -101,7 +101,11 @@
         Login successful! Redirecting...
       </div>
 
-      <form class="login-form" id="loginForm">
+      <form
+        class="login-form"
+        id="loginForm"
+        onsubmit="event.preventDefault(); window.login();"
+      >
         <div>
           <label for="email">Email Address</label>
           <input
@@ -156,126 +160,8 @@
         Don't have an account? Register Now
       </a>
     </div>
-
-    <script>
-      // Toggle password visibility
-      const togglePassword = document.getElementById("togglePassword");
-      const passwordInput = document.getElementById("password");
-
-      togglePassword.addEventListener("change", function () {
-        passwordInput.type = this.checked ? "text" : "password";
-      });
-
-      // Login form handling with enhanced features
-      const loginForm = document.getElementById("loginForm");
-      const loginBtn = document.getElementById("loginBtn");
-      const loginText = document.getElementById("loginText");
-      const loginLoading = document.getElementById("loginLoading");
-      const errorMessage = document.getElementById("errorMessage");
-      const successMessage = document.getElementById("successMessage");
-
-      loginForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        // Show loading state
-        loginBtn.disabled = true;
-        loginText.style.display = "none";
-        loginLoading.style.display = "inline-block";
-        errorMessage.style.display = "none";
-        successMessage.style.display = "none";
-
-        // Simulate API call delay
-        setTimeout(() => {
-          // Demo login validation (replace with actual authentication)
-          if (email && password) {
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-              showError("Please enter a valid email address");
-              return;
-            }
-
-            // Validate password length
-            if (password.length < 6) {
-              showError("Password must be at least 6 characters long");
-              return;
-            }
-
-            // Store login status and user info
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem(
-              "userInfo",
-              JSON.stringify({
-                name: email.split("@")[0], // Use email prefix as name
-                email: email,
-                avatar: "images/club_logo.jpg", // Default avatar
-                loginTime: new Date().toISOString(),
-              })
-            );
-
-            // Show success message
-            showSuccess("Login successful! Redirecting to homepage...");
-
-            // Redirect to homepage after delay
-            setTimeout(() => {
-              window.location.href = "index.html";
-            }, 1500);
-          } else {
-            showError("Please enter both email and password");
-          }
-        }, 1000);
-      });
-
-      function showError(message) {
-        errorMessage.textContent = message;
-        errorMessage.style.display = "block";
-        successMessage.style.display = "none";
-
-        // Reset button state
-        loginBtn.disabled = false;
-        loginText.style.display = "inline";
-        loginLoading.style.display = "none";
-      }
-
-      function showSuccess(message) {
-        successMessage.textContent = message;
-        successMessage.style.display = "block";
-        errorMessage.style.display = "none";
-      }
-
-      function forgotPassword() {
-        const email = document.getElementById("email").value;
-        if (email) {
-          alert(
-            `Password reset link will be sent to: ${email}\n\nThis is a demo feature. In a real application, this would send an email.`
-          );
-        } else {
-          alert("Please enter your email address first.");
-        }
-      }
-
-      function socialLogin(provider) {
-        alert(
-          `This would redirect to ${provider} login.\n\nThis is a demo feature. In a real application, this would integrate with ${provider} OAuth.`
-        );
-      }
-
-      // Check if user is already logged in
-      window.addEventListener("load", function () {
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
-        if (isLoggedIn === "true") {
-          showSuccess("You are already logged in! Redirecting...");
-          setTimeout(() => {
-            window.location.href = "index.html";
-          }, 1000);
-        }
-      });
-
-      // Input focus effects are handled by CSS transitions
-      // No additional JavaScript transformations needed
-    </script>
+    <script src="scripts.js"></script>
+    <script src="Authentication/auth.js" type="module"></script>
+    <script src="Authentication/updateUI.js"></script>
   </body>
 </html>
