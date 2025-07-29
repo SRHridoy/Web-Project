@@ -1,47 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notice Board - CSE Club of HSTU</title>
-  <link rel="stylesheet" href="styles/notice-board.css" />
-</head>
-<body>
-  <div class="notice-section">
-    <h2>Notice Board</h2>
-    <div class="notice-filter">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="Academic">Academic</button>
-      <button class="filter-btn" data-filter="Events">Events</button>
-      <button class="filter-btn" data-filter="General">General</button>
-      <button class="filter-btn" data-filter="Important">Important</button>
-      <button class="filter-btn" data-filter="Urgent">Urgent</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notice Board - CSE Club of HSTU</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/notice-board.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="index.html"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li class="hideOnMobile"><a href="index.html">Home</a></li>
+        <li class="hideOnMobile">
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="past-presidents.html">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li class="hideOnMobile">
+          <a href="notice-board.html">Notice Board</a>
+        </li>
+        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
+        <li class="hideOnMobile">
+          <a href="login.html" id="navLoginLink">Login</a>
+        </li>
+        <li class="menu-button" onclick="toggleMenu()">
+          <a href="#"><img src="images/menu.png" alt="menu" /></a>
+        </li>
+      </ul>
+      <!-- Sidebar -->
+      <ul class="sidebar">
+        <li onclick="toggleMenu()">
+          <a class="logo" href="#"
+            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
+          >
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">People</a>
+          <ul class="dropdown-contain">
+            <li><a href="current-committee.html">Current Committee</a></li>
+            <li><a href="past-presidents.html">Past Presidents</a></li>
+            <li><a href="general-members.html">General Members</a></li>
+            <li><a href="become-member.html">Become a Member</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="dropdown-contain">
+            <li><a href="upcoming-events.html">Upcoming Events</a></li>
+            <li><a href="registration-links.html">Registration Links</a></li>
+            <li><a href="event-calendar.html">Event Calendar</a></li>
+            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
+      </ul>
+    </nav>
+    <div class="notice-section">
+      <h2>Notice Board</h2>
+      <div class="notice-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Academic">Academic</button>
+        <button class="filter-btn" data-filter="Events">Events</button>
+        <button class="filter-btn" data-filter="General">General</button>
+        <button class="filter-btn" data-filter="Important">Important</button>
+        <button class="filter-btn" data-filter="Urgent">Urgent</button>
+      </div>
+      <ul class="notice-list" id="noticeList"></ul>
     </div>
-    <ul class="notice-list" id="noticeList"></ul>
-  </div>
 
-  <script>
-    let allNotices = [];
+    <script src="scripts.js"></script>
+    <script>
+      let allNotices = [];
 
-    // Render all notices or filtered
-    function renderNotices(notices) {
-      const noticeList = document.getElementById('noticeList');
-      noticeList.innerHTML = "";
-      if (!notices.length) {
-        noticeList.innerHTML = `<li class="notice-empty">No notices found.</li>`;
-        return;
-      }
-      notices.forEach(notice => {
-        let priorityClass = "";
-        if (notice.priority === "high") priorityClass = "high";
-        else if (notice.priority === "medium") priorityClass = "medium";
-        else if (notice.priority === "low") priorityClass = "low";
-        // Date format
-        let dateStr = notice.expiry_date && notice.expiry_date !== "0000-00-00"
-          ? `Expiry: ${new Date(notice.expiry_date).toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})}`
-          : "";
-        // Urgent ক্যাটাগরি চাইলে priority == high ধরে নিতে পারেন, অথবা আলাদা ক্যাটাগরি (উপরের filter এ data-filter="Urgent")
-        noticeList.innerHTML += `
+      // Render all notices or filtered
+      function renderNotices(notices) {
+        const noticeList = document.getElementById("noticeList");
+        noticeList.innerHTML = "";
+        if (!notices.length) {
+          noticeList.innerHTML = `<li class="notice-empty">No notices found.</li>`;
+          return;
+        }
+        notices.forEach((notice) => {
+          let priorityClass = "";
+          if (notice.priority === "high") priorityClass = "high";
+          else if (notice.priority === "medium") priorityClass = "medium";
+          else if (notice.priority === "low") priorityClass = "low";
+          // Date format
+          let dateStr =
+            notice.expiry_date && notice.expiry_date !== "0000-00-00"
+              ? `Expiry: ${new Date(notice.expiry_date).toLocaleDateString(
+                  "en-US",
+                  { year: "numeric", month: "long", day: "numeric" }
+                )}`
+              : "";
+          // Urgent ক্যাটাগরি চাইলে priority == high ধরে নিতে পারেন, অথবা আলাদা ক্যাটাগরি (উপরের filter এ data-filter="Urgent")
+          noticeList.innerHTML += `
           <li class="notice-item">
             <div class="notice-priority ${priorityClass}"></div>
             <div class="notice-title">${notice.title || ""}</div>
@@ -50,44 +126,51 @@
             <span class="notice-tag">${notice.category || ""}</span>
           </li>
         `;
-      });
-    }
-
-    // Load notices from server
-    function loadNotices() {
-      fetch("get_notices.php")
-        .then(res => res.json())
-        .then(data => {
-          allNotices = data;
-          renderNotices(allNotices);
         });
-    }
+      }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      loadNotices();
+      // Load notices from server
+      function loadNotices() {
+        fetch("get_notices.php")
+          .then((res) => res.json())
+          .then((data) => {
+            allNotices = data;
+            renderNotices(allNotices);
+          });
+      }
 
-      // Filter
-      document.querySelectorAll(".filter-btn").forEach((button) => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
-          button.classList.add("active");
-          const filter = button.getAttribute("data-filter");
-          let filtered = allNotices;
-          if (filter !== "all") {
-            // Urgent: show only high priority OR category Important
-            if (filter === "Urgent") {
-              filtered = allNotices.filter(n =>
-                (n.priority && n.priority.toLowerCase() === "high") ||
-                (n.category && n.category.toLowerCase() === "important")
-              );
-            } else {
-              filtered = allNotices.filter(n => n.category && n.category.toLowerCase() === filter.toLowerCase());
+      document.addEventListener("DOMContentLoaded", function () {
+        loadNotices();
+
+        // Filter
+        document.querySelectorAll(".filter-btn").forEach((button) => {
+          button.addEventListener("click", () => {
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+            const filter = button.getAttribute("data-filter");
+            let filtered = allNotices;
+            if (filter !== "all") {
+              // Urgent: show only high priority OR category Important
+              if (filter === "Urgent") {
+                filtered = allNotices.filter(
+                  (n) =>
+                    (n.priority && n.priority.toLowerCase() === "high") ||
+                    (n.category && n.category.toLowerCase() === "important")
+                );
+              } else {
+                filtered = allNotices.filter(
+                  (n) =>
+                    n.category &&
+                    n.category.toLowerCase() === filter.toLowerCase()
+                );
+              }
             }
-          }
-          renderNotices(filtered);
+            renderNotices(filtered);
+          });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
