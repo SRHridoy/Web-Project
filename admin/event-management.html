@@ -29,17 +29,6 @@
               <input type="text" id="title" name="title" required />
             </div>
             <div class="form-group">
-              <label for="type">Event Type *</label>
-              <select id="type" name="type" required>
-                <option value="">Select Type</option>
-                <option value="Workshop">Workshop</option>
-                <option value="Seminar">Seminar</option>
-                <option value="Contest">Contest</option>
-                <option value="Meeting">Meeting</option>
-                <option value="Social Event">Social Event</option>
-              </select>
-            </div>
-            <div class="form-group">
               <label for="date">Event Date *</label>
               <input type="date" id="date" name="date" required />
             </div>
@@ -51,10 +40,6 @@
               <label for="location">Location *</label>
               <input type="text" id="location" name="location" required />
             </div>
-            <div class="form-group">
-              <label for="capacity">Capacity</label>
-              <input type="number" id="capacity" name="capacity" min="1" />
-            </div>
           </div>
           <div class="form-group">
             <label for="description">Description *</label>
@@ -65,18 +50,6 @@
               required
             ></textarea>
           </div>
-          <div class="form-group">
-            <label for="organizer">Organizer</label>
-            <input type="text" id="organizer" name="organizer" />
-          </div>
-          <div class="form-group">
-            <label for="registrationDeadline">Registration Deadline</label>
-            <input
-              type="datetime-local"
-              id="registrationDeadline"
-              name="registrationDeadline"
-            />
-          </div>
           <div style="margin-top: 20px">
             <button type="submit" class="btn btn-primary">
               <i class="fas fa-plus"></i> Create Event
@@ -86,54 +59,6 @@
             </button>
           </div>
         </form>
-      </div>
-
-      <!-- View Toggle -->
-      <div class="view-toggle">
-        <button class="toggle-btn active" onclick="showGridView()">
-          <i class="fas fa-th"></i> Grid View
-        </button>
-        <button class="toggle-btn" onclick="showTableView()">
-          <i class="fas fa-table"></i> Table View
-        </button>
-      </div>
-
-      <!-- Events Grid View -->
-      <div id="eventsGrid" class="events-grid">
-        <!-- Events will be loaded here -->
-      </div>
-
-      <!-- Events Table View -->
-      <div id="eventsTable" class="events-table" style="display: none">
-        <div class="table-header">
-          <h2 class="table-title">All Events</h2>
-          <div class="search-box">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search events..."
-            />
-            <button class="btn btn-primary" onclick="exportEvents()">
-              <i class="fas fa-download"></i> Export
-            </button>
-          </div>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Type</th>
-              <th>Date & Time</th>
-              <th>Location</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="eventsTableBody">
-            <!-- Events will be loaded here -->
-          </tbody>
-        </table>
       </div>
     </div>
 
