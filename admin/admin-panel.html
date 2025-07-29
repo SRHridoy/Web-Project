@@ -1,329 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Panel - CSE Club HSTU</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/admin-panel.css" />
-  </head>
-  <body>
-    <div class="admin-container">
-      <!-- Sidebar -->
-      <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-          <div class="admin-logo">
-            <img src="../images/club_logo.jpg" alt="CSE Club" />
-            <span>Admin Panel</span>
-          </div>
-        </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin Panel - CSE Club HSTU</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="css/admin-panel.css" />
+	</head>
+	<body>
+		<div class="admin-container">
+			<!-- Sidebar -->
+			<div class="sidebar" id="sidebar">
+				<div class="sidebar-header">
+					<div class="admin-logo">
+						<img src="../images/club_logo.jpg" alt="CSE Club" />
+						<span>Admin Panel</span>
+					</div>
+				</div>
 
-        <ul class="sidebar-menu">
-          <li>
-            <a
-              href="#dashboard"
-              class="active"
-              onclick="showSection('dashboard')"
-            >
-              <i class="fas fa-tachometer-alt"></i>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="member-management.html">
-              <i class="fas fa-users"></i>
-              Member Management
-            </a>
-          </li>
-          <li>
-            <a href="event-management.html">
-              <i class="fas fa-calendar-alt"></i>
-              Event Management
-            </a>
-          </li>
-          <li>
-            <a href="notice-management.html">
-              <i class="fas fa-bullhorn"></i>
-              Notice Management
-            </a>
-          </li>
-          <li>
-            <a href="#reports" onclick="showSection('reports')">
-              <i class="fas fa-chart-bar"></i>
-              Reports
-            </a>
-          </li>
-          <li>
-            <a href="#settings" onclick="showSection('settings')">
-              <i class="fas fa-cog"></i>
-              Settings
-            </a>
-          </li>
-          <li>
-            <a href="../index.html">
-              <i class="fas fa-home"></i>
-              Back to Site
-            </a>
-          </li>
-          <li>
-            <a href="#" onclick="logout()">
-              <i class="fas fa-sign-out-alt"></i>
-              Logout
-            </a>
-          </li>
-        </ul>
-      </div>
+				<ul class="sidebar-menu">
+					<li>
+						<a
+							href="#dashboard"
+							class="active"
+							onclick="showSection('dashboard')"
+						>
+							<i class="fas fa-tachometer-alt"></i>
+							Dashboard
+						</a>
+					</li>
+					<li>
+						<a href="member-management.html">
+							<i class="fas fa-users"></i>
+							Member Management
+						</a>
+					</li>
+					<li>
+						<a href="event-management.html">
+							<i class="fas fa-calendar-alt"></i>
+							Event Management
+						</a>
+					</li>
+					<li>
+						<a href="notice-management.html">
+							<i class="fas fa-bullhorn"></i>
+							Notice Management
+						</a>
+					</li>
+					<li>
+						<a href="#reports" onclick="showSection('reports')">
+							<i class="fas fa-chart-bar"></i>
+							Reports
+						</a>
+					</li>
+					<li>
+						<a href="#settings" onclick="showSection('settings')">
+							<i class="fas fa-cog"></i>
+							Settings
+						</a>
+					</li>
+					<li>
+						<a href="../index.html">
+							<i class="fas fa-home"></i>
+							Back to Site
+						</a>
+					</li>
+					<li>
+						<a href="#" onclick="logout()">
+							<i class="fas fa-sign-out-alt"></i>
+							Logout
+						</a>
+					</li>
+				</ul>
+			</div>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-          <h1 class="page-title" id="pageTitle">Dashboard</h1>
-          <div class="admin-info">
-            <div class="admin-avatar">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="admin-details">
-              <h4 id="adminName">Admin User</h4>
-              <p id="adminRole">Administrator</p>
-            </div>
-          </div>
-        </div>
+			<!-- Main Content -->
+			<div class="main-content">
+				<!-- Header -->
+				<div class="header">
+					<h1 class="page-title" id="pageTitle">Dashboard</h1>
+					<div class="admin-info">
+						<div class="admin-avatar">
+							<i class="fas fa-user"></i>
+						</div>
+						<div class="admin-details">
+							<h4 id="adminName">Admin User</h4>
+							<p id="adminRole">Administrator</p>
+						</div>
+					</div>
+				</div>
 
-        <!-- Dashboard Section -->
-        <div id="dashboard" class="content-section">
-          <!-- Dashboard Cards -->
-          <div class="dashboard-grid">
-            <div class="dashboard-card">
-              <div class="card-header">
-                <h3 class="card-title">Total Members</h3>
-                <div class="card-icon members">
-                  <i class="fas fa-users"></i>
-                </div>
-              </div>
-              <div class="card-number" id="totalMembers">0</div>
-              <div class="card-description">Active club members</div>
-            </div>
+				<!-- Dashboard Section -->
+				<div id="dashboard" class="content-section">
+					<!-- Dashboard Cards -->
+					<div class="dashboard-grid">
+						<div class="dashboard-card">
+							<div class="card-header">
+								<h3 class="card-title">Total Members</h3>
+								<div class="card-icon members">
+									<i class="fas fa-users"></i>
+								</div>
+							</div>
+							<div class="card-number" id="totalMembers">0</div>
+							<div class="card-description">
+								Active club members
+							</div>
+						</div>
 
-            <div class="dashboard-card">
-              <div class="card-header">
-                <h3 class="card-title">Upcoming Events</h3>
-                <div class="card-icon events">
-                  <i class="fas fa-calendar-alt"></i>
-                </div>
-              </div>
-              <div class="card-number" id="upcomingEvents">0</div>
-              <div class="card-description">Events this month</div>
-            </div>
+						<div class="dashboard-card">
+							<div class="card-header">
+								<h3 class="card-title">Upcoming Events</h3>
+								<div class="card-icon events">
+									<i class="fas fa-calendar-alt"></i>
+								</div>
+							</div>
+							<div class="card-number" id="upcomingEvents">0</div>
+							<div class="card-description">
+								Events this month
+							</div>
+						</div>
 
-            <div class="dashboard-card">
-              <div class="card-header">
-                <h3 class="card-title">Active Notices</h3>
-                <div class="card-icon notices">
-                  <i class="fas fa-bullhorn"></i>
-                </div>
-              </div>
-              <div class="card-number" id="activeNotices">0</div>
-              <div class="card-description">Published notices</div>
-            </div>
+						<div class="dashboard-card">
+							<div class="card-header">
+								<h3 class="card-title">Active Notices</h3>
+								<div class="card-icon notices">
+									<i class="fas fa-bullhorn"></i>
+								</div>
+							</div>
+							<div class="card-number" id="activeNotices">0</div>
+							<div class="card-description">
+								Published notices
+							</div>
+						</div>
 
-            <div class="dashboard-card">
-              <div class="card-header">
-                <h3 class="card-title">New Registrations</h3>
-                <div class="card-icon reports">
-                  <i class="fas fa-user-plus"></i>
-                </div>
-              </div>
-              <div class="card-number" id="newRegistrations">0</div>
-              <div class="card-description">This week</div>
-            </div>
-          </div>
+						<div class="dashboard-card">
+							<div class="card-header">
+								<h3 class="card-title">New Registrations</h3>
+								<div class="card-icon reports">
+									<i class="fas fa-user-plus"></i>
+								</div>
+							</div>
+							<div class="card-number" id="newRegistrations">
+								0
+							</div>
+							<div class="card-description">This week</div>
+						</div>
+					</div>
 
-          <!-- Quick Actions -->
-          <div class="content-section">
-            <h2 class="section-title">
-              <i class="fas fa-bolt"></i>
-              Quick Actions
-            </h2>
-            <div class="quick-actions">
-              <div
-                class="action-card"
-                onclick="window.location.href='member-management.html'"
-              >
-                <i class="fas fa-user-plus"></i>
-                <h4>Add Member</h4>
-                <p>Register new club member</p>
-              </div>
-              <div
-                class="action-card"
-                onclick="window.location.href='event-management.html'"
-              >
-                <i class="fas fa-calendar-plus"></i>
-                <h4>Create Event</h4>
-                <p>Schedule new event</p>
-              </div>
-              <div
-                class="action-card"
-                onclick="window.location.href='notice-management.html'"
-              >
-                <i class="fas fa-edit"></i>
-                <h4>Post Notice</h4>
-                <p>Publish announcement</p>
-              </div>
-              <div class="action-card" onclick="showSection('reports')">
-                <i class="fas fa-download"></i>
-                <h4>Generate Report</h4>
-                <p>Export member data</p>
-              </div>
-            </div>
-          </div>
-        </div>
+					<!-- Quick Actions -->
+					<div class="content-section">
+						<h2 class="section-title">
+							<i class="fas fa-bolt"></i>
+							Quick Actions
+						</h2>
+						<div class="quick-actions">
+							<div
+								class="action-card"
+								onclick="window.location.href='member-management.html'"
+							>
+								<i class="fas fa-user-plus"></i>
+								<h4>Add Member</h4>
+								<p>Register new club member</p>
+							</div>
+							<div
+								class="action-card"
+								onclick="window.location.href='event-management.html'"
+							>
+								<i class="fas fa-calendar-plus"></i>
+								<h4>Create Event</h4>
+								<p>Schedule new event</p>
+							</div>
+							<div
+								class="action-card"
+								onclick="window.location.href='notice-management.html'"
+							>
+								<i class="fas fa-edit"></i>
+								<h4>Post Notice</h4>
+								<p>Publish announcement</p>
+							</div>
+							<div
+								class="action-card"
+								onclick="showSection('reports')"
+							>
+								<i class="fas fa-download"></i>
+								<h4>Generate Report</h4>
+								<p>Export member data</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <!-- Members Section -->
-        <div id="members" class="content-section" style="display: none">
-          <h2 class="section-title">
-            <i class="fas fa-users"></i>
-            Member Management
-          </h2>
-          <button class="btn btn-primary" onclick="addMember()">
-            <i class="fas fa-plus"></i> Add New Member
-          </button>
+				<!-- Members Section -->
+				<div id="members" class="content-section" style="display: none">
+					<h2 class="section-title">
+						<i class="fas fa-users"></i>
+						Member Management
+					</h2>
+					<button class="btn btn-primary" onclick="addMember()">
+						<i class="fas fa-plus"></i> Add New Member
+					</button>
 
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Student ID</th>
-                <th>Department</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="membersTableBody">
-              <!-- Members will be loaded here -->
-            </tbody>
-          </table>
-        </div>
+					<table class="admin-table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Student ID</th>
+								<th>Department</th>
+								<th>Role</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody id="membersTableBody">
+							<!-- Members will be loaded here -->
+						</tbody>
+					</table>
+				</div>
 
-        <!-- Events Section -->
-        <div id="events" class="content-section" style="display: none">
-          <h2 class="section-title">
-            <i class="fas fa-calendar-alt"></i>
-            Event Management
-          </h2>
-          <button class="btn btn-primary" onclick="addEvent()">
-            <i class="fas fa-plus"></i> Create Event
-          </button>
+				<!-- Events Section -->
+				<div id="events" class="content-section" style="display: none">
+					<h2 class="section-title">
+						<i class="fas fa-calendar-alt"></i>
+						Event Management
+					</h2>
+					<button class="btn btn-primary" onclick="addEvent()">
+						<i class="fas fa-plus"></i> Create Event
+					</button>
 
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Event Name</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="eventsTableBody">
-              <!-- Events will be loaded here -->
-            </tbody>
-          </table>
-        </div>
+					<table class="admin-table">
+						<thead>
+							<tr>
+								<th>Event Name</th>
+								<th>Date</th>
+								<th>Location</th>
+								<th>Type</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody id="eventsTableBody">
+							<!-- Events will be loaded here -->
+						</tbody>
+					</table>
+				</div>
 
-        <!-- Notices Section -->
-        <div id="notices" class="content-section" style="display: none">
-          <h2 class="section-title">
-            <i class="fas fa-bullhorn"></i>
-            Notice Management
-          </h2>
-          <button class="btn btn-primary" onclick="addNotice()">
-            <i class="fas fa-plus"></i> Post Notice
-          </button>
+				<!-- Notices Section -->
+				<div id="notices" class="content-section" style="display: none">
+					<h2 class="section-title">
+						<i class="fas fa-bullhorn"></i>
+						Notice Management
+					</h2>
+					<button class="btn btn-primary" onclick="addNotice()">
+						<i class="fas fa-plus"></i> Post Notice
+					</button>
 
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Date Posted</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="noticesTableBody">
-              <!-- Notices will be loaded here -->
-            </tbody>
-          </table>
-        </div>
+					<table class="admin-table">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Date Posted</th>
+								<th>Category</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody id="noticesTableBody">
+							<!-- Notices will be loaded here -->
+						</tbody>
+					</table>
+				</div>
 
-        <!-- Reports Section -->
-        <div id="reports" class="content-section" style="display: none">
-          <h2 class="section-title">
-            <i class="fas fa-chart-bar"></i>
-            Reports & Analytics
-          </h2>
+				<!-- Reports Section -->
+				<div id="reports" class="content-section" style="display: none">
+					<h2 class="section-title">
+						<i class="fas fa-chart-bar"></i>
+						Reports & Analytics
+					</h2>
 
-          <div class="dashboard-grid">
-            <div class="dashboard-card">
-              <h3 class="card-title">Member Growth</h3>
-              <div class="card-number">+15%</div>
-              <div class="card-description">This month</div>
-            </div>
-            <div class="dashboard-card">
-              <h3 class="card-title">Event Attendance</h3>
-              <div class="card-number">85%</div>
-              <div class="card-description">Average attendance</div>
-            </div>
-          </div>
+					<div class="dashboard-grid">
+						<div class="dashboard-card">
+							<h3 class="card-title">Member Growth</h3>
+							<div class="card-number">+15%</div>
+							<div class="card-description">This month</div>
+						</div>
+						<div class="dashboard-card">
+							<h3 class="card-title">Event Attendance</h3>
+							<div class="card-number">85%</div>
+							<div class="card-description">
+								Average attendance
+							</div>
+						</div>
+					</div>
 
-          <div class="content-section">
-            <h3>Export Reports</h3>
-            <button class="btn btn-primary" onclick="exportMembers()">
-              <i class="fas fa-download"></i> Export Members List
-            </button>
-            <button class="btn btn-primary" onclick="exportEvents()">
-              <i class="fas fa-download"></i> Export Events Report
-            </button>
-          </div>
-        </div>
+					<div class="content-section">
+						<h3>Export Reports</h3>
+						<button
+							class="btn btn-primary"
+							onclick="exportMembers()"
+						>
+							<i class="fas fa-download"></i> Export Members List
+						</button>
+						<button
+							class="btn btn-primary"
+							onclick="exportEvents()"
+						>
+							<i class="fas fa-download"></i> Export Events Report
+						</button>
+					</div>
+				</div>
 
-        <!-- Settings Section -->
-        <div id="settings" class="content-section" style="display: none">
-          <h2 class="section-title">
-            <i class="fas fa-cog"></i>
-            Admin Settings
-          </h2>
+				<!-- Settings Section -->
+				<div
+					id="settings"
+					class="content-section"
+					style="display: none"
+				>
+					<h2 class="section-title">
+						<i class="fas fa-cog"></i>
+						Admin Settings
+					</h2>
 
-          <div class="dashboard-grid">
-            <div class="dashboard-card">
-              <h3 class="card-title">Profile Settings</h3>
-              <button class="btn btn-primary" onclick="editProfile()">
-                <i class="fas fa-edit"></i> Edit Profile
-              </button>
-            </div>
-            <div class="dashboard-card">
-              <h3 class="card-title">Security</h3>
-              <button class="btn btn-warning" onclick="changePassword()">
-                <i class="fas fa-key"></i> Change Password
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+					<div class="dashboard-grid">
+						<div class="dashboard-card">
+							<h3 class="card-title">Profile Settings</h3>
+							<button
+								class="btn btn-primary"
+								onclick="editProfile()"
+							>
+								<i class="fas fa-edit"></i> Edit Profile
+							</button>
+						</div>
+						<div class="dashboard-card">
+							<h3 class="card-title">Security</h3>
+							<button
+								class="btn btn-warning"
+								onclick="changePassword()"
+							>
+								<i class="fas fa-key"></i> Change Password
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
+		<!-- Notification -->
+		<div id="notification" class="notification"></div>
 
-    <script src="js/admin-panel.js"></script>
-    <script src="js/event-management.js"></script>
-    <script src="../Authentication/auth.js" type="module"></script>
-  </body>
+		<script src="js/admin-panel.js"></script>
+		<script src="js/event-management.js"></script>
+	</body>
 </html>
