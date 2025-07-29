@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/notice-board.css" />
     <script src="scripts.js"></script>
+    <script src="login.js"></script>
   </head>
   <body>
     <nav>
@@ -52,11 +53,9 @@
           <a href="notice-board.html">Notice Board</a>
         </li>
         <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile">
-          <a href="login.html" id="navLoginLink">Login</a>
-        </li>
+        <li class="hideOnMobile"><a href="login.html">Login</a></li>
         <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="images/menu.png" alt="menu" /></a>
+          <a href="#"><img src="menu.png" alt="menu" /></a>
         </li>
       </ul>
       <!-- Sidebar -->
@@ -85,11 +84,9 @@
             <li><a href="photo-gallery.html">Photo Gallery</a></li>
           </ul>
         </li>
-        <li>
-          <a href="notice-board.html">Notice Board</a>
-        </li>
+        <li><a href="notice-board.html">Notice Board</a></li>
         <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html" id="sidebarLoginLink">Login</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
     </nav>
     <div class="notice-section">
@@ -181,33 +178,66 @@
       </ul>
     </div>
 
-    <script>
-      // Filter functionality
+  <script>
+    let allNotices = [];
+
+    // Render all notices or filtered
+    function renderNotices(notices) {
+      const noticeList = document.getElementById('noticeList');
+      noticeList.innerHTML = "";
+      if (!notices.length) {
+        noticeList.innerHTML = `<li class="notice-empty">No notices found.</li>`;
+        return;
+      }
+      notices.forEach(notice => {
+        let priorityClass = "";
+        if (notice.priority === "high") priorityClass = "high";
+        else if (notice.priority === "medium") priorityClass = "medium";
+        else if (notice.priority === "low") priorityClass = "low";
+        // Date format
+        let dateStr = notice.expiry_date && notice.expiry_date !== "0000-00-00"
+          ? `Expiry: ${new Date(notice.expiry_date).toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})}`
+          : "";
+        // Urgent ক্যাটাগরি চাইলে priority == high ধরে নিতে পারেন, অথবা আলাদা ক্যাটাগরি (উপরের filter এ data-filter="Urgent")
+        noticeList.innerHTML += `
+          <li class="notice-item">
+            <div class="notice-priority ${priorityClass}"></div>
+            <div class="notice-title">${notice.title || ""}</div>
+            <div class="notice-date">${dateStr}</div>
+            <div class="notice-content">${notice.content || ""}</div>
+            <span class="notice-tag">${notice.category || ""}</span>
+          </li>
+        `;
+      });
+    }
+
+    // Load notices from server
+    function loadNotices() {
+      fetch("get_notices.php")
+        .then(res => res.json())
+        .then(data => {
+          allNotices = data;
+          renderNotices(allNotices);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      loadNotices();
+
+      // Filter
       document.querySelectorAll(".filter-btn").forEach((button) => {
         button.addEventListener("click", () => {
-          // Remove active class from all buttons
-          document
-            .querySelectorAll(".filter-btn")
-            .forEach((btn) => btn.classList.remove("active"));
-          // Add active class to clicked button
+          document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
           button.classList.add("active");
-
-          const filter = button.textContent.toLowerCase();
-          const notices = document.querySelectorAll(".notice-item");
-
-          notices.forEach((notice) => {
-            const tag = notice
-              .querySelector(".notice-tag")
-              .textContent.toLowerCase();
-            const priority = notice.querySelector(".notice-priority");
-            const isUrgent = priority && priority.classList.contains("high");
-
-            if (
-              filter === "all" ||
-              tag === filter ||
-              (filter === "urgent" && isUrgent)
-            ) {
-              notice.style.display = "block";
+          const filter = button.getAttribute("data-filter");
+          let filtered = allNotices;
+          if (filter !== "all") {
+            // Urgent: show only high priority OR category Important
+            if (filter === "Urgent") {
+              filtered = allNotices.filter(n =>
+                (n.priority && n.priority.toLowerCase() === "high") ||
+                (n.category && n.category.toLowerCase() === "important")
+              );
             } else {
               notice.style.display = "none";
             }
@@ -239,7 +269,5 @@
         userSection.style.display = "none";
       }
     </script>
-    <script src="scripts.js"></script>
-    <script src="Authentication/auth.js" type="module"></script>
   </body>
 </html>
