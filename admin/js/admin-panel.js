@@ -1,6 +1,6 @@
 // Admin Panel JavaScript
 let currentSection = 'dashboard';
-let usersData = [];
+
 let eventsData = [];
 let noticesData = [];
 
@@ -30,7 +30,7 @@ function showNotification(message, type = "success") {
 // Show section
 function showSection(sectionName) {
   // Hide all sections
-  const sections = ['dashboard', 'members', 'events', 'notices', 'reports', 'settings'];
+  const sections = ['dashboard', 'events', 'notices', 'reports', 'settings'];
   sections.forEach(section => {
     document.getElementById(section).style.display = 'none';
   });
@@ -78,62 +78,9 @@ async function loadSectionData(section) {
   }
 }
 
-// Load dashboard data
-async function loadDashboardData() {
-  try {
-    // Load users data
-    const response = await fetch('../data/users.json');
-    const data = await response.json();
-    usersData = data.users;
-    
-    // Update dashboard numbers
-    document.getElementById("totalMembers").textContent = usersData.length;
-    document.getElementById("newRegistrations").textContent = Math.floor(Math.random() * 10) + 1;
-    document.getElementById("upcomingEvents").textContent = Math.floor(Math.random() * 5) + 1;
-    document.getElementById("activeNotices").textContent = Math.floor(Math.random() * 8) + 1;
-    
-  } catch (error) {
-    console.error('Error loading dashboard data:', error);
-    showNotification("Error loading dashboard data", "error");
-  }
-}
 
-// Load members data
-async function loadMembersData() {
-  try {
-    const response = await fetch('../data/users.json');
-    const data = await response.json();
-    usersData = data.users;
-    
-    const tbody = document.getElementById("membersTableBody");
-    tbody.innerHTML = '';
-    
-    usersData.forEach(user => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${user.name}</td>
-        <td>${user.email}</td>
-        <td>${user.studentId || 'N/A'}</td>
-        <td>${user.department || 'N/A'}</td>
-        <td>${user.role}</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td>
-          <button class="btn btn-primary" onclick="editMember(${user.id})">
-            <i class="fas fa-edit"></i>
-          </button>
-          <button class="btn btn-danger" onclick="deleteMember(${user.id})">
-            <i class="fas fa-trash"></i>
-          </button>
-        </td>
-      `;
-      tbody.appendChild(row);
-    });
-    
-  } catch (error) {
-    console.error('Error loading members data:', error);
-    showNotification("Error loading members data", "error");
-  }
-}
+
+
 
 // Load events data
 function loadEventsData() {
@@ -239,26 +186,7 @@ function loadNoticesData() {
   });
 }
 
-// Action functions
-function addMember() {
-  showNotification("Add Member functionality will be implemented", "warning");
-}
 
-function editMember(id) {
-  const user = usersData.find(u => u.id === id);
-  if (user) {
-    showNotification(`Edit functionality for ${user.name} will be implemented`, "warning");
-  }
-}
-
-function deleteMember(id) {
-  const user = usersData.find(u => u.id === id);
-  if (user && confirm(`Are you sure you want to delete ${user.name}?`)) {
-    usersData = usersData.filter(u => u.id !== id);
-    loadMembersData();
-    showNotification(`${user.name} deleted successfully`, "success");
-  }
-}
 
 function addEvent() {
   showNotification("Add Event functionality will be implemented", "warning");

@@ -1,20 +1,42 @@
 <?php
-header('Content-Type: application/json');
+// DB config for XAMPP (default: root, no password)
 $servername = "localhost";
 $username = "root";
-$password = ""; // XAMPP default
+$password = ""; // এখানে কিছু দিবেন না!
 $dbname = "cse_club";
+
+// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
 if ($conn->connect_error) {
-    echo json_encode([]);
-    exit();
+    http_response_code(500);
+    header('Content-Type: application/json');
+    echo json_encode(['error' => 'Database connection failed: ' . $conn->connect_error]);
+    exit;
 }
 
-$sql = "SELECT id, name, position, description, contact, image FROM committee ORDER BY id DESC";
+// Prepare and execute query
+$sql = "SELECT * FROM committee ORDER BY id DESC";
 $result = $conn->query($sql);
-$committee = [];
-while ($row = $result->fetch_assoc()) {
-    $committee[] = $row;
+
+$committee = array();
+
+if ($result && $result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $committee[] = $row;
+    }
+} elseif ($result === false) {
+    http_response_code(500);
+    header('Content-Type: application/json');
+    echo json_encode(['error' => 'Query failed: ' . $conn->error]);
+    $conn->close();
+    exit;
 }
-echo json_encode($committee);
+
 $conn->close();
+
+header('Content-Type: application/json');
+echo json_encode($committee);
+exit;
+?>

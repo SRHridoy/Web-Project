@@ -4,11 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Current Committee - CSE Club of HSTU</title>
-		<link rel="stylesheet" href="styles/styles.css" />
-		<!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+		<!-- Remove duplicate styles/styles.css -->
 		<link rel="stylesheet" href="styles/base.css" />
 		<link rel="stylesheet" href="styles/navbar.css" />
-		<link rel="stylesheet" href="styles/styles.css" />
 		<link rel="stylesheet" href="styles/hero.css" />
 		<link rel="stylesheet" href="styles/about.css" />
 		<link rel="stylesheet" href="styles/activities.css" />
@@ -18,16 +16,17 @@
 		<link rel="stylesheet" href="styles/projects.css" />
 		<link rel="stylesheet" href="styles/testimonials.css" />
 		<link rel="stylesheet" href="styles/footer.css" />
+		<link rel="stylesheet" href="styles/styles.css" />
 		<script src="scripts.js"></script>
 	</head>
 	<body>
 		<nav>
 			<ul>
 				<li>
-					<a class="logo" href="index.html"
-						><img src="images/club_logo.jpg" alt="CSE" /> CSE Club
-						Of HSTU</a
-					>
+					<a class="logo" href="index.html">
+						<img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of
+						HSTU
+					</a>
 				</li>
 				<li class="hideOnMobile"><a href="index.html">Home</a></li>
 				<li class="hideOnMobile">
@@ -82,10 +81,10 @@
 			<!-- Sidebar -->
 			<ul class="sidebar">
 				<li onclick="toggleMenu()">
-					<a class="logo" href="#"
-						><img src="images/club_logo.jpg" alt="CSE" /> CSE Club
-						Of HSTU</a
-					>
+					<a class="logo" href="#">
+						<img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of
+						HSTU
+					</a>
 				</li>
 				<li><a href="index.html">Home</a></li>
 				<li>
@@ -133,7 +132,7 @@
 		<div class="team-section">
 			<h2>Current Committee Members</h2>
 			<div class="team-grid" id="committeeGrid">
-				
+				<!-- Committee members will be loaded here by JS -->
 			</div>
 			<a class="back-link" href="index.html">&larr; Back to Home</a>
 		</div>
@@ -188,9 +187,9 @@
 			}
 		</style>
 
-		<script src="current-committee.js"></script>
-		<script src="scripts.js"></script>
 		<script src="Authentication/auth.js" type="module"></script>
 		<script src="Authentication/updateUI.js"></script>
+		<script src="scripts.js"></script>
+		<script src="current-committee.js"></script>
 	</body>
 </html>
