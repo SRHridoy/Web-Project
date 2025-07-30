@@ -80,6 +80,9 @@
     </nav>
     <div class="notice-section">
       <h2>Notice Board</h2>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search notices..." />
+      </div>
       <div class="notice-filter">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="Academic">Academic</button>
@@ -135,42 +138,70 @@
           .then((res) => res.json())
           .then((data) => {
             allNotices = data;
-            renderNotices(allNotices);
+            applyFiltersAndSearch();
           });
+      }
+
+      function applyFiltersAndSearch() {
+        const filter = document
+          .querySelector(".filter-btn.active")
+          .getAttribute("data-filter");
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        let filtered = allNotices;
+
+        // Apply category filter
+        if (filter !== "all") {
+          if (filter === "Urgent") {
+            filtered = allNotices.filter(
+              (n) =>
+                (n.priority && n.priority.toLowerCase() === "high") ||
+                (n.category && n.category.toLowerCase() === "important")
+            );
+          } else {
+            filtered = allNotices.filter(
+              (n) =>
+                n.category && n.category.toLowerCase() === filter.toLowerCase()
+            );
+          }
+        }
+
+        // Apply search filter
+        if (searchTerm) {
+          filtered = filtered.filter(
+            (n) =>
+              (n.title && n.title.toLowerCase().includes(searchTerm)) ||
+              (n.content && n.content.toLowerCase().includes(searchTerm))
+          );
+        }
+
+        renderNotices(filtered);
       }
 
       document.addEventListener("DOMContentLoaded", function () {
         loadNotices();
 
-        // Filter
+        // Filter buttons
         document.querySelectorAll(".filter-btn").forEach((button) => {
           button.addEventListener("click", () => {
             document
               .querySelectorAll(".filter-btn")
               .forEach((btn) => btn.classList.remove("active"));
             button.classList.add("active");
-            const filter = button.getAttribute("data-filter");
-            let filtered = allNotices;
-            if (filter !== "all") {
-              // Urgent: show only high priority OR category Important
-              if (filter === "Urgent") {
-                filtered = allNotices.filter(
-                  (n) =>
-                    (n.priority && n.priority.toLowerCase() === "high") ||
-                    (n.category && n.category.toLowerCase() === "important")
-                );
-              } else {
-                filtered = allNotices.filter(
-                  (n) =>
-                    n.category &&
-                    n.category.toLowerCase() === filter.toLowerCase()
-                );
-              }
-            }
-            renderNotices(filtered);
+            applyFiltersAndSearch();
           });
         });
+
+        // Search input
+        document
+          .getElementById("searchInput")
+          .addEventListener("input", applyFiltersAndSearch);
       });
+    </script>
+  </body>
+</html>
     </script>
   </body>
 </html>
