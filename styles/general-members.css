@@ -6,6 +6,40 @@ body {
   color: #e0e0e0;
 }
 
+header {
+  text-align: center;
+  margin: 10px auto 0px auto; /* Adjust margin to provide space */
+  padding: 5px;
+  background: rgba(17, 34, 64, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  border: 1.5px solid rgba(100, 255, 218, 0.18);
+  max-width: 80%;
+}
+
+header h1 {
+  color: #64ffda;
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 25px rgba(100, 255, 218, 0.4);
+  position: relative;
+  padding-bottom: 1.2rem;
+}
+
+header h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+  border-radius: 1.5px;
+}
+
 .members-section {
   margin: 48px 10px;
   border: 1.5px solid rgba(100, 255, 218, 0.18);
@@ -67,6 +101,30 @@ body {
   backdrop-filter: blur(4px);
 }
 
+/* Style for the search input field */
+#year-search-input {
+  background: rgba(17, 34, 64, 0.8);
+  color: #bfc9d1;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  outline: none;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#year-search-input::placeholder {
+  color: rgba(189, 201, 209, 0.7);
+}
+
+#year-search-input:focus {
+  border-color: rgba(100, 255, 218, 0.6);
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+  transform: translateY(-2px);
+}
+
 .filter-btn:hover {
   background: rgba(100, 255, 218, 0.1);
   color: #64ffda;
@@ -125,8 +183,10 @@ body {
 }
 
 .members-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  
+  /* grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); */
   gap: 1.5rem;
   margin-top: 2rem;
   position: relative;
@@ -150,8 +210,8 @@ body {
   align-items: center;
   transition: transform 0.18s, box-shadow 0.18s;
   backdrop-filter: blur(8px);
-  width: 180px;
-  height: 220px;
+  width: 250px;
+  max-height: 350px;
   box-sizing: border-box;
 }
 
@@ -184,6 +244,7 @@ body {
   font-weight: 600;
   margin-bottom: 0.2rem;
   text-align: center;
+  width: 100%; /* Ensure it takes full width */
 }
 
 .member-info {
@@ -191,6 +252,7 @@ body {
   font-size: 0.9em;
   margin-bottom: 0.4rem;
   text-align: center;
+  width: 100%; /* Ensure it takes full width */
 }
 
 .back-link {
