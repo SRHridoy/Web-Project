@@ -81,7 +81,8 @@ onAuthStateChanged(auth, (user) => {
     const isAuthPage =
       path.endsWith("login.html") ||
       path.endsWith("register.html") ||
-      path.endsWith("become-member.html");
+      path.endsWith("become-member.html") ||
+      path.endsWith("index.html"); // Allow index.html without login
 
     if (!isAuthPage) {
       window.location.href = "login.html";
