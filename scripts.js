@@ -60,6 +60,44 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(showNextSlide, 3000);
 });
 
+// New function for login page password toggle
+function toggleLoginPasswordVisibility() {
+  const passwordInput = document.getElementById("password");
+  const toggleCheckbox = document.getElementById("togglePassword");
+
+  if (passwordInput && toggleCheckbox) {
+    if (toggleCheckbox.checked) {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+}
+
+function togglePassword(passwordInputId, toggleIconId) {
+  const passwordInput = document.getElementById(passwordInputId);
+  const toggleIcon = document.getElementById(toggleIconId);
+
+  if (!passwordInput) {
+    console.error("Password input not found:", passwordInputId);
+    return;
+  }
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    if (toggleIcon) {
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+    }
+  } else {
+    passwordInput.type = "password";
+    if (toggleIcon) {
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+    }
+  }
+}
+
 // Contact form handling
 document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contactForm");
