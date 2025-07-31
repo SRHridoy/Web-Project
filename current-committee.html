@@ -99,87 +99,12 @@
     </div>
 
     <style>
-      .back-link {
-        display: inline-block;
-        text-align: center;
-        margin-top: 2rem;
-        color: #64ffda;
-        text-decoration: none;
-        font-size: 1.1rem;
-        font-weight: 500;
-        padding: 0.8rem 1.5rem;
-        border: 1px solid rgba(100, 255, 218, 0.3);
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        background: rgba(100, 255, 218, 0.05);
-      }
-
-      .back-link:hover {
-        background: rgba(100, 255, 218, 0.1);
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(100, 255, 218, 0.2);
-      }
-
-      .member-contact {
-        color: #fbc02d;
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin-top: 0.5rem;
-        background: rgba(251, 192, 45, 0.1);
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        display: inline-block;
-        border: 1px solid rgba(251, 192, 45, 0.3);
-      }
+      /* Remove .back-link and .member-contact styles as they are now in team.css */
     </style>
 
-    <script>
-      // Load committee members from JSON file
-      document.addEventListener("DOMContentLoaded", function () {
-        loadCommitteeMembers();
-      });
-
-      async function loadCommitteeMembers() {
-        try {
-          const response = await fetch("data/committee-members.json");
-          const data = await response.json();
-          const committeeGrid = document.getElementById("committeeGrid");
-
-          data.committeeMembers.forEach((member) => {
-            const memberCard = createMemberCard(member);
-            committeeGrid.appendChild(memberCard);
-          });
-        } catch (error) {
-          console.error("Error loading committee members:", error);
-          document.getElementById("committeeGrid").innerHTML =
-            '<p style="text-align: center; color: #64ffda;">Error loading committee members. Please try again later.</p>';
-        }
-      }
-
-      function createMemberCard(member) {
-        const card = document.createElement("div");
-        card.className = "team-card";
-
-        const studentIdText = member.studentId
-          ? `Student ID: ${member.studentId}`
-          : member.description;
-
-        card.innerHTML = `
-          <img src="${member.image}" alt="${member.role}" />
-          <div class="member-info">
-            <div class="member-name">${member.name}</div>
-            <div class="member-role">${member.role}</div>
-            <p>${studentIdText}</p>
-            <div class="member-contact">${member.phone}</div>
-          </div>
-        `;
-
-        return card;
-      }
-    </script>
     <script src="scripts.js"></script>
     <script src="Authentication/auth.js" type="module"></script>
     <script src="Authentication/updateUI.js"></script>
+    <script src="js/current-committee.js" type="module"></script>
   </body>
 </html>
