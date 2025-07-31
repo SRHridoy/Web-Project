@@ -129,7 +129,7 @@
         </div>
 
         <div class="show-password">
-          <input type="checkbox" id="togglePassword" />
+          <input type="checkbox" id="togglePassword" onchange="toggleLoginPasswordVisibility()" />
           <label for="togglePassword">Show Password</label>
         </div>
 
@@ -140,20 +140,11 @@
       </form>
 
       <div class="forgot-password">
-        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+        <a href="reset_passord.html"">Forgot Password?</a>
       </div>
 
       <div class="login-divider">
         <span>OR</span>
-      </div>
-
-      <div class="social-login">
-        <a href="#" class="social-btn" onclick="socialLogin('google')">
-          Google
-        </a>
-        <a href="#" class="social-btn" onclick="socialLogin('github')">
-          GitHub
-        </a>
       </div>
 
       <a class="register-link" href="become-member.html">
