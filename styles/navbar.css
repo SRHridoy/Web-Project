@@ -138,7 +138,7 @@ nav li:hover .dropdown-contain {
 .sidebar li:not(:first-child):hover {
   background: rgba(100, 255, 218, 0.15);
 }
-.sidebar li:last-child{
+.sidebar li:last-child {
   border-bottom: none;
 }
 .sidebar a {
@@ -160,6 +160,14 @@ nav li:hover .dropdown-contain {
 .menu-button {
   display: none;
 }
+
+.menu-button img {
+  width: 30px; /* Set desired width */
+  height: 30px; /* Set desired height */
+  display: block; /* Ensure image behaves as a block element */
+  margin: auto; /* Center the image within its container */
+}
+
 /* Responsive dropdown for mobile */
 @media (max-width: 768px) {
   .hideOnMobile {
