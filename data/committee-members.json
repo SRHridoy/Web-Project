@@ -2,7 +2,7 @@
   "committeeMembers": [
     {
       "id": 1,
-      "name": "Adiba Mahjabin Nitu, Chairman, Dept. of CSE",
+      "name": "Adiba Mahjabin Nitu",
       "role": "President",
       "studentId": null,
       "phone": "01716407820",
@@ -11,6 +11,15 @@
     },
     {
       "id": 2,
+      "name": "Pankaj Bhowmik",
+      "role": "Treasurer",
+      "studentId": null,
+      "phone": "01791848439",
+      "image": "Cse_Club/Pankaj_sir.jpg",
+      "description": "Managing club finances and operations."
+    },
+    {
+      "id": 3,
       "name": "Md. Meheraf Hossan Nishat",
       "role": "Vice President",
       "studentId": "2002021",
@@ -19,22 +28,13 @@
       "description": "Supporting the president and coordinating club activities."
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Hamday Rabby Hossain (Auni)",
       "role": "General Secretary",
       "studentId": "2002007",
       "phone": "01720908856",
       "image": "Cse_Club/Auni.jpg",
       "description": "Responsible for club documentation and communication."
-    },
-    {
-      "id": 4,
-      "name": "Pankaj Bhowmik, Lecturer Dept. of CSE",
-      "role": "Treasurer",
-      "studentId": null,
-      "phone": "01791848439",
-      "image": "Cse_Club/Pankaj_sir.jpg",
-      "description": "Managing club finances and operations."
     },
     {
       "id": 5,
