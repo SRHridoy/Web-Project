@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getFirestore,
@@ -82,8 +83,9 @@ onAuthStateChanged(auth, (user) => {
       path.endsWith("login.html") ||
       path.endsWith("register.html") ||
       path.endsWith("become-member.html") ||
-      path.endsWith("index.html"); // Allow index.html without login
-
+      path.endsWith("index.html") ||
+      path.endsWith("Authentication/reset_passord.html")
+      ; 
     if (!isAuthPage) {
       window.location.href = "login.html";
     }
