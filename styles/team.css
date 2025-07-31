@@ -4,14 +4,17 @@
   border: 1.5px solid rgba(100, 255, 218, 0.18);
   border-radius: 14px;
   padding: 5px 10px;
+  background: rgba(17, 34, 64, 0.85);
+  backdrop-filter: blur(10px);
 }
-.team-grid{
+.team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  justify-content: center; /* Center items horizontally */
 }
-.team-card{
+.team-card {
   background: rgba(17, 34, 64, 0.85);
   border-radius: 14px;
   border: 1.5px solid rgba(100, 255, 218, 0.18);
@@ -26,7 +29,7 @@
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 4px 24px rgba(100, 255, 218, 0.13);
 }
-.team-card img{
+.team-card img {
   width: 190px;
   height: 190px;
   border-radius: 50%;
@@ -44,6 +47,19 @@
   font-weight: 600;
   margin-bottom: 0.2rem;
 }
+
+.member-contact {
+  color: #fbc02d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  background: rgba(251, 192, 45, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  display: inline-block;
+  border: 1px solid rgba(251, 192, 45, 0.3);
+}
+
 .member-info .member-role {
   color: #bfc9d1;
   font-size: 0.98em;
@@ -73,33 +89,33 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   justify-content: center;
-  }
-  .member-btn:hover {
-    background: #003a5c;
-    color: #e0e0e0;
-  }
-  .member-btn a{
-    text-align: center;
-  }
-@media (max-width: 800px){
-  .hideOnMobile{
+}
+.member-btn:hover {
+  background: #003a5c;
+  color: #e0e0e0;
+}
+.member-btn a {
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .hideOnMobile {
     display: none;
   }
-  .member-btn{
-  /* Responsive button style for team section on mobile */
-  display: block;
-  width: 60%;
-  padding: 0.6rem 0;
-  font-size: 1.05rem;
-  background: #64ffda;
-  color: #112240;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  margin: 5px auto;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  text-align: center;
+  .member-btn {
+    /* Responsive button style for team section on mobile */
+    display: block;
+    width: 60%;
+    padding: 0.6rem 0;
+    font-size: 1.05rem;
+    background: #64ffda;
+    color: #112240;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin: 5px auto;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
   }
   .member-btn:hover {
     background: #003a5c;
