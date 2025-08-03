@@ -153,25 +153,37 @@
           <label for="department">Department</label>
           <select id="dept" name="dept" required>
             <option value="">Select Department</option>
-            <option value="CSE">Computer Science & Engineering</option>
-            <option value="EEE">Electrical & Electronic Engineering</option>
-            <option value="ME">Mechanical Engineering</option>
-            <option value="CE">Civil Engineering</option>
-            <option value="TE">Textile Engineering</option>
-            <option value="FE">Food Engineering</option>
-            <option value="AE">Agricultural Engineering</option>
+            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+            <option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Textile Engineering">Textile Engineering</option>
+            <option value="Food Engineering">Food Engineering</option>
+            <option value="Agricultural Engineering">Agricultural Engineering</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="year">Year</label>
-          <select id="year" name="year" required>
-            <option value="">Select Year</option>
-            <option value="1st">1st Year</option>
-            <option value="2nd">2nd Year</option>
-            <option value="3rd">3rd Year</option>
-            <option value="4th">4th Year</option>
-          </select>
+          <label for="year">Session</label>
+          <input
+            type="text"
+            id="year"
+            name="year"
+            placeholder="Enter your Session"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="gender-options">
+            <input type="radio" id="male" name="gender" value="Male" required />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" />
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other" />
+            <label for="other">Other</label>
+          </div>
         </div>
 
         <div class="form-group">
