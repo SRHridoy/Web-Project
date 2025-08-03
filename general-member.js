@@ -82,9 +82,22 @@ function renderUsers(filterYear = null) {
   filteredUsers.forEach((userData) => {
     const userCard = document.createElement("div");
     userCard.className = "member-card";
-    const imageUrl =
-      userData.profileImageUrl ||
-      "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg";
+    let imageUrl =
+      "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"; // Default placeholder
+
+    if (userData.gender === "Male") {
+      imageUrl =
+        "https://img.freepik.com/free-vector/man-avatar-profile-round-icon_24640-14044.jpg"; // Male avatar
+    } else if (userData.gender === "Female") {
+      imageUrl =
+        "https://w7.pngwing.com/pngs/439/19/png-transparent-avatar-user-profile-icon-women-wear-frock-face-holidays-women-accessories-thumbnail.png"; // Female avatar
+    }
+
+    // Use profileImageUrl if available, overriding gender-based placeholders
+    if (userData.profileImageUrl) {
+      imageUrl = userData.profileImageUrl;
+    }
+
     userCard.innerHTML = `
       <img src="${imageUrl}" alt="User Avatar" class="member-photo">
       <h3 class="member-name">${userData.name || "N/A"}</h3>
