@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Adiba Mahjabin Nitu",
       "role": "President",
-      "studentId": null,
+      "studentId": "Professor of CSE Dept.",
       "phone": "01716407820",
       "image": "Cse_Club/Nitu_mam.jpg",
       "description": "Leading the CSE Club with vision and dedication."
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "Pankaj Bhowmik",
       "role": "Treasurer",
-      "studentId": null,
+      "studentId":"Lecturer of CSE Dept.",
       "phone": "01791848439",
       "image": "Cse_Club/Pankaj_sir.jpg",
       "description": "Managing club finances and operations."
