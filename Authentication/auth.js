@@ -84,8 +84,7 @@ onAuthStateChanged(auth, (user) => {
       path.endsWith("register.html") ||
       path.endsWith("become-member.html") ||
       path.endsWith("index.html") ||
-      path.endsWith("Authentication/reset_passord.html")
-      ; 
+      path.endsWith("Authentication/reset_passord.html");
     if (!isAuthPage) {
       window.location.href = "login.html";
     }
@@ -99,6 +98,7 @@ window.register = async function () {
   const contactNumber = document.getElementById("contactNumber");
   const email = document.getElementById("email");
   const password = document.getElementById("password");
+  const gender = document.querySelector('input[name="gender"]:checked'); // Get selected gender radio button
 
   // Check if elements exist before trying to read their values
   if (
@@ -108,7 +108,8 @@ window.register = async function () {
     !year ||
     !contactNumber ||
     !email ||
-    !password
+    !password ||
+    !gender // Check for gender element
   ) {
     console.error("One or more registration form elements not found!");
     alert("Error: Missing form elements. Please check the console.");
@@ -122,6 +123,7 @@ window.register = async function () {
   const contactNumberValue = contactNumber.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value;
+  const genderValue = gender.value; // Get the value of the selected gender
 
   console.log("Attempting to register user with:", {
     studentId: studentIdValue,
@@ -131,6 +133,7 @@ window.register = async function () {
     contactNumber: contactNumberValue,
     email: emailValue,
     password: "********",
+    gender: genderValue, // Add gender to log
   });
 
   try {
@@ -153,6 +156,7 @@ window.register = async function () {
       dept: deptValue,
       year: yearValue,
       contactNumber: contactNumberValue,
+      gender: genderValue, // Add gender to Firestore data
     });
 
     console.log("✅ Registration & Firestore data saved successfully");
