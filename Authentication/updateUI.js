@@ -8,6 +8,7 @@ window.updateUI = (user) => {
     "profile-contact-number"
   );
   const profileYearSpan = document.getElementById("profile-year");
+  const profileGenderSpan = document.getElementById("profile-gender");
 
   const navLoginLink = document.getElementById("navLoginLink");
   const sidebarLoginLink = document.getElementById("sidebarLoginLink");
@@ -29,6 +30,7 @@ window.updateUI = (user) => {
     if (profileContactNumberSpan)
       profileContactNumberSpan.textContent = user.contactNumber || "";
     if (profileYearSpan) profileYearSpan.textContent = user.year || "";
+    if (profileGenderSpan) profileGenderSpan.textContent = user.gender || "";
 
     if (navLoginLink) {
       navLoginLink.textContent = user.name || user.email;
@@ -48,6 +50,7 @@ window.updateUI = (user) => {
     if (profileDeptSpan) profileDeptSpan.textContent = "";
     if (profileContactNumberSpan) profileContactNumberSpan.textContent = "";
     if (profileYearSpan) profileYearSpan.textContent = "";
+    if (profileGenderSpan) profileGenderSpan.textContent = "";
 
     if (navLoginLink) {
       navLoginLink.textContent = "Login";
