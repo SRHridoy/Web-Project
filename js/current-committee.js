@@ -38,6 +38,9 @@ async function loadAllCommitteeMembers() {
         }" class="team-photo" onerror="this.src='images/club_logo.jpg'" />
           <div class="team-name">${member.name || "N/A"}</div>
           <div class="team-role">${member.role || "N/A"}</div>
+          <div class="member-info"> ${
+            member.studentId || "N/A"
+          }</div>
           <div class="member-contact">Contact: ${member.phone || "N/A"}</div>
         `;
         committeeGrid.appendChild(memberCard);
