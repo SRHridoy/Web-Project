@@ -333,3 +333,45 @@
     font-size: 0.9em;
   }
 }
+
+.gender-options {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.gender-options input[type="radio"] {
+  display: none; /* Hide default radio button */
+}
+
+.gender-options label {
+  background: rgba(100, 255, 218, 0.05);
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  color: #b0eacd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.gender-options input[type="radio"]:checked + label {
+  background: rgba(100, 255, 218, 0.2);
+  border-color: #64ffda;
+  color: #64ffda;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+}
+
+.gender-options label:hover {
+  background: rgba(100, 255, 218, 0.1);
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+@media (max-width: 768px) {
+  .registration-container {
+    margin: 2rem 1rem;
+    padding: 2rem 1.5rem;
+  }
+}
