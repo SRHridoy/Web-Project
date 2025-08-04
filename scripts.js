@@ -1,124 +1,167 @@
 function toggleMenu() {
-  var menu = document.querySelector(".sidebar");
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+	var menu = document.querySelector(".sidebar");
+	menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
 document.addEventListener("click", function (event) {
-  var sidebar = document.querySelector(".sidebar");
-  var menuButton = document.querySelector(".menu-button");
+	var sidebar = document.querySelector(".sidebar");
+	var menuButton = document.querySelector(".menu-button");
 
-  // Check if sidebar is currently open
-  if (sidebar.style.display === "flex") {
-    // Check if click is outside sidebar and not on menu button
-    if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
-      sidebar.style.display = "none";
-    }
-  }
+	// Check if sidebar is currently open
+	if (sidebar.style.display === "flex") {
+		// Check if click is outside sidebar and not on menu button
+		if (
+			!sidebar.contains(event.target) &&
+			!menuButton.contains(event.target)
+		) {
+			sidebar.style.display = "none";
+		}
+	}
 });
 
 // Close sidebar when pressing Escape key
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    var sidebar = document.querySelector(".sidebar");
-    if (sidebar.style.display === "flex") {
-      sidebar.style.display = "none";
-    }
-  }
+	if (event.key === "Escape") {
+		var sidebar = document.querySelector(".sidebar");
+		if (sidebar.style.display === "flex") {
+			sidebar.style.display = "none";
+		}
+	}
 });
 
 // Initialize slideshow when page loads
 document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".slideshow img");
-  let currentIndex = 0;
+	const slides = document.querySelectorAll(".slideshow img");
+	let currentIndex = 0;
 
-  function showNextSlide() {
-    const currentSlides = document.querySelectorAll(".slideshow img"); // Re-query slides
-    if (currentSlides.length === 0) {
-      // No slides found, or they have been removed from the DOM
-      // Clear the interval if it's set to prevent continuous errors
-      return;
-    }
+	function showNextSlide() {
+		const currentSlides = document.querySelectorAll(".slideshow img"); // Re-query slides
+		if (currentSlides.length === 0) {
+			// No slides found, or they have been removed from the DOM
+			// Clear the interval if it's set to prevent continuous errors
+			return;
+		}
 
-    // Ensure currentIndex is within bounds of currentSlides
-    if (currentIndex >= currentSlides.length) {
-      currentIndex = 0; // Reset if out of bounds
-    }
+		// Ensure currentIndex is within bounds of currentSlides
+		if (currentIndex >= currentSlides.length) {
+			currentIndex = 0; // Reset if out of bounds
+		}
 
-    // Remove 'active' from previous slide, if it exists
-    if (currentSlides[currentIndex]) {
-      currentSlides[currentIndex].classList.remove("active");
-    }
+		// Remove 'active' from previous slide, if it exists
+		if (currentSlides[currentIndex]) {
+			currentSlides[currentIndex].classList.remove("active");
+		}
 
-    currentIndex = (currentIndex + 1) % currentSlides.length;
+		currentIndex = (currentIndex + 1) % currentSlides.length;
 
-    // Add 'active' to new slide, if it exists
-    if (currentSlides[currentIndex]) {
-      currentSlides[currentIndex].classList.add("active");
-    }
-  }
+		// Add 'active' to new slide, if it exists
+		if (currentSlides[currentIndex]) {
+			currentSlides[currentIndex].classList.add("active");
+		}
+	}
 
-  setInterval(showNextSlide, 3000);
+	setInterval(showNextSlide, 3000);
 });
+
+// New function for login page password toggle
+function toggleLoginPasswordVisibility() {
+	const passwordInput = document.getElementById("password");
+	const toggleCheckbox = document.getElementById("togglePassword");
+
+	if (passwordInput && toggleCheckbox) {
+		if (toggleCheckbox.checked) {
+			passwordInput.type = "text";
+		} else {
+			passwordInput.type = "password";
+		}
+	}
+}
+
+function togglePassword(passwordInputId, toggleIconId) {
+	const passwordInput = document.getElementById(passwordInputId);
+	const toggleIcon = document.getElementById(toggleIconId);
+
+	if (!passwordInput) {
+		console.error("Password input not found:", passwordInputId);
+		return;
+	}
+
+	if (passwordInput.type === "password") {
+		passwordInput.type = "text";
+		if (toggleIcon) {
+			toggleIcon.classList.remove("fa-eye");
+			toggleIcon.classList.add("fa-eye-slash");
+		}
+	} else {
+		passwordInput.type = "password";
+		if (toggleIcon) {
+			toggleIcon.classList.remove("fa-eye-slash");
+			toggleIcon.classList.add("fa-eye");
+		}
+	}
+}
 
 // Contact form handling
 document.addEventListener("DOMContentLoaded", function () {
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+	const contactForm = document.getElementById("contactForm");
+	if (contactForm) {
+		contactForm.addEventListener("submit", function (e) {
+			e.preventDefault();
 
-      const formData = new FormData(contactForm);
-      const name = formData.get("name");
-      const email = formData.get("email");
-      const message = formData.get("message");
+			const formData = new FormData(contactForm);
+			const name = formData.get("name");
+			const email = formData.get("email");
+			const message = formData.get("message");
 
-      // Show success message
-      const formMsg = document.getElementById("formMsg");
-      formMsg.textContent =
-        "Thank you for your message! We'll get back to you soon.";
-      formMsg.style.color = "#64ffda";
+			// Show success message
+			const formMsg = document.getElementById("formMsg");
+			formMsg.textContent =
+				"Thank you for your message! We'll get back to you soon.";
+			formMsg.style.color = "#64ffda";
 
-      // Clear form
-      contactForm.reset();
+			// Clear form
+			contactForm.reset();
 
-      // Clear message after 5 seconds
-      setTimeout(() => {
-        formMsg.textContent = "";
-      }, 5000);
-    });
-  }
+			// Clear message after 5 seconds
+			setTimeout(() => {
+				formMsg.textContent = "";
+			}, 5000);
+		});
+	}
 });
 
 // Load and display committee members
 document.addEventListener("DOMContentLoaded", function () {
-  const teamGrid = document.getElementById("teamGrid");
-  if (teamGrid) {
-    loadCommitteeMembers();
-  }
+	const teamGrid = document.getElementById("teamGrid");
+	if (teamGrid) {
+		loadCommitteeMembers();
+	}
 });
 
 async function loadCommitteeMembers() {
-  try {
-    const response = await fetch("data/committee-members.json");
-    const data = await response.json();
+	try {
+		const response = await fetch("data/committee-members.json");
+		const data = await response.json();
 
-    const teamGrid = document.getElementById("teamGrid");
-    if (!teamGrid) return;
+		const teamGrid = document.getElementById("teamGrid");
+		if (!teamGrid) return;
 
-    // Clear existing content
-    teamGrid.innerHTML = "";
+		// Clear existing content
+		teamGrid.innerHTML = "";
 
-    // Get the first 8 members (key positions) for homepage display
-    const keyMembers = data.committeeMembers.slice(0, 8);
+		// Get the first 8 members (key positions) for homepage display
+		const keyMembers = data.committeeMembers.slice(0, 8);
 
-    keyMembers.forEach((member, index) => {
-      const teamCard = document.createElement("div");
-      teamCard.className = `team-card ${index >= 4 ? "hideOnMobile" : ""}`;
+		keyMembers.forEach((member, index) => {
+			const teamCard = document.createElement("div");
+			teamCard.className = `team-card ${
+				index >= 4 ? "hideOnMobile" : ""
+			}`;
 
-      // Use actual image path from JSON, fallback to default if not found
-      const imagePath = member.image || "images/club_logo.jpg";
+			// Use actual image path from JSON, fallback to default if not found
+			const imagePath = member.image || "images/club_logo.jpg";
 
-      teamCard.innerHTML = `
+			teamCard.innerHTML = `
         <img src="${imagePath}" alt="${member.role}" class="team-photo" onerror="this.src='images/club_logo.jpg'" />
         <div class="team-name">${member.name}</div>
         <div class="team-role">${member.role}</div>
@@ -127,17 +170,17 @@ async function loadCommitteeMembers() {
         </a>
       `;
 
-      teamGrid.appendChild(teamCard);
-    });
+			teamGrid.appendChild(teamCard);
+		});
 
-    // Add the "Committee Members..." link
-    const memberBtn = document.createElement("h3");
-  } catch (error) {
-    console.error("Error loading committee members:", error);
-    // Fallback to static content if JSON loading fails
-    const teamGrid = document.getElementById("teamGrid");
-    if (teamGrid) {
-      teamGrid.innerHTML = `
+		// Add the "Committee Members..." link
+		const memberBtn = document.createElement("h3");
+	} catch (error) {
+		console.error("Error loading committee members:", error);
+		// Fallback to static content if JSON loading fails
+		const teamGrid = document.getElementById("teamGrid");
+		if (teamGrid) {
+			teamGrid.innerHTML = `
         <div class="team-card">
           <img src="images/club_logo.jpg" alt="President" class="team-photo" />
           <div class="team-name">Adiba Mahjabin Nitu</div>
@@ -147,47 +190,47 @@ async function loadCommitteeMembers() {
           </a>
         </div>
       `;
-    }
-  }
+		}
+	}
 }
 
 // Load and display testimonials
 document.addEventListener("DOMContentLoaded", function () {
-  const testimonialsGrid = document.getElementById("testimonialsGrid");
-  if (testimonialsGrid) {
-    loadTestimonials();
-  }
+	const testimonialsGrid = document.getElementById("testimonialsGrid");
+	if (testimonialsGrid) {
+		loadTestimonials();
+	}
 });
 
 async function loadTestimonials() {
-  try {
-    const response = await fetch("data/committee-members.json");
-    const data = await response.json();
-    const testimonialsGrid = document.getElementById("testimonialsGrid");
-    if (!testimonialsGrid) return;
-    testimonialsGrid.innerHTML = "";
-    // Example testimonial texts
-    const testimonialTexts = [
-      "The CSE Club helped me discover my passion for coding and teamwork. Highly recommended for all students!",
-      "Joining the club was the best decision of my university life. The events and workshops are top-notch.",
-      "Great platform for networking and skill development. Proud to be a member of this amazing community.",
-    ];
-    // Use first 3 key members for testimonials
-    const keyMembers = data.committeeMembers.slice(0, 3);
-    keyMembers.forEach((member, idx) => {
-      const card = document.createElement("div");
-      card.className = "testimonial-card";
-      card.innerHTML = `
+	try {
+		const response = await fetch("data/committee-members.json");
+		const data = await response.json();
+		const testimonialsGrid = document.getElementById("testimonialsGrid");
+		if (!testimonialsGrid) return;
+		testimonialsGrid.innerHTML = "";
+		// Example testimonial texts
+		const testimonialTexts = [
+			"The CSE Club helped me discover my passion for coding and teamwork. Highly recommended for all students!",
+			"Joining the club was the best decision of my university life. The events and workshops are top-notch.",
+			"Great platform for networking and skill development. Proud to be a member of this amazing community.",
+		];
+		// Use first 3 key members for testimonials
+		const keyMembers = data.committeeMembers.slice(0, 3);
+		keyMembers.forEach((member, idx) => {
+			const card = document.createElement("div");
+			card.className = "testimonial-card";
+			card.innerHTML = `
         <div class="testimonial-text">${testimonialTexts[idx]}</div>
         <div class="testimonial-author">— ${member.name}, ${member.role}</div>
       `;
-      testimonialsGrid.appendChild(card);
-    });
-  } catch (error) {
-    // fallback static testimonials
-    const testimonialsGrid = document.getElementById("testimonialsGrid");
-    if (testimonialsGrid) {
-      testimonialsGrid.innerHTML = `
+			testimonialsGrid.appendChild(card);
+		});
+	} catch (error) {
+		// fallback static testimonials
+		const testimonialsGrid = document.getElementById("testimonialsGrid");
+		if (testimonialsGrid) {
+			testimonialsGrid.innerHTML = `
         <div class="testimonial-card">
           <div class="testimonial-text">The CSE Club helped me discover my passion for coding and teamwork. Highly recommended for all students!</div>
           <div class="testimonial-author">— Adiba Mahjabin Nitu, President</div>
@@ -201,6 +244,6 @@ async function loadTestimonials() {
           <div class="testimonial-author">— Hamday Rabby Hossain (Auni), General Secretary</div>
         </div>
       `;
-    }
-  }
+		}
+	}
 }

@@ -3,21 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login - CSE Club of HSTU</title>
+		<title>Reset Password - CSE Club of HSTU</title>
 		<link rel="stylesheet" href="styles/styles.css" />
-		<!-- CSS Split: Use multiple section-based CSS files for maintainability -->
 		<link rel="stylesheet" href="styles/base.css" />
 		<link rel="stylesheet" href="styles/navbar.css" />
-		<link rel="stylesheet" href="styles/styles.css" />
-		<link rel="stylesheet" href="styles/hero.css" />
-		<link rel="stylesheet" href="styles/about.css" />
-		<link rel="stylesheet" href="styles/activities.css" />
-		<link rel="stylesheet" href="styles/events.css" />
-		<link rel="stylesheet" href="styles/gallery.css" />
-		<link rel="stylesheet" href="styles/team.css" />
-		<link rel="stylesheet" href="styles/projects.css" />
-		<link rel="stylesheet" href="styles/testimonials.css" />
-		<link rel="stylesheet" href="styles/footer.css" />
 		<link rel="stylesheet" href="styles/login.css" />
 	</head>
 	<body class="login-page">
@@ -63,7 +52,9 @@
 						<li>
 							<a href="event-calendar.html">Event Calendar</a>
 						</li>
-						<li><a href="photo-gallery.html">Photo Gallery</a></li>
+						<li>
+							<a href="photo-gallery.html">Photo Gallery</a>
+						</li>
 					</ul>
 				</li>
 				<li class="hideOnMobile">
@@ -121,7 +112,9 @@
 						<li>
 							<a href="event-calendar.html">Event Calendar</a>
 						</li>
-						<li><a href="photo-gallery.html">Photo Gallery</a></li>
+						<li>
+							<a href="photo-gallery.html">Photo Gallery</a>
+						</li>
 					</ul>
 				</li>
 				<li><a href="notice-board.html">Notice Board</a></li>
@@ -131,20 +124,23 @@
 		</nav>
 
 		<div class="login-container">
-			<h2>Login</h2>
+			<h2>Reset Password</h2>
 
-			<div class="error-message" id="errorMessage">
-				Invalid email or password. Please try again.
+			<div
+				class="success-message"
+				id="successMessage"
+				style="display: none"
+			>
+				If an account with that email exists, a password reset link has
+				been sent to your email.
 			</div>
-
-			<div class="success-message" id="successMessage">
-				Login successful! Redirecting...
+			<div class="error-message" id="errorMessage" style="display: none">
+				Error sending password reset email.
 			</div>
 
 			<form
 				class="login-form"
-				id="loginForm"
-				onsubmit="event.preventDefault(); window.login();"
+				onsubmit="event.preventDefault(); window.resetPassword();"
 			>
 				<div>
 					<label for="email">Email Address</label>
@@ -157,50 +153,14 @@
 					/>
 				</div>
 
-				<div>
-					<label for="password">Password</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						placeholder="Enter your password"
-						required
-					/>
-				</div>
-
-				<div class="show-password">
-					<input
-						type="checkbox"
-						id="togglePassword"
-						onchange="toggleLoginPasswordVisibility()"
-					/>
-					<label for="togglePassword">Show Password</label>
-				</div>
-
-				<button type="submit" id="loginBtn">
-					<span id="loginText">Login</span>
-					<span
-						id="loginLoading"
-						class="loading"
-						style="display: none"
-					></span>
-				</button>
+				<button type="submit">Send Reset Link</button>
 			</form>
 
 			<div class="forgot-password">
-				<a href="reset_passsword.html">Forgot Password?</a>
+				<a href="login.html">Back to Login</a>
 			</div>
-
-			<div class="login-divider">
-				<span>OR</span>
-			</div>
-
-			<a class="register-link" href="become-member.html">
-				Don't have an account? Register Now
-			</a>
 		</div>
 		<script src="scripts.js"></script>
-		<script src="Authentication/auth.js" type="module"></script>
-		<script src="Authentication/updateUI.js"></script>
+		<script src="Authentication\reset.js" type="module"></script>
 	</body>
 </html>
