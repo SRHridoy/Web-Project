@@ -204,39 +204,53 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         fetch("get_events.php")
-          .then((response) => response.json())
+          .then((response) => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+          })
           .then((data) => {
             const eventsGrid = document.getElementById("events-grid-index");
-            if (data.length > 0) {
+            eventsGrid.innerHTML = ""; // Clear previous content
+
+            if (Array.isArray(data) && data.length > 0) {
               data.forEach((event) => {
                 const eventCard = document.createElement("div");
                 eventCard.classList.add("event-card");
 
                 // Add a random poster image for visual variety
                 const posterImages = [
-                  "images/seminar01.jpg",
-                  "images/seminar02.jpg",
-                  "images/cricket01.jpg",
-                  "images/ful.jpg",
+                  "images/event_workshop.png"
                 ];
                 const randomPoster =
                   posterImages[
                     Math.floor(Math.random() * posterImages.length)
                   ];
 
+                // Google link button if available and valid
+                let googleBtn = "";
+                if (
+                  event.google_link &&
+                  typeof event.google_link === "string" &&
+                  event.google_link.trim().length > 0
+                ) {
+                  googleBtn = `<a class="event-btn" href="${event.google_link}" target="_blank" rel="noopener">Register Now</a>`;
+                } else {
+                  googleBtn = `<a class="event-btn" href="registration-links.html">Register Now</a>`;
+                }
+
                 eventCard.innerHTML = `
                   <img class="event-poster" src="${randomPoster}" alt="Event Poster">
-                  <div class="event-title">${event.title}</div>
-                  <div class="event-desc">${event.description}</div>
-                  <div class="event-info"><strong>Date:</strong> ${event.date}</div>
-                  <div class="event-info"><strong>Time:</strong> ${event.time}</div>
-                  <div class="event-info"><strong>Venue:</strong> ${event.location}</div>
+                  <div class="event-title">${event.title ? event.title : "Untitled Event"}</div>
+                  <div class="event-desc">${event.description ? event.description : ""}</div>
+                  <div class="event-info"><strong>Date:</strong> ${event.date ? event.date : "TBA"}</div>
+                  <div class="event-info"><strong>Time:</strong> ${event.time ? event.time : "TBA"}</div>
+                  <div class="event-info"><strong>Venue:</strong> ${event.location ? event.location : "TBA"}</div>
                   <div class="event-info"><strong>Organizer:</strong> CSE Club of HSTU</div>
                   <div class="event-tags">
                     <span class="event-tag workshop">#workshop</span>
                     <span class="event-tag">#tech</span>
                   </div>
-                  <a class="event-btn" href="registration-links.html">Register Now</a>
+                  ${googleBtn}
                 `;
                 eventsGrid.appendChild(eventCard);
               });
