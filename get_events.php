@@ -10,18 +10,24 @@ $username = "root";
 $password = ""; // No password for default XAMPP
 $dbname = "cse_club";
 
+// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    http_response_code(500);
+    header('Content-Type: application/json');
+    echo json_encode(['error' => 'Database connection failed']);
+    exit();
 }
 
-$sql = "SELECT title, date, time, location, description FROM events ORDER BY date, time";
+// Fetch all event fields, including google_link if present in DB
+$sql = "SELECT id, title, date, time, location, description, google_link FROM events ORDER BY date ASC, time ASC";
 $result = $conn->query($sql);
 
 $events = array();
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $events[] = $row;
     }
@@ -31,4 +37,5 @@ $conn->close();
 
 header('Content-Type: application/json');
 echo json_encode($events);
+exit();
 ?>

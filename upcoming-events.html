@@ -1,295 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upcoming Events - CSE Club of HSTU</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <!-- CSS Split: Use multiple section-based CSS files for maintainability -->
-    <link rel="stylesheet" href="styles/base.css" />
-    <link rel="stylesheet" href="styles/navbar.css" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="styles/hero.css" />
-    <link rel="stylesheet" href="styles/about.css" />
-    <link rel="stylesheet" href="styles/activities.css" />
-    <link rel="stylesheet" href="styles/events.css" />
-    <link rel="stylesheet" href="styles/gallery.css" />
-    <link rel="stylesheet" href="styles/team.css" />
-    <link rel="stylesheet" href="styles/projects.css" />
-    <link rel="stylesheet" href="styles/testimonials.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
-    <script src="scripts.js"></script>
-    <script src="login.js"></script>
-    <style>
-      .events-section {
-        max-width: 1100px;
-        margin: 40px auto;
-        background: #1d2a35;
-        padding: 32px 18px;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      }
-      .events-section h2 {
-        color: rgb(5, 170, 108);
-        margin-bottom: 10px;
-        text-align: center;
-      }
-      .events-section p {
-        color: #e0e0e0;
-        text-align: center;
-        margin-bottom: 32px;
-      }
-      .events-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 28px;
-      }
-      .event-card {
-        background: #0c1720;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(5, 170, 108, 0.12);
-        padding: 20px 16px 16px 16px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        border-left: 6px solid #138d6a;
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
-      .event-card.featured {
-        border-left: 6px solid #ff9800;
-        box-shadow: 0 8px 32px rgba(255, 152, 0, 0.18);
-      }
-      .featured-label {
-        position: absolute;
-        top: 18px;
-        right: 18px;
-        background: #ff9800;
-        color: #fff;
-        font-size: 0.95em;
-        font-weight: bold;
-        padding: 4px 12px;
-        border-radius: 6px;
-        letter-spacing: 1px;
-      }
-      .event-poster {
-        width: 100%;
-        max-height: 160px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 14px;
-        background: #1d2a35;
-      }
-      .event-title {
-        color: #fff;
-        font-size: 1.25em;
-        font-weight: bold;
-        margin-bottom: 6px;
-      }
-      .event-desc {
-        color: #b0eacd;
-        font-size: 1em;
-        margin-bottom: 10px;
-      }
-      .event-info {
-        color: #e0e0e0;
-        font-size: 0.98em;
-        margin-bottom: 8px;
-      }
-      .event-tags {
-        margin-bottom: 10px;
-      }
-      .event-tag {
-        display: inline-block;
-        background: #138d6a;
-        color: #fff;
-        font-size: 0.85em;
-        padding: 3px 10px;
-        border-radius: 5px;
-        margin-right: 6px;
-        margin-bottom: 3px;
-      }
-      .event-tag.contest {
-        background: #e53935;
-      }
-      .event-tag.workshop {
-        background: #1976d2;
-      }
-      .event-tag.seminar {
-        background: #8e24aa;
-      }
-      .event-tag.social-event {
-        background: #fbc02d;
-        color: #222;
-      }
-      .event-btn {
-        display: inline-block;
-        background: rgb(5, 170, 108);
-        color: #fff;
-        padding: 8px 18px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1em;
-        font-weight: bold;
-        text-decoration: none;
-        margin-top: 8px;
-        transition: background 0.3s;
-      }
-      .event-btn:hover {
-        background: #138d6a;
-      }
-      .no-events {
-        color: #b0eacd;
-        text-align: center;
-        font-size: 1.15em;
-        margin: 40px 0 20px 0;
-      }
-      .back-link {
-        display: block;
-        text-align: center;
-        margin-top: 32px;
-        color: #e0e0e0;
-        text-decoration: underline;
-      }
-      @media (max-width: 600px) {
-        .events-section {
-          padding: 12px 2px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <a class="logo" href="index.html"
-            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
-          >
-        </li>
-        <li class="hideOnMobile"><a href="index.html">Home</a></li>
-        <li class="hideOnMobile">
-          <a href="#">People</a>
-          <ul class="dropdown-contain">
-            <li><a href="current-committee.html">Current Committee</a></li>
-            <li><a href="past-presidents.html">Past Presidents</a></li>
-            <li><a href="general-members.html">General Members</a></li>
-            <li><a href="become-member.html">Become a Member</a></li>
-          </ul>
-        </li>
-        <li class="hideOnMobile">
-          <a href="#">Events</a>
-          <ul class="dropdown-contain">
-            <li><a href="upcoming-events.html">Upcoming Events</a></li>
-            <li><a href="registration-links.html">Registration Links</a></li>
-            <li><a href="event-calendar.html">Event Calendar</a></li>
-            <li><a href="photo-gallery.html">Photo Gallery</a></li>
-          </ul>
-        </li>
-        <li class="hideOnMobile">
-          <a href="notice-board.html">Notice Board</a>
-        </li>
-        <li class="hideOnMobile"><a href="about-us.html">About Us</a></li>
-        <li class="hideOnMobile"><a href="login.html">Login</a></li>
-        <li class="menu-button" onclick="toggleMenu()">
-          <a href="#"><img src="menu.png" alt="menu" /></a>
-        </li>
-      </ul>
-      <!-- Sidebar -->
-      <ul class="sidebar">
-        <li onclick="toggleMenu()">
-          <a class="logo" href="#"
-            ><img src="images/club_logo.jpg" alt="CSE" /> CSE Club Of HSTU</a
-          >
-        </li>
-        <li><a href="index.html">Home</a></li>
-        <li>
-          <a href="#">People</a>
-          <ul class="dropdown-contain">
-            <li><a href="current-committee.html">Current Committee</a></li>
-            <li><a href="past-presidents.html">Past Presidents</a></li>
-            <li><a href="general-members.html">General Members</a></li>
-            <li><a href="become-member.html">Become a Member</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Events</a>
-          <ul class="dropdown-contain">
-            <li><a href="upcoming-events.html">Upcoming Events</a></li>
-            <li><a href="registration-links.html">Registration Links</a></li>
-            <li><a href="event-calendar.html">Event Calendar</a></li>
-            <li><a href="photo-gallery.html">Photo Gallery</a></li>
-          </ul>
-        </li>
-        <li><a href="notice-board.html">Notice Board</a></li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Upcoming Events - CSE Club of HSTU</title>
+		<link rel="stylesheet" href="styles/styles.css" />
+		<!-- CSS Split: Use multiple section-based CSS files for maintainability -->
+		<link rel="stylesheet" href="styles/base.css" />
+		<link rel="stylesheet" href="styles/navbar.css" />
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="stylesheet" href="styles/hero.css" />
+		<link rel="stylesheet" href="styles/about.css" />
+		<link rel="stylesheet" href="styles/activities.css" />
+		<link rel="stylesheet" href="styles/events.css" />
+		<link rel="stylesheet" href="styles/gallery.css" />
+		<link rel="stylesheet" href="styles/team.css" />
+		<link rel="stylesheet" href="styles/projects.css" />
+		<link rel="stylesheet" href="styles/testimonials.css" />
+		<link rel="stylesheet" href="styles/footer.css" />
+		<script src="scripts.js"></script>
+		<script src="login.js"></script>
+		<style>
+			.events-section {
+				max-width: 1100px;
+				margin: 40px auto;
+				background: #1d2a35;
+				padding: 32px 18px;
+				border-radius: 12px;
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+			}
+			.events-section h2 {
+				color: rgb(5, 170, 108);
+				margin-bottom: 10px;
+				text-align: center;
+			}
+			.events-section p {
+				color: #e0e0e0;
+				text-align: center;
+				margin-bottom: 32px;
+			}
+			.events-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 28px;
+			}
+			.event-card {
+				background: #0c1720;
+				border-radius: 10px;
+				box-shadow: 0 2px 8px rgba(5, 170, 108, 0.12);
+				padding: 20px 16px 16px 16px;
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				border-left: 6px solid #138d6a;
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
+			.event-card.featured {
+				border-left: 6px solid #ff9800;
+				box-shadow: 0 8px 32px rgba(255, 152, 0, 0.18);
+			}
+			.featured-label {
+				position: absolute;
+				top: 18px;
+				right: 18px;
+				background: #ff9800;
+				color: #fff;
+				font-size: 0.95em;
+				font-weight: bold;
+				padding: 4px 12px;
+				border-radius: 6px;
+				letter-spacing: 1px;
+			}
+			.event-poster {
+				width: 100%;
+				max-height: 160px;
+				object-fit: cover;
+				border-radius: 8px;
+				margin-bottom: 14px;
+				background: #1d2a35;
+			}
+			.event-title {
+				color: #fff;
+				font-size: 1.25em;
+				font-weight: bold;
+				margin-bottom: 6px;
+			}
+			.event-desc {
+				color: #b0eacd;
+				font-size: 1em;
+				margin-bottom: 10px;
+			}
+			.event-info {
+				color: #e0e0e0;
+				font-size: 0.98em;
+				margin-bottom: 8px;
+			}
+			.event-tags {
+				margin-bottom: 10px;
+			}
+			.event-tag {
+				display: inline-block;
+				background: #138d6a;
+				color: #fff;
+				font-size: 0.85em;
+				padding: 3px 10px;
+				border-radius: 5px;
+				margin-right: 6px;
+				margin-bottom: 3px;
+			}
+			.event-tag.contest {
+				background: #e53935;
+			}
+			.event-tag.workshop {
+				background: #1976d2;
+			}
+			.event-tag.seminar {
+				background: #8e24aa;
+			}
+			.event-tag.social-event {
+				background: #fbc02d;
+				color: #222;
+			}
+			.event-btn {
+				display: inline-block;
+				background: rgb(5, 170, 108);
+				color: #fff;
+				padding: 8px 18px;
+				border: none;
+				border-radius: 5px;
+				font-size: 1em;
+				font-weight: bold;
+				text-decoration: none;
+				margin-top: 8px;
+				transition: background 0.3s;
+			}
+			.event-btn:hover {
+				background: #138d6a;
+			}
+			.no-events {
+				color: #b0eacd;
+				text-align: center;
+				font-size: 1.15em;
+				margin: 40px 0 20px 0;
+			}
+			.back-link {
+				display: block;
+				text-align: center;
+				margin-top: 32px;
+				color: #e0e0e0;
+				text-decoration: underline;
+			}
+			@media (max-width: 600px) {
+				.events-section {
+					padding: 12px 2px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li>
+					<a class="logo" href="index.html"
+						><img src="images/club_logo.jpg" alt="CSE" /> CSE Club
+						Of HSTU</a
+					>
+				</li>
+				<li class="hideOnMobile"><a href="index.html">Home</a></li>
+				<li class="hideOnMobile">
+					<a href="#">People</a>
+					<ul class="dropdown-contain">
+						<li>
+							<a href="current-committee.html"
+								>Current Committee</a
+							>
+						</li>
+						<li>
+							<a href="past-presidents.html">Past Presidents</a>
+						</li>
+						<li>
+							<a href="general-members.html">General Members</a>
+						</li>
+						<li>
+							<a href="become-member.html">Become a Member</a>
+						</li>
+					</ul>
+				</li>
+				<li class="hideOnMobile">
+					<a href="#">Events</a>
+					<ul class="dropdown-contain">
+						<li>
+							<a href="upcoming-events.html">Upcoming Events</a>
+						</li>
+						<li>
+							<a href="registration-links.html"
+								>Registration Links</a
+							>
+						</li>
+						<li>
+							<a href="event-calendar.html">Event Calendar</a>
+						</li>
+						<li><a href="photo-gallery.html">Photo Gallery</a></li>
+					</ul>
+				</li>
+				<li class="hideOnMobile">
+					<a href="notice-board.html">Notice Board</a>
+				</li>
+				<li class="hideOnMobile">
+					<a href="about-us.html">About Us</a>
+				</li>
+				<li class="hideOnMobile"><a href="login.html">Login</a></li>
+				<li class="menu-button" onclick="toggleMenu()">
+					<a href="#"><img src="menu.png" alt="menu" /></a>
+				</li>
+			</ul>
+			<!-- Sidebar -->
+			<ul class="sidebar">
+				<li onclick="toggleMenu()">
+					<a class="logo" href="#"
+						><img src="images/club_logo.jpg" alt="CSE" /> CSE Club
+						Of HSTU</a
+					>
+				</li>
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<a href="#">People</a>
+					<ul class="dropdown-contain">
+						<li>
+							<a href="current-committee.html"
+								>Current Committee</a
+							>
+						</li>
+						<li>
+							<a href="past-presidents.html">Past Presidents</a>
+						</li>
+						<li>
+							<a href="general-members.html">General Members</a>
+						</li>
+						<li>
+							<a href="become-member.html">Become a Member</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Events</a>
+					<ul class="dropdown-contain">
+						<li>
+							<a href="upcoming-events.html">Upcoming Events</a>
+						</li>
+						<li>
+							<a href="registration-links.html"
+								>Registration Links</a
+							>
+						</li>
+						<li>
+							<a href="event-calendar.html">Event Calendar</a>
+						</li>
+						<li><a href="photo-gallery.html">Photo Gallery</a></li>
+					</ul>
+				</li>
+				<li><a href="notice-board.html">Notice Board</a></li>
+				<li><a href="about-us.html">About Us</a></li>
+				<li><a href="login.html">Login</a></li>
+			</ul>
+		</nav>
 
-    <div class="events-section">
-      <h2>Upcoming Events</h2>
-      <p>
-        Catch the latest seminars, contests, and tech workshops organized by the
-        CSE Club of HSTU.
-      </p>
-      <div class="events-grid" id="events-grid">
-        <!-- Events will be loaded here dynamically -->
-      </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          fetch("get_events.php")
-            .then((response) => response.json())
-            .then((data) => {
-              const eventsGrid = document.getElementById("events-grid");
-              if (data.length > 0) {
-                data.forEach((event) => {
-                  const eventCard = document.createElement("div");
-                  eventCard.classList.add("event-card");
+		<div class="events-section">
+			<h2>Upcoming Events</h2>
+			<p>
+				Catch the latest seminars, contests, and tech workshops
+				organized by the CSE Club of HSTU.
+			</p>
+			<div class="events-grid" id="events-grid">
+				<!-- Events will be loaded here dynamically -->
+			</div>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					fetch("get_events.php")
+						.then((response) => {
+							if (!response.ok)
+								throw new Error("Network response was not ok");
+							return response.json();
+						})
+						.then((data) => {
+							const eventsGrid =
+								document.getElementById("events-grid");
+							eventsGrid.innerHTML = ""; // Clear previous content
 
-                  // Add a random poster image for visual variety
-                  const posterImages = [
-                    "images/seminar01.jpg",
-                    "images/seminar02.jpg",
-                    "images/cricket01.jpg",
-                    "images/ful.jpg",
-                  ];
-                  const randomPoster =
-                    posterImages[
-                      Math.floor(Math.random() * posterImages.length)
-                    ];
+							if (Array.isArray(data) && data.length > 0) {
+								data.forEach((event) => {
+									const eventCard =
+										document.createElement("div");
+									eventCard.classList.add("event-card");
 
-                  eventCard.innerHTML = `
+									// Add a random poster image for visual variety
+									const posterImages = [
+										"images/event_workshop.png",
+									];
+									const randomPoster =
+										posterImages[
+											Math.floor(
+												Math.random() *
+													posterImages.length
+											)
+										];
+
+									// Google link button if available and valid
+									let googleBtn = "";
+									if (
+										event.google_link &&
+										typeof event.google_link === "string" &&
+										event.google_link.trim().length > 0
+									) {
+										googleBtn = `<a class="event-btn" href="${event.google_link}" target="_blank" rel="noopener">Register Now</a>`;
+									}
+
+									eventCard.innerHTML = `
                     <img class="event-poster" src="${randomPoster}" alt="Event Poster">
-                    <div class="event-title">${event.title}</div>
-                    <div class="event-desc">${event.description}</div>
-                    <div class="event-info"><strong>Date:</strong> ${event.date}</div>
-                    <div class="event-info"><strong>Time:</strong> ${event.time}</div>
-                    <div class="event-info"><strong>Venue:</strong> ${event.location}</div>
+                    <div class="event-title">${
+						event.title ? event.title : "Untitled Event"
+					}</div>
+                    <div class="event-desc">${
+						event.description ? event.description : ""
+					}</div>
+                    <div class="event-info"><strong>Date:</strong> ${
+						event.date ? event.date : "TBA"
+					}</div>
+                    <div class="event-info"><strong>Time:</strong> ${
+						event.time ? event.time : "TBA"
+					}</div>
+                    <div class="event-info"><strong>Venue:</strong> ${
+						event.location ? event.location : "TBA"
+					}</div>
                     <div class="event-info"><strong>Organizer:</strong> CSE Club of HSTU</div>
                     <div class="event-tags">
                       <span class="event-tag workshop">#workshop</span>
                       <span class="event-tag">#tech</span>
                     </div>
-                    <a class="event-btn" href="registration-links.html">Register Now</a>
+                    
+                    ${googleBtn}
                   `;
-                  eventsGrid.appendChild(eventCard);
-                });
-              } else {
-                eventsGrid.innerHTML =
-                  '<div class="no-events">No upcoming events scheduled. Please check back later!</div>';
-              }
-            })
-            .catch((error) => {
-              console.error("Error fetching events:", error);
-              const eventsGrid = document.getElementById("events-grid");
-              eventsGrid.innerHTML =
-                '<div class="no-events">Could not load events. Please try again later.</div>';
-            });
-        });
-      </script>
-      <!-- No Events Notice Example (uncomment if needed) -->
-      <!-- <div class="no-events">No events scheduled right now. Stay tuned!</div> -->
-      <a class="back-link" href="index.html">&larr; Back to Home</a>
-    </div>
-  </body>
+									eventsGrid.appendChild(eventCard);
+								});
+							} else {
+								eventsGrid.innerHTML =
+									'<div class="no-events">No upcoming events scheduled. Please check back later!</div>';
+							}
+						})
+						.catch((error) => {
+							console.error("Error fetching events:", error);
+							const eventsGrid =
+								document.getElementById("events-grid");
+							eventsGrid.innerHTML =
+								'<div class="no-events">Could not load events. Please try again later.</div>';
+						});
+				});
+			</script>
+			<!-- No Events Notice Example (uncomment if needed) -->
+			<!-- <div class="no-events">No events scheduled right now. Stay tuned!</div> -->
+			<a class="back-link" href="index.html">&larr; Back to Home</a>
+		</div>
+	</body>
 </html>
