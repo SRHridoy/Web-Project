@@ -197,31 +197,62 @@
     <!-- Upcoming Events -->
     <section class="events-section styled-section" id="events">
       <h2> Upcoming Events</h2>
-      <div class="events-grid">
-        <div class="event-card">
-          <div class="event-title">Python Programming Workshop</div>
-          <div class="event-date">May 10, 2025</div>
-          <div class="event-location">CSE Lab 1, HSTU</div>
-          <div class="event-desc">A hands-on workshop for beginners and enthusiasts to learn Python programming from scratch.</div>
-          <a href="#" class="event-btn">Register</a>
-        </div>
-        <div class="event-card">
-          <div class="event-title">Seminar: AI in Everyday Life</div>
-          <div class="event-date">May 20, 2025</div>
-          <div class="event-location">Auditorium, HSTU</div>
-          <div class="event-desc">Explore how Artificial Intelligence is shaping our daily lives and future careers.</div>
-          <a href="#" class="event-btn">Details</a>
-        </div>
-        <div class="event-card">
-          <div class="event-title">Annual Coding Contest</div>
-          <div class="event-date">June 5, 2025</div>
-          <div class="event-location">Online</div>
-          <div class="event-desc">Showcase your coding skills and compete with the best minds in the club!</div>
-          <a href="#" class="event-btn">Participate</a>
-        </div>
+      <div class="events-grid" id="events-grid-index">
+        <!-- Events will be loaded here dynamically -->
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("get_events.php")
+          .then((response) => response.json())
+          .then((data) => {
+            const eventsGrid = document.getElementById("events-grid-index");
+            if (data.length > 0) {
+              data.forEach((event) => {
+                const eventCard = document.createElement("div");
+                eventCard.classList.add("event-card");
 
+                // Add a random poster image for visual variety
+                const posterImages = [
+                  "images/seminar01.jpg",
+                  "images/seminar02.jpg",
+                  "images/cricket01.jpg",
+                  "images/ful.jpg",
+                ];
+                const randomPoster =
+                  posterImages[
+                    Math.floor(Math.random() * posterImages.length)
+                  ];
+
+                eventCard.innerHTML = `
+                  <img class="event-poster" src="${randomPoster}" alt="Event Poster">
+                  <div class="event-title">${event.title}</div>
+                  <div class="event-desc">${event.description}</div>
+                  <div class="event-info"><strong>Date:</strong> ${event.date}</div>
+                  <div class="event-info"><strong>Time:</strong> ${event.time}</div>
+                  <div class="event-info"><strong>Venue:</strong> ${event.location}</div>
+                  <div class="event-info"><strong>Organizer:</strong> CSE Club of HSTU</div>
+                  <div class="event-tags">
+                    <span class="event-tag workshop">#workshop</span>
+                    <span class="event-tag">#tech</span>
+                  </div>
+                  <a class="event-btn" href="registration-links.html">Register Now</a>
+                `;
+                eventsGrid.appendChild(eventCard);
+              });
+            } else {
+              eventsGrid.innerHTML =
+                '<div class="no-events">No upcoming events scheduled. Please check back later!</div>';
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching events:", error);
+            const eventsGrid = document.getElementById("events-grid-index");
+            eventsGrid.innerHTML =
+              '<div class="no-events">Could not load events. Please try again later.</div>';
+          });
+      });
+    </script>
     <section class="projects-section styled-section" id="projects">
       <h2>Recent Projects</h2>
       <div class="projects-grid">
