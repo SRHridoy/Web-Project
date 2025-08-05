@@ -1,75 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notice Management - Admin Panel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/notice-management.css" />
-	<!-- Toast notification handled by JS -->
+    <!-- Toast notification handled by JS -->
     <script src="js/notice-management.js"></script>
-</head>
-<body>
+  </head>
+  <body onload="checkAdminLogin()">
+    <script>
+      function checkAdminLogin() {
+        if (localStorage.getItem("isAdminLoggedIn") !== "true") {
+          window.location.href = "login.html"; // Redirect to admin login page
+        }
+      }
+    </script>
     <div class="container">
-        <div class="header">
-            <h1 class="page-title">Notice Management</h1>
-            <a href="admin-panel.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> Back to Admin Panel
-            </a>
-        </div>
+      <div class="header">
+        <h1 class="page-title">Notice Management</h1>
+        <a href="admin-panel.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Admin Panel
+        </a>
+      </div>
 
-        <!-- Add Notice Form -->
-        <div class="notice-form">
-            <h2 class="form-title">Create New Notice</h2>
-            <form id="addNoticeForm" action="save_notice.php" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="title">Notice Title *</label>
-                        <input type="text" id="title" name="title" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Category *</label>
-                        <select id="category" name="category" required>
-                            <option value="">Select Category</option>
-                            <option value="General">General</option>
-                            <option value="Event">Event</option>
-                            <option value="Workshop">Workshop</option>
-                            <option value="Meeting">Meeting</option>
-                            <option value="Result">Result</option>
-                            <option value="Important">Important</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="priority">Priority *</label>
-                        <select id="priority" name="priority" required>
-                            <option value="">Select Priority</option>
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="expiry_date">Expiry Date</label>
-                        <input type="date" id="expiry_date" name="expiry_date" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="content">Notice Content *</label>
-                    <textarea id="content" name="content" rows="6" required placeholder="Write your notice content here..."></textarea>
-                </div>
+      <!-- Add Notice Form -->
+      <div class="notice-form">
+        <h2 class="form-title">Create New Notice</h2>
+        <form id="addNoticeForm" action="save_notice.php" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="title">Notice Title *</label>
+              <input type="text" id="title" name="title" required />
+            </div>
+            <div class="form-group">
+              <label for="category">Category *</label>
+              <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option value="General">General</option>
+                <option value="Event">Event</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Result">Result</option>
+                <option value="Important">Important</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="priority">Priority *</label>
+              <select id="priority" name="priority" required>
+                <option value="">Select Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="expiry_date">Expiry Date</label>
+              <input type="date" id="expiry_date" name="expiry_date" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="content">Notice Content *</label>
+            <textarea
+              id="content"
+              name="content"
+              rows="6"
+              required
+              placeholder="Write your notice content here..."
+            ></textarea>
+          </div>
 
-                <div style="margin-top: 20px">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> Publish Notice
-                    </button>
-                    <button type="reset" class="btn btn-secondary">
-                        <i class="fas fa-undo"></i> Reset Form
-                    </button>
-                </div>
-            </form>
-        </div>
+          <div style="margin-top: 20px">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Publish Notice
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              <i class="fas fa-undo"></i> Reset Form
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-
-    
-</body>
+  </body>
 </html>
