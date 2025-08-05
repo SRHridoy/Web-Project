@@ -1,17 +1,19 @@
 // Admin Panel JavaScript
-let currentSection = 'dashboard';
+let currentSection = "dashboard";
 let usersData = [];
 let eventsData = [];
 let noticesData = [];
 
 // Check admin access - Login requirement disabled
 function checkAdminAccess() {
-  // Login requirement removed - allow direct access
-  
+  if (localStorage.getItem("isAdminLoggedIn") !== "true") {
+    window.location.href = "login.html"; // Redirect to admin login page
+    return false;
+  }
   // Set default admin info
   document.getElementById("adminName").textContent = "Admin User";
   document.getElementById("adminRole").textContent = "Administrator";
-  
+
   return true;
 }
 
@@ -21,7 +23,7 @@ function showNotification(message, type = "success") {
   notification.textContent = message;
   notification.className = `notification ${type}`;
   notification.classList.add("show");
-  
+
   setTimeout(() => {
     notification.classList.remove("show");
   }, 3000);
@@ -30,49 +32,56 @@ function showNotification(message, type = "success") {
 // Show section
 function showSection(sectionName) {
   // Hide all sections
-  const sections = ['dashboard', 'members', 'events', 'notices', 'reports', 'settings'];
-  sections.forEach(section => {
-    document.getElementById(section).style.display = 'none';
+  const sections = [
+    "dashboard",
+    "members",
+    "events",
+    "notices",
+    "reports",
+    "settings",
+  ];
+  sections.forEach((section) => {
+    document.getElementById(section).style.display = "none";
   });
-  
+
   // Show selected section
-  document.getElementById(sectionName).style.display = 'block';
+  document.getElementById(sectionName).style.display = "block";
   currentSection = sectionName;
-  
+
   // Update page title
   const titles = {
-    'dashboard': 'Dashboard',
-    'members': 'Member Management',
-    'events': 'Event Management',
-    'notices': 'Notice Management',
-    'reports': 'Reports & Analytics',
-    'settings': 'Admin Settings'
+    dashboard: "Dashboard",
+    members: "Member Management",
+    events: "Event Management",
+    notices: "Notice Management",
+    reports: "Reports & Analytics",
+    settings: "Admin Settings",
   };
   document.getElementById("pageTitle").textContent = titles[sectionName];
-  
+
   // Update active menu
-  document.querySelectorAll('.sidebar-menu a').forEach(link => {
-    link.classList.remove('active');
+  document.querySelectorAll(".sidebar-menu a").forEach((link) => {
+    link.classList.remove("active");
   });
-  event.target.classList.add('active');
-  
+  event.target.classList.add("active");
+
   // Load section data
   loadSectionData(sectionName);
 }
 
 // Load section data
 async function loadSectionData(section) {
-  switch(section) {
-    case 'dashboard':
+  switch (section) {
+    case "dashboard":
       loadDashboardData();
       break;
-    case 'members':
+    case "members":
       loadMembersData();
       break;
-    case 'events':
+    case "events":
       loadEventsData();
       break;
-    case 'notices':
+    case "notices":
       loadNoticesData();
       break;
   }
@@ -82,18 +91,20 @@ async function loadSectionData(section) {
 async function loadDashboardData() {
   try {
     // Load users data
-    const response = await fetch('../data/users.json');
+    const response = await fetch("../data/users.json");
     const data = await response.json();
     usersData = data.users;
-    
+
     // Update dashboard numbers
     document.getElementById("totalMembers").textContent = usersData.length;
-    document.getElementById("newRegistrations").textContent = Math.floor(Math.random() * 10) + 1;
-    document.getElementById("upcomingEvents").textContent = Math.floor(Math.random() * 5) + 1;
-    document.getElementById("activeNotices").textContent = Math.floor(Math.random() * 8) + 1;
-    
+    document.getElementById("newRegistrations").textContent =
+      Math.floor(Math.random() * 10) + 1;
+    document.getElementById("upcomingEvents").textContent =
+      Math.floor(Math.random() * 5) + 1;
+    document.getElementById("activeNotices").textContent =
+      Math.floor(Math.random() * 8) + 1;
   } catch (error) {
-    console.error('Error loading dashboard data:', error);
+    console.error("Error loading dashboard data:", error);
     showNotification("Error loading dashboard data", "error");
   }
 }
@@ -101,20 +112,20 @@ async function loadDashboardData() {
 // Load members data
 async function loadMembersData() {
   try {
-    const response = await fetch('../data/users.json');
+    const response = await fetch("../data/users.json");
     const data = await response.json();
     usersData = data.users;
-    
+
     const tbody = document.getElementById("membersTableBody");
-    tbody.innerHTML = '';
-    
-    usersData.forEach(user => {
-      const row = document.createElement('tr');
+    tbody.innerHTML = "";
+
+    usersData.forEach((user) => {
+      const row = document.createElement("tr");
       row.innerHTML = `
         <td>${user.name}</td>
         <td>${user.email}</td>
-        <td>${user.studentId || 'N/A'}</td>
-        <td>${user.department || 'N/A'}</td>
+        <td>${user.studentId || "N/A"}</td>
+        <td>${user.department || "N/A"}</td>
         <td>${user.role}</td>
         <td><span class="status-badge status-active">Active</span></td>
         <td>
@@ -128,9 +139,8 @@ async function loadMembersData() {
       `;
       tbody.appendChild(row);
     });
-    
   } catch (error) {
-    console.error('Error loading members data:', error);
+    console.error("Error loading members data:", error);
     showNotification("Error loading members data", "error");
   }
 }
@@ -145,7 +155,7 @@ function loadEventsData() {
       date: "2025-05-10",
       location: "CSE Lab 1, HSTU",
       type: "Workshop",
-      status: "Upcoming"
+      status: "Upcoming",
     },
     {
       id: 2,
@@ -153,7 +163,7 @@ function loadEventsData() {
       date: "2025-05-20",
       location: "Auditorium, HSTU",
       type: "Seminar",
-      status: "Upcoming"
+      status: "Upcoming",
     },
     {
       id: 3,
@@ -161,15 +171,15 @@ function loadEventsData() {
       date: "2025-06-05",
       location: "Online",
       type: "Contest",
-      status: "Registration Open"
-    }
+      status: "Registration Open",
+    },
   ];
-  
+
   const tbody = document.getElementById("eventsTableBody");
-  tbody.innerHTML = '';
-  
-  eventsData.forEach(event => {
-    const row = document.createElement('tr');
+  tbody.innerHTML = "";
+
+  eventsData.forEach((event) => {
+    const row = document.createElement("tr");
     row.innerHTML = `
       <td>${event.name}</td>
       <td>${event.date}</td>
@@ -198,29 +208,29 @@ function loadNoticesData() {
       title: "Python Workshop Registration Open",
       datePosted: "2025-01-15",
       category: "Workshop",
-      status: "Active"
+      status: "Active",
     },
     {
       id: 2,
       title: "Annual General Meeting Notice",
       datePosted: "2025-01-10",
       category: "Meeting",
-      status: "Active"
+      status: "Active",
     },
     {
       id: 3,
       title: "Coding Contest Results",
       datePosted: "2025-01-05",
       category: "Results",
-      status: "Active"
-    }
+      status: "Active",
+    },
   ];
-  
+
   const tbody = document.getElementById("noticesTableBody");
-  tbody.innerHTML = '';
-  
-  noticesData.forEach(notice => {
-    const row = document.createElement('tr');
+  tbody.innerHTML = "";
+
+  noticesData.forEach((notice) => {
+    const row = document.createElement("tr");
     row.innerHTML = `
       <td>${notice.title}</td>
       <td>${notice.datePosted}</td>
@@ -245,16 +255,19 @@ function addMember() {
 }
 
 function editMember(id) {
-  const user = usersData.find(u => u.id === id);
+  const user = usersData.find((u) => u.id === id);
   if (user) {
-    showNotification(`Edit functionality for ${user.name} will be implemented`, "warning");
+    showNotification(
+      `Edit functionality for ${user.name} will be implemented`,
+      "warning"
+    );
   }
 }
 
 function deleteMember(id) {
-  const user = usersData.find(u => u.id === id);
+  const user = usersData.find((u) => u.id === id);
   if (user && confirm(`Are you sure you want to delete ${user.name}?`)) {
-    usersData = usersData.filter(u => u.id !== id);
+    usersData = usersData.filter((u) => u.id !== id);
     loadMembersData();
     showNotification(`${user.name} deleted successfully`, "success");
   }
@@ -265,16 +278,19 @@ function addEvent() {
 }
 
 function editEvent(id) {
-  const event = eventsData.find(e => e.id === id);
+  const event = eventsData.find((e) => e.id === id);
   if (event) {
-    showNotification(`Edit functionality for "${event.name}" will be implemented`, "warning");
+    showNotification(
+      `Edit functionality for "${event.name}" will be implemented`,
+      "warning"
+    );
   }
 }
 
 function deleteEvent(id) {
-  const event = eventsData.find(e => e.id === id);
+  const event = eventsData.find((e) => e.id === id);
   if (event && confirm(`Are you sure you want to delete "${event.name}"?`)) {
-    eventsData = eventsData.filter(e => e.id !== id);
+    eventsData = eventsData.filter((e) => e.id !== id);
     loadEventsData();
     showNotification(`Event "${event.name}" deleted successfully`, "success");
   }
@@ -285,18 +301,24 @@ function addNotice() {
 }
 
 function editNotice(id) {
-  const notice = noticesData.find(n => n.id === id);
+  const notice = noticesData.find((n) => n.id === id);
   if (notice) {
-    showNotification(`Edit functionality for "${notice.title}" will be implemented`, "warning");
+    showNotification(
+      `Edit functionality for "${notice.title}" will be implemented`,
+      "warning"
+    );
   }
 }
 
 function deleteNotice(id) {
-  const notice = noticesData.find(n => n.id === id);
+  const notice = noticesData.find((n) => n.id === id);
   if (notice && confirm(`Are you sure you want to delete "${notice.title}"?`)) {
-    noticesData = noticesData.filter(n => n.id !== id);
+    noticesData = noticesData.filter((n) => n.id !== id);
     loadNoticesData();
-    showNotification(`Notice "${notice.title}" deleted successfully`, "success");
+    showNotification(
+      `Notice "${notice.title}" deleted successfully`,
+      "success"
+    );
   }
 }
 
@@ -315,20 +337,22 @@ function editProfile() {
 }
 
 function changePassword() {
-  showNotification("Change password functionality will be implemented", "warning");
+  showNotification(
+    "Change password functionality will be implemented",
+    "warning"
+  );
 }
 
 function logout() {
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("userInfo");
+  localStorage.removeItem("isAdminLoggedIn"); // Clear login flag
   showNotification("Logged out successfully", "success");
   setTimeout(() => {
-    window.location.href = "../login.html";
+    window.location.href = "login.html"; // Redirect to admin login page
   }, 1500);
 }
 
 // Initialize admin panel
-document.addEventListener("DOMContentLoaded", function() {
-  // Login requirement removed - always load dashboard
+document.addEventListener("DOMContentLoaded", function () {
+  checkAdminAccess(); // Ensure admin is logged in
   loadDashboardData();
-}); 
+});
