@@ -1,244 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Member Management - Admin Panel</title>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-		/>
-		<link rel="stylesheet" href="css/member-management.css" />
-		* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family:
-		"Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background:
-		linear-gradient(135deg, #0a192f 0%, #112240 100%); color: #e0e0e0;
-		min-height: 100vh; } .container { max-width: 1200px; margin: 0 auto;
-		padding: 20px; } .header { display: flex; justify-content:
-		space-between; align-items: center; margin-bottom: 30px; padding: 20px;
-		background: rgba(16, 32, 61, 0.8); border-radius: 12px; backdrop-filter:
-		blur(10px); } .page-title { color: #64ffda; font-size: 1.8em;
-		font-weight: 600; } .back-btn { background: #64ffda; color: #0a192f;
-		padding: 10px 20px; border: none; border-radius: 6px; text-decoration:
-		none; font-weight: 500; transition: all 0.3s ease; } .back-btn:hover {
-		background: #4db3a3; transform: translateY(-2px); } .member-form {
-		background: rgba(16, 32, 61, 0.8); border-radius: 12px; padding: 30px;
-		margin-bottom: 30px; border: 1px solid rgba(100, 255, 218, 0.2); }
-		.form-title { color: #64ffda; font-size: 1.3em; margin-bottom: 20px; }
-		.form-grid { display: grid; grid-template-columns: repeat(auto-fit,
-		minmax(250px, 1fr)); gap: 20px; } .form-group { margin-bottom: 15px; }
-		.form-group label { display: block; margin-bottom: 5px; color: #64ffda;
-		font-weight: 500; } .form-group input, .form-group select, .form-group
-		textarea { width: 100%; padding: 10px; border: 1px solid rgba(100, 255,
-		218, 0.3); border-radius: 6px; background: rgba(10, 25, 47, 0.8); color:
-		#e0e0e0; font-size: 14px; } .form-group input:focus, .form-group
-		select:focus, .form-group textarea:focus { outline: none; border-color:
-		#64ffda; box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2); } .btn {
-		padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;
-		font-size: 14px; font-weight: 500; transition: all 0.3s ease; }
-		.btn-primary { background: #64ffda; color: #0a192f; } .btn-primary:hover
-		{ background: #4db3a3; transform: translateY(-2px); } .btn-secondary {
-		background: #8892b0; color: #e0e0e0; } .btn-secondary:hover {
-		background: #6b7280; } .members-table { background: rgba(16, 32, 61,
-		0.8); border-radius: 12px; padding: 20px; border: 1px solid rgba(100,
-		255, 218, 0.2); } .table-header { display: flex; justify-content:
-		space-between; align-items: center; margin-bottom: 20px; } .table-title
-		{ color: #64ffda; font-size: 1.3em; } .search-box { display: flex; gap:
-		10px; } .search-box input { padding: 8px 12px; border: 1px solid
-		rgba(100, 255, 218, 0.3); border-radius: 6px; background: rgba(10, 25,
-		47, 0.8); color: #e0e0e0; } table { width: 100%; border-collapse:
-		collapse; } th, td { padding: 12px; text-align: left; border-bottom: 1px
-		solid rgba(100, 255, 218, 0.2); } th { background: rgba(100, 255, 218,
-		0.1); color: #64ffda; font-weight: 600; } tr:hover { background:
-		rgba(100, 255, 218, 0.05); } .status-badge { padding: 4px 8px;
-		border-radius: 4px; font-size: 12px; font-weight: 500; } .status-active
-		{ background: rgba(100, 255, 218, 0.2); color: #64ffda; }
-		.status-inactive { background: rgba(255, 107, 107, 0.2); color: #ff6b6b;
-		} .action-buttons { display: flex; gap: 5px; } .btn-small { padding: 5px
-		10px; font-size: 12px; } .btn-danger { background: #ff6b6b; color:
-		white; } .btn-danger:hover { background: #ee5a52; } .btn-warning {
-		background: #ffa726; color: #0a192f; } .btn-warning:hover { background:
-		#ff9800; } .notification { position: fixed; top: 20px; right: 20px;
-		padding: 15px 20px; border-radius: 8px; color: white; font-weight: 500;
-		z-index: 1000; transform: translateX(100%); transition: transform 0.3s
-		ease; } .notification.show { transform: translateX(0); }
-		.notification.success { background: #4caf50; } .notification.error {
-		background: #f44336; } .notification.warning { background: #ff9800; }
-		@media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; }
-		.table-header { flex-direction: column; gap: 15px; } .search-box {
-		width: 100%; } }
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-				<h1 class="page-title">Member Management</h1>
-				<a href="admin-panel.html" class="back-btn">
-					<i class="fas fa-arrow-left"></i> Back to Admin Panel
-				</a>
-			</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Management - Admin Panel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/member-management.css" />
+    * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family:
+    "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background:
+    linear-gradient(135deg, #0a192f 0%, #112240 100%); color: #e0e0e0;
+    min-height: 100vh; } .container { max-width: 1200px; margin: 0 auto;
+    padding: 20px; } .header { display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 30px; padding: 20px; background:
+    rgba(16, 32, 61, 0.8); border-radius: 12px; backdrop-filter: blur(10px); }
+    .page-title { color: #64ffda; font-size: 1.8em; font-weight: 600; }
+    .back-btn { background: #64ffda; color: #0a192f; padding: 10px 20px; border:
+    none; border-radius: 6px; text-decoration: none; font-weight: 500;
+    transition: all 0.3s ease; } .back-btn:hover { background: #4db3a3;
+    transform: translateY(-2px); } .member-form { background: rgba(16, 32, 61,
+    0.8); border-radius: 12px; padding: 30px; margin-bottom: 30px; border: 1px
+    solid rgba(100, 255, 218, 0.2); } .form-title { color: #64ffda; font-size:
+    1.3em; margin-bottom: 20px; } .form-grid { display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .form-group { margin-bottom: 15px; } .form-group label { display: block;
+    margin-bottom: 5px; color: #64ffda; font-weight: 500; } .form-group input,
+    .form-group select, .form-group textarea { width: 100%; padding: 10px;
+    border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 6px; background:
+    rgba(10, 25, 47, 0.8); color: #e0e0e0; font-size: 14px; } .form-group
+    input:focus, .form-group select:focus, .form-group textarea:focus { outline:
+    none; border-color: #64ffda; box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+    } .btn { padding: 10px 20px; border: none; border-radius: 6px; cursor:
+    pointer; font-size: 14px; font-weight: 500; transition: all 0.3s ease; }
+    .btn-primary { background: #64ffda; color: #0a192f; } .btn-primary:hover {
+    background: #4db3a3; transform: translateY(-2px); } .btn-secondary {
+    background: #8892b0; color: #e0e0e0; } .btn-secondary:hover { background:
+    #6b7280; } .members-table { background: rgba(16, 32, 61, 0.8);
+    border-radius: 12px; padding: 20px; border: 1px solid rgba(100, 255, 218,
+    0.2); } .table-header { display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 20px; } .table-title { color: #64ffda;
+    font-size: 1.3em; } .search-box { display: flex; gap: 10px; } .search-box
+    input { padding: 8px 12px; border: 1px solid rgba(100, 255, 218, 0.3);
+    border-radius: 6px; background: rgba(10, 25, 47, 0.8); color: #e0e0e0; }
+    table { width: 100%; border-collapse: collapse; } th, td { padding: 12px;
+    text-align: left; border-bottom: 1px solid rgba(100, 255, 218, 0.2); } th {
+    background: rgba(100, 255, 218, 0.1); color: #64ffda; font-weight: 600; }
+    tr:hover { background: rgba(100, 255, 218, 0.05); } .status-badge { padding:
+    4px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+    .status-active { background: rgba(100, 255, 218, 0.2); color: #64ffda; }
+    .status-inactive { background: rgba(255, 107, 107, 0.2); color: #ff6b6b; }
+    .action-buttons { display: flex; gap: 5px; } .btn-small { padding: 5px 10px;
+    font-size: 12px; } .btn-danger { background: #ff6b6b; color: white; }
+    .btn-danger:hover { background: #ee5a52; } .btn-warning { background:
+    #ffa726; color: #0a192f; } .btn-warning:hover { background: #ff9800; }
+    .notification { position: fixed; top: 20px; right: 20px; padding: 15px 20px;
+    border-radius: 8px; color: white; font-weight: 500; z-index: 1000;
+    transform: translateX(100%); transition: transform 0.3s ease; }
+    .notification.show { transform: translateX(0); } .notification.success {
+    background: #4caf50; } .notification.error { background: #f44336; }
+    .notification.warning { background: #ff9800; } @media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; } .table-header { flex-direction:
+    column; gap: 15px; } .search-box { width: 100%; } }
+  </head>
+  <body onload="checkAdminLogin()">
+    <script>
+      function checkAdminLogin() {
+        if (localStorage.getItem("isAdminLoggedIn") !== "true") {
+          window.location.href = "login.html"; // Redirect to admin login page
+        }
+      }
+    </script>
+    <div class="container">
+      <div class="header">
+        <h1 class="page-title">Member Management</h1>
+        <a href="admin-panel.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Admin Panel
+        </a>
+      </div>
 
-			<!-- Add Member Form -->
-			<div class="member-form">
-				<h2 class="form-title">Add New Member</h2>
-				<form id="addMemberForm">
-					<div class="form-grid">
-						<div class="form-group">
-							<label for="name">Full Name *</label>
-							<input type="text" id="name" name="name" required />
-						</div>
-						<div class="form-group">
-							<label for="email">Email *</label>
-							<input
-								type="email"
-								id="email"
-								name="email"
-								required
-							/>
-						</div>
-						<div class="form-group">
-							<label for="studentId">Student ID *</label>
-							<input
-								type="text"
-								id="studentId"
-								name="studentId"
-								required
-							/>
-						</div>
-						<div class="form-group">
-							<label for="phone">Phone Number</label>
-							<input type="tel" id="phone" name="phone" />
-						</div>
-						<div class="form-group">
-							<label for="department">Department *</label>
-							<select id="department" name="department" required>
-								<option value="">Select Department</option>
-								<option value="CSE">
-									Computer Science & Engineering
-								</option>
-								<option value="EEE">
-									Electrical & Electronic Engineering
-								</option>
-								<option value="ME">
-									Mechanical Engineering
-								</option>
-								<option value="CE">Civil Engineering</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="year">Year *</label>
-							<select id="year" name="year" required>
-								<option value="">Select Year</option>
-								<option value="1st Year">1st Year</option>
-								<option value="2nd Year">2nd Year</option>
-								<option value="3rd Year">3rd Year</option>
-								<option value="4th Year">4th Year</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="role">Role *</label>
-							<select id="role" name="role" required>
-								<option value="">Select Role</option>
-								<option value="General Member">
-									General Member
-								</option>
-								<option value="Executive Member">
-									Executive Member
-								</option>
-								<option value="Admin">Admin</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="password">Password *</label>
-							<input
-								type="password"
-								id="password"
-								name="password"
-								required
-							/>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="bio">Bio</label>
-						<textarea
-							id="bio"
-							name="bio"
-							rows="3"
-							placeholder="Tell us about yourself..."
-						></textarea>
-					</div>
-					<div class="form-group">
-						<label for="interests"
-							>Interests (comma separated)</label
-						>
-						<input
-							type="text"
-							id="interests"
-							name="interests"
-							placeholder="Web Development, AI, Programming..."
-						/>
-					</div>
-					<div class="form-group">
-						<label for="skills">Skills (comma separated)</label>
-						<input
-							type="text"
-							id="skills"
-							name="skills"
-							placeholder="JavaScript, Python, React..."
-						/>
-					</div>
-					<div style="margin-top: 20px">
-						<button type="submit" class="btn btn-primary">
-							<i class="fas fa-plus"></i> Add Member
-						</button>
-						<button type="reset" class="btn btn-secondary">
-							<i class="fas fa-undo"></i> Reset Form
-						</button>
-					</div>
-				</form>
-			</div>
+      <!-- Add Member Form -->
+      <div class="member-form">
+        <h2 class="form-title">Add New Member</h2>
+        <form id="addMemberForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="studentId">Student ID *</label>
+              <input type="text" id="studentId" name="studentId" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            <div class="form-group">
+              <label for="department">Department *</label>
+              <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science & Engineering</option>
+                <option value="EEE">Electrical & Electronic Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CE">Civil Engineering</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="year">Year *</label>
+              <select id="year" name="year" required>
+                <option value="">Select Year</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="role">Role *</label>
+              <select id="role" name="role" required>
+                <option value="">Select Role</option>
+                <option value="General Member">General Member</option>
+                <option value="Executive Member">Executive Member</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="password">Password *</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea
+              id="bio"
+              name="bio"
+              rows="3"
+              placeholder="Tell us about yourself..."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="interests">Interests (comma separated)</label>
+            <input
+              type="text"
+              id="interests"
+              name="interests"
+              placeholder="Web Development, AI, Programming..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="skills">Skills (comma separated)</label>
+            <input
+              type="text"
+              id="skills"
+              name="skills"
+              placeholder="JavaScript, Python, React..."
+            />
+          </div>
+          <div style="margin-top: 20px">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Add Member
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              <i class="fas fa-undo"></i> Reset Form
+            </button>
+          </div>
+        </form>
+      </div>
 
-			<!-- Members Table -->
-			<div class="members-table">
-				<div class="table-header">
-					<h2 class="table-title">All Members</h2>
-					<div class="search-box">
-						<input
-							type="text"
-							id="searchInput"
-							placeholder="Search members..."
-						/>
-						<button
-							class="btn btn-primary"
-							onclick="exportMembers()"
-						>
-							<i class="fas fa-download"></i> Export
-						</button>
-					</div>
-				</div>
+      <!-- Members Table -->
+      <div class="members-table">
+        <div class="table-header">
+          <h2 class="table-title">All Members</h2>
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search members..."
+            />
+            <button class="btn btn-primary" onclick="exportMembers()">
+              <i class="fas fa-download"></i> Export
+            </button>
+          </div>
+        </div>
 
-				<table>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Student ID</th>
-							<th>Department</th>
-							<th>Year</th>
-							<th>Role</th>
-							<th>Status</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody id="membersTableBody">
-						<!-- Members will be loaded here -->
-					</tbody>
-				</table>
-			</div>
-		</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Student ID</th>
+              <th>Department</th>
+              <th>Year</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="membersTableBody">
+            <!-- Members will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-		<!-- Notification -->
-		<div id="notification" class="notification"></div>
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
 
-		<script src="js/member-management.js"></script>
-		<script src="js/admin-panel.js"></script>
-	</body>
+    <script src="js/member-management.js"></script>
+    <script src="js/admin-panel.js"></script>
+  </body>
 </html>
